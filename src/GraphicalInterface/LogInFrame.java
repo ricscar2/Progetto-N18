@@ -1,7 +1,12 @@
 package GraphicalInterface;
 
+import GraphicInterface.SignInFrame;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class LogInFrame extends JFrame {
 
@@ -23,6 +28,12 @@ public class LogInFrame extends JFrame {
 
 
         setLayout(new BorderLayout());
+
+        setVisible(true);
+
+    }
+
+    public void InitComponents(){
         pData.setLayout(new GridLayout(2,2));
         pData.add(lblUsername);
         pData.add(txtUsername);
@@ -33,14 +44,24 @@ public class LogInFrame extends JFrame {
         pButton.add(btnSignin);
         pButton.add(btnLogin);
         add(pButton,BorderLayout.SOUTH);
+        btnSignin.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                SignInFrame signInFrame = new SignInFrame();
+                signInFrame.initComponents();
+                signInFrame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+                setVisible(false);
 
-        setVisible(true);
+            }
+        });
+
 
     }
 
     public static void main(String[] args) {
 
         LogInFrame logInFrame = new LogInFrame();
+        logInFrame.InitComponents();
         logInFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     }

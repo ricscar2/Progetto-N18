@@ -1,7 +1,11 @@
 package GraphicInterface;
 
+import GraphicalInterface.LogInFrame;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class SignInFrame extends JFrame {
 
@@ -36,7 +40,6 @@ public class SignInFrame extends JFrame {
         setSize(400,300);
         setResizable(true);
         setLocationRelativeTo(null);
-        initComponents();
         setLayout(new BorderLayout());
         setVisible(true);
 
@@ -69,6 +72,15 @@ public class SignInFrame extends JFrame {
         pSotto.add(pButtons);
         add(pSopra, BorderLayout.NORTH);
         add(pSotto,BorderLayout.CENTER);
+        btnBack.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                LogInFrame logInFrame = new LogInFrame();
+                logInFrame.InitComponents();
+                logInFrame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+                setVisible(false);
+            }
+        });
 
 
     }
