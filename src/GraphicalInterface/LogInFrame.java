@@ -1,6 +1,6 @@
 package GraphicalInterface;
 
-import GraphicInterface.SignInFrame;
+import GraphicalInterface.SignInFrame;
 
 import javax.swing.*;
 import java.awt.*;

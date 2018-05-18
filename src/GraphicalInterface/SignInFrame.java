@@ -1,4 +1,4 @@
-package GraphicInterface;
+package GraphicalInterface;
 
 import GraphicalInterface.LogInFrame;
 
