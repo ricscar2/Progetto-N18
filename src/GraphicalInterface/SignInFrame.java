@@ -76,7 +76,7 @@ public class SignInFrame extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 LogInFrame logInFrame = new LogInFrame();
-                logInFrame.InitComponents();
+                logInFrame.initComponents();
                 logInFrame.setDefaultCloseOperation(EXIT_ON_CLOSE);
                 setVisible(false);
             }
