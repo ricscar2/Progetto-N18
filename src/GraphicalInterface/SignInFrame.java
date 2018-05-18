@@ -40,7 +40,8 @@ public class SignInFrame extends JFrame {
         setSize(400,300);
         setResizable(true);
         setLocationRelativeTo(null);
-        setLayout(new BorderLayout());
+        initComponents();
+        addListeners();
         setVisible(true);
 
     }
@@ -48,7 +49,6 @@ public class SignInFrame extends JFrame {
     public void initComponents(){
         setLayout(new BorderLayout());
         pData.setLayout(new GridLayout(8,2));
-
         pData.add(lblName);
         pData.add(txtName);
         pData.add(lblSurname);
@@ -72,6 +72,11 @@ public class SignInFrame extends JFrame {
         pSotto.add(pButtons);
         add(pSopra, BorderLayout.NORTH);
         add(pSotto,BorderLayout.CENTER);
+
+    }
+
+    public void addListeners(){
+
         btnBack.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -82,10 +87,7 @@ public class SignInFrame extends JFrame {
             }
         });
 
-
     }
-
-
 
     public static void main(String[] args) {
 

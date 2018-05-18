@@ -27,11 +27,11 @@ public class SelectFlight extends JFrame {
     public SelectFlight(){
         super("Airline Company - Select Flight");
         setSize(300,300);
-        setLocation(600,200);
-        setResizable(true);
+        setLocationRelativeTo(null);
+        setResizable(false);
         setVisible(true);
-        lblColor.setBackground(Color.GREEN);
         initComponents();
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
     public void initComponents(){
@@ -56,7 +56,5 @@ public class SelectFlight extends JFrame {
 
     public static void main(String[] args) {
         SelectFlight selectFlight = new SelectFlight();
-        selectFlight.initComponents();
-        selectFlight.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 }
