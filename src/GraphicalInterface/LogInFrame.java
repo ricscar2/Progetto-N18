@@ -22,18 +22,23 @@ public class LogInFrame extends JFrame {
     public LogInFrame(){
 
         super("Airline Company - LogIn");
-        setSize(500,100);
+        setSize(500,110);
         setResizable(false);
         setLocationRelativeTo(null);
-
-
-        setLayout(new BorderLayout());
-
+		initComponents();
+		addListeners();
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
 
     }
 
     public void InitComponents(){
+		
+		txtUsername.setFont(new Font("SansSerif", Font.PLAIN, 15));
+        txtPassword.setFont(new Font("SansSerif", Font.PLAIN, 15));
+
+		
+		setLayout(new BorderLayout());
         pData.setLayout(new GridLayout(2,2));
         pData.add(lblUsername);
         pData.add(txtUsername);
@@ -44,6 +49,11 @@ public class LogInFrame extends JFrame {
         pButton.add(btnSignin);
         pButton.add(btnLogin);
         add(pButton,BorderLayout.SOUTH);
+
+    }
+
+    public void addListeners(){
+
         btnSignin.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -55,14 +65,11 @@ public class LogInFrame extends JFrame {
             }
         });
 
-
     }
 
     public static void main(String[] args) {
 
         LogInFrame logInFrame = new LogInFrame();
-        logInFrame.InitComponents();
-        logInFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     }
 
