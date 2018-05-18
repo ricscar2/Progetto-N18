@@ -1,12 +1,9 @@
 package GraphicalInterface;
 
-import GraphicalInterface.SignInFrame;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.concurrent.ConcurrentHashMap;
 
 public class LogInFrame extends JFrame {
 
@@ -32,7 +29,7 @@ public class LogInFrame extends JFrame {
 
     }
 
-    public void InitComponents(){
+    public void initComponents(){
 		
 		txtUsername.setFont(new Font("SansSerif", Font.PLAIN, 15));
         txtPassword.setFont(new Font("SansSerif", Font.PLAIN, 15));
