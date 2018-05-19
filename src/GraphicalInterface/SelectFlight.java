@@ -16,8 +16,7 @@ public class SelectFlight extends JFrame {
     private JLabel lblDateofDeparture = new JLabel("Date of Departure");
     private JTextField txtDateofDeparture = new JTextField();
     private JLabel lblColor = new JLabel();
-    private JCheckBox chkDepArr = new JCheckBox();
-    private JLabel lblRoundtrip = new JLabel("Roundtrip");
+    private JCheckBox chkDepArr = new JCheckBox("Roundtrip");
     private JLabel lblDateofArrive = new JLabel("Date of Arrive:");
     private JTextField txtDateofArrive = new JTextField();
     private JButton btnNext = new JButton("Next");
@@ -28,7 +27,7 @@ public class SelectFlight extends JFrame {
         super("Airline Company - Select Flight");
         setSize(300,300);
         setLocationRelativeTo(null);
-        setResizable(false);
+        setResizable(true);
         setVisible(true);
         initComponents();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -45,7 +44,6 @@ public class SelectFlight extends JFrame {
         pDepArr.add(lblDateofDeparture);
         pDepArr.add(txtDateofDeparture);
         pDepArr.add(chkDepArr);
-        pDepArr.add(lblRoundtrip);
         pDepArr.add(lblDateofArrive);
         pDepArr.add(txtDateofArrive);
         pDepArr.add(lblColor);
