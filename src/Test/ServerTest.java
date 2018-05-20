@@ -1,7 +1,5 @@
 package Test;
 
-import Service.Client;
-import Service.ConnectedClient;
 import Service.Server;
 
 import java.io.IOException;

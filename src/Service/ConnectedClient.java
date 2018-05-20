@@ -28,6 +28,7 @@ public class ConnectedClient extends Thread {
                     inputStream.close();
                     outputStream.close();
                     clientSocket.close();
+
                     System.out.println("Client " + clientID + " has stopped thread");
                 } else {
                     outputStream.println(clientCommand);

@@ -34,8 +34,8 @@ public class Client {
                 System.out.println("Message sent: " + inputLine);
                 if(inputLine.equalsIgnoreCase("quit"))
                     break;
-                // String socketLine = socketIn.readLine();
-                // System.out.println(socketLine);
+                String socketLine = socketIn.readLine();
+                System.out.println(socketLine);
             }
         } catch (NoSuchElementException e){
             System.out.println("Connection closed");
