@@ -1,12 +1,12 @@
 package Core;
 
-import User.Owner;
+import User.User;
 
 import java.util.List;
 
 public class Company {
 
-    private List <Owner> accounts;
+    private List <User> accounts;
     private List <Flight> flights;
 
 }

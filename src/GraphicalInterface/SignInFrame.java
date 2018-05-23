@@ -6,6 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 public class SignInFrame extends JFrame {
 
@@ -42,6 +43,7 @@ public class SignInFrame extends JFrame {
         setLocationRelativeTo(null);
         initComponents();
         addListeners();
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
 
     }
@@ -80,7 +82,12 @@ public class SignInFrame extends JFrame {
         btnBack.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                LogInFrame logInFrame = new LogInFrame();
+                LogInFrame logInFrame = null;
+                try {
+                    logInFrame = new LogInFrame();
+                } catch (SQLException e1) {
+                    e1.printStackTrace();
+                }
                 logInFrame.initComponents();
                 logInFrame.setDefaultCloseOperation(EXIT_ON_CLOSE);
                 setVisible(false);
@@ -92,8 +99,6 @@ public class SignInFrame extends JFrame {
     public static void main(String[] args) {
 
         SignInFrame signInFrame = new SignInFrame();
-        signInFrame.initComponents();
-        signInFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     }
 

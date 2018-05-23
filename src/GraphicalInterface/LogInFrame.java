@@ -1,12 +1,17 @@
 package GraphicalInterface;
 
+import Service.Database;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 public class LogInFrame extends JFrame {
 
+    private Database db = new Database("root", "toor");
+    private MainPageFrame mainPageFrame;
     private JPanel pData = new JPanel();
     private JPanel pButton = new JPanel();
     private JLabel lblUsername = new JLabel("Username:");
@@ -16,7 +21,7 @@ public class LogInFrame extends JFrame {
     private JButton btnLogin = new JButton("LogIn");
     private JButton btnSignin = new JButton("SignIn");
 
-    public LogInFrame(){
+    public LogInFrame() throws SQLException {
 
         super("Airline Company - LogIn");
         setSize(500,110);
@@ -34,7 +39,6 @@ public class LogInFrame extends JFrame {
 		txtUsername.setFont(new Font("SansSerif", Font.PLAIN, 15));
         txtPassword.setFont(new Font("SansSerif", Font.PLAIN, 15));
 
-		
 		setLayout(new BorderLayout());
         pData.setLayout(new GridLayout(2,2));
         pData.add(lblUsername);
@@ -51,12 +55,27 @@ public class LogInFrame extends JFrame {
 
     public void addListeners(){
 
+        btnLogin.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e){
+                boolean res = false;
+                try {
+                    res = db.logIn(txtUsername.getText(), txtPassword.getText());
+                    if(res == true){
+                        mainPageFrame = new MainPageFrame();
+                        setVisible(false);
+                    }
+                } catch (SQLException e1) {
+                    e1.printStackTrace();
+                }
+                System.out.println("Login: " + res);
+            }
+        });
+
         btnSignin.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 SignInFrame signInFrame = new SignInFrame();
-                signInFrame.initComponents();
-                signInFrame.setDefaultCloseOperation(EXIT_ON_CLOSE);
                 setVisible(false);
 
             }
@@ -64,7 +83,7 @@ public class LogInFrame extends JFrame {
 
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
 
         LogInFrame logInFrame = new LogInFrame();
 

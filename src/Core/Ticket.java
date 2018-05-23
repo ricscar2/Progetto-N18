@@ -1,11 +1,11 @@
 package Core;
 
-import User.Owner;
+import User.User;
 
 public class Ticket {
 
     private String id;
-    private Owner owner;
+    private User owner;
     private Flight flight;
     private Baggage baggage;
     private int seat;
