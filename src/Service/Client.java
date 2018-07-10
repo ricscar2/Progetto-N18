@@ -12,26 +12,27 @@ public class Client {
 
     private String ip;
     private int port;
+    private Socket clientSocket;
+    private PrintWriter socketOut;
+    private BufferedReader socketIn;
 
-    public Client(String ip, int port) {
+    public Client(String ip, int port) throws IOException {
         this.ip = ip;
         this.port = port;
+        clientSocket = new Socket(ip, port);
+        socketOut = new PrintWriter(clientSocket.getOutputStream(), true);
+        socketIn = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
     }
 
     public void startClient() throws IOException {
 
-        Socket clientSocket = new Socket(ip, port);
         System.out.println("Connection estabilished");
-
-        PrintWriter socketOut = new PrintWriter(clientSocket.getOutputStream(), true);
-        BufferedReader socketIn = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
         Scanner stdin = new Scanner(System.in);
 
         try {
             while (true){
                 String inputLine = stdin.nextLine();
-                socketOut.println(inputLine);
-                System.out.println("Message sent: " + inputLine);
+                sendMessage(inputLine);
                 if(inputLine.equalsIgnoreCase("quit"))
                     break;
                 String socketLine = socketIn.readLine();
@@ -47,5 +48,13 @@ public class Client {
         }
 
     }
+
+    public void sendMessage(String message) {
+
+        socketOut.println(message);
+        System.out.println("Message sent: " + message);
+
+    }
+
 
 }

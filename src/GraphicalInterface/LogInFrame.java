@@ -1,5 +1,6 @@
 package GraphicalInterface;
 
+import Service.Client;
 import Service.Database;
 
 import javax.swing.*;
@@ -10,7 +11,7 @@ import java.sql.SQLException;
 
 public class LogInFrame extends JFrame {
 
-    private Database db = new Database("root", "toor");
+    private Client client;
     private MainPageFrame mainPageFrame;
     private JPanel pData = new JPanel();
     private JPanel pButton = new JPanel();
@@ -21,16 +22,18 @@ public class LogInFrame extends JFrame {
     private JButton btnLogin = new JButton("LogIn");
     private JButton btnSignin = new JButton("SignIn");
 
-    public LogInFrame() throws SQLException {
+
+    public LogInFrame(Client client) {
 
         super("Airline Company - LogIn");
+        this.client = client;
         setSize(500,110);
         setResizable(false);
         setLocationRelativeTo(null);
 		initComponents();
 		addListeners();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setVisible(true);
+        this.setVisible(true);
 
     }
 
@@ -58,34 +61,19 @@ public class LogInFrame extends JFrame {
         btnLogin.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e){
-                boolean res = false;
-                try {
-                    res = db.logIn(txtUsername.getText(), txtPassword.getText());
-                    if(res == true){
-                        mainPageFrame = new MainPageFrame();
+                        mainPageFrame = new MainPageFrame(client);
+                        client.sendMessage("Ciao");
                         setVisible(false);
-                    }
-                } catch (SQLException e1) {
-                    e1.printStackTrace();
-                }
-                System.out.println("Login: " + res);
             }
         });
 
         btnSignin.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SignInFrame signInFrame = new SignInFrame();
+                SignInFrame signInFrame = new SignInFrame(client);
                 setVisible(false);
-
             }
         });
-
-    }
-
-    public static void main(String[] args) throws SQLException {
-
-        LogInFrame logInFrame = new LogInFrame();
 
     }
 

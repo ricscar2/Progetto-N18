@@ -1,10 +1,13 @@
 package GraphicalInterface;
 
+import Service.Client;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class SelectFlight extends JFrame {
 
+    Client client;
     private JPanel pTitle = new JPanel();
     private JPanel pDepArr = new JPanel();
     private JPanel pButton = new JPanel();
@@ -23,8 +26,9 @@ public class SelectFlight extends JFrame {
 
 
 
-    public SelectFlight(){
+    public SelectFlight(Client client){
         super("Airline Company - Select Flight");
+        this.client = client;
         setSize(300,300);
         setLocationRelativeTo(null);
         setResizable(true);
@@ -52,7 +56,4 @@ public class SelectFlight extends JFrame {
         add(pButton,BorderLayout.SOUTH);
     }
 
-    public static void main(String[] args) {
-        SelectFlight selectFlight = new SelectFlight();
-    }
 }

@@ -1,6 +1,7 @@
 package GraphicalInterface;
 
 import GraphicalInterface.LogInFrame;
+import Service.Client;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,7 +11,8 @@ import java.sql.SQLException;
 
 public class SignInFrame extends JFrame {
 
-    //private JPanel pSignIn = new JPanel();
+    private Client client;
+    private LogInFrame logInFrame;
     private JPanel pSopra = new JPanel();
     private JPanel pSotto = new JPanel();
     private JPanel pData = new JPanel();
@@ -35,9 +37,10 @@ public class SignInFrame extends JFrame {
     private JButton btnRegister = new JButton("Register");
 
 
-    public SignInFrame(){
+    public SignInFrame(Client client){
 
         super("Airplane Company - SignIn");
+        this.client = client;
         setSize(400,300);
         setResizable(true);
         setLocationRelativeTo(null);
@@ -49,6 +52,7 @@ public class SignInFrame extends JFrame {
     }
 
     public void initComponents(){
+
         setLayout(new BorderLayout());
         pData.setLayout(new GridLayout(8,2));
         pData.add(lblName);
@@ -82,26 +86,11 @@ public class SignInFrame extends JFrame {
         btnBack.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                LogInFrame logInFrame = null;
-                try {
-                    logInFrame = new LogInFrame();
-                } catch (SQLException e1) {
-                    e1.printStackTrace();
-                }
-                logInFrame.initComponents();
-                logInFrame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+                logInFrame = new LogInFrame(client);
                 setVisible(false);
             }
         });
 
     }
-
-    public static void main(String[] args) {
-
-        SignInFrame signInFrame = new SignInFrame();
-
-    }
-
-
 
 }
