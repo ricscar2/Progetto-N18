@@ -1,6 +1,6 @@
 package Test;
 
-import Service.Client;
+import Web.Client;
 
 import java.io.IOException;
 

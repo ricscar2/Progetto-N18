@@ -1,13 +1,15 @@
 package GraphicalInterface;
 
-import Service.Client;
-import Service.Database;
+import Database.Database;
+import Web.Client;
+import Web.JsonCommand;
+import Web.Response;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.SQLException;
+import java.io.IOException;
 
 public class LogInFrame extends JFrame {
 
@@ -61,17 +63,27 @@ public class LogInFrame extends JFrame {
         btnLogin.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e){
-                        mainPageFrame = new MainPageFrame(client);
-                        client.sendMessage("Ciao");
-                        setVisible(false);
+                JsonCommand jsonCommand = new JsonCommand("00", txtUsername.getText(), txtPassword.getText());
+                // Send to server
+                client.sendMessage(jsonCommand.getJsonString());
+                if(client.getResponse().equals("true")) {
+                    mainPageFrame = new MainPageFrame(client);
+                    System.out.println("Connected. Response: " + client.getResponse());
+                    setVisible(false);
+                } else
+                    System.out.println("Connection Attempt failed! Response: " + client.getResponse());
             }
         });
 
         btnSignin.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SignInFrame signInFrame = new SignInFrame(client);
-                setVisible(false);
+                try {
+                    SignInFrame signInFrame = new SignInFrame(client);
+                    setVisible(false);
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
             }
         });
 

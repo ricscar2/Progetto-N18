@@ -1,6 +1,6 @@
 package GraphicalInterface;
 
-import Service.Client;
+import Web.Client;
 
 import javax.swing.*;
 import java.awt.*;
