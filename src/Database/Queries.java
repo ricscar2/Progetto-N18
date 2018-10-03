@@ -1,5 +1,8 @@
 package Database;
 
+import User.User;
+import Web.JsonCommand;
+
 import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -37,6 +40,14 @@ public class Queries {
         return true;
     }
 
-
+    public static String getUserInfo(Statement dbStatement, String username) throws SQLException {
+        JsonCommand user = null;
+        ResultSet myRs = dbStatement.executeQuery("select * from users where username = '" + username + "'");
+        while (myRs.next()) {
+            user = new JsonCommand("C01", username, myRs.getString("pwd"), myRs.getString("nome"), myRs.getString("surname"),
+                    myRs.getString("birthdate"), myRs.getString("nation"), myRs.getString("email"));
+        }
+        return user.getJsonString();
+    }
 
 }

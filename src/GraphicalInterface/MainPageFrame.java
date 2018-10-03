@@ -1,5 +1,6 @@
 package GraphicalInterface;
 
+import User.User;
 import Web.Client;
 
 import javax.swing.*;
@@ -10,30 +11,34 @@ import java.awt.event.MouseListener;
 public class MainPageFrame extends JFrame {
 
     Client client;
+    User user;
 
     JPanel pTitle = new JPanel();
     JPanel pUsername = new JPanel();
     JPanel pButton = new JPanel();
 
     JLabel lblDisconnect = new JLabel("Disconnect");
-    JLabel lblUsername = new JLabel("WELCOME ------");
+    JLabel lblUsername;
 
     JButton btnSelectFlight = new JButton("Select Flight");
     JButton btnGoToProfile = new JButton("Go To Your Profile");
 
-    public MainPageFrame(Client client){
+    public MainPageFrame(Client client, User user){
         super("Airline Company");
         setSize(300,150);
         setVisible(true);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         Font f = new Font("",Font.HANGING_BASELINE,10);
+        this.client = client;
+        this.user = user;
         lblDisconnect.setFont(f);
         initComponents();
 
     }
 
     public void initComponents(){
+        lblUsername = new JLabel("Welcome " + user.getName() + " " + user.getSurname() + "!");
         pTitle.add(lblDisconnect);
         add(pTitle, BorderLayout.EAST);
         pUsername.add(lblUsername,BorderLayout.CENTER);
@@ -41,6 +46,9 @@ public class MainPageFrame extends JFrame {
         pButton.add(btnGoToProfile);
         pButton.add(btnSelectFlight);
         add(pButton,BorderLayout.SOUTH);
+    }
+
+    public void addListeners(){
 
         lblDisconnect.addMouseListener(new MouseListener() {
             @Override

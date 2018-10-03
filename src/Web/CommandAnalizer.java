@@ -25,8 +25,9 @@ public class CommandAnalizer {
     public String analize(JsonCommand jsonCommand) throws SQLException, CommandNotFoundException, ParseException {
         switch (jsonCommand.getCode()){
             case "00":
-                if (Queries.logIn(dbStatement, jsonCommand.getParameter("usr"), jsonCommand.getParameter("pwd")))
-                    response = "true";
+                if (Queries.logIn(dbStatement, jsonCommand.getParameter("usr"), jsonCommand.getParameter("pwd"))){
+                    response = Queries.getUserInfo(dbStatement, jsonCommand.getParameter("usr"));
+                }
                 else response = "false";
                 return response;
             case "01":

@@ -1,6 +1,5 @@
 package Test;
 
-import Database.Database;
 import GraphicalInterface.LogInFrame;
 import Web.Client;
 

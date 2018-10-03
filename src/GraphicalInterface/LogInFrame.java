@@ -1,15 +1,19 @@
 package GraphicalInterface;
 
 import Database.Database;
+import User.User;
 import Web.Client;
 import Web.JsonCommand;
-import Web.Response;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 
 public class LogInFrame extends JFrame {
 
@@ -23,10 +27,9 @@ public class LogInFrame extends JFrame {
     private JPasswordField txtPassword = new JPasswordField();
     private JButton btnLogin = new JButton("LogIn");
     private JButton btnSignin = new JButton("SignIn");
-
+    private SimpleDateFormat birthdayFormat = new SimpleDateFormat("dd-MM-yyyy");
 
     public LogInFrame(Client client) {
-
         super("Airline Company - LogIn");
         this.client = client;
         setSize(500,110);
@@ -66,12 +69,25 @@ public class LogInFrame extends JFrame {
                 JsonCommand jsonCommand = new JsonCommand("00", txtUsername.getText(), txtPassword.getText());
                 // Send to server
                 client.sendMessage(jsonCommand.getJsonString());
-                if(client.getResponse().equals("true")) {
-                    mainPageFrame = new MainPageFrame(client);
-                    System.out.println("Connected. Response: " + client.getResponse());
-                    setVisible(false);
-                } else
+                if(client.getResponse().equals("false")) {
                     System.out.println("Connection Attempt failed! Response: " + client.getResponse());
+                } else {
+                    try {
+                        JSONParser jsonParser = new JSONParser();
+                        JsonCommand userInfo = new JsonCommand((JSONObject) jsonParser.parse(client.getResponse()));
+                        User user = new User(userInfo.getParameter("usr"), userInfo.getParameter("pwd"),
+                                userInfo.getParameter("name"), userInfo.getParameter("surname"),
+                                birthdayFormat.parse(userInfo.getParameter("birthdate")), userInfo.getParameter("nation"),
+                                userInfo.getParameter("email"));
+                        mainPageFrame = new MainPageFrame(client, user);
+                        System.out.println("Connected. Response: " + client.getResponse());
+                        setVisible(false);
+                    } catch (ParseException ex){
+                        ex.printStackTrace();
+                    } catch (java.text.ParseException e1) {
+                        e1.printStackTrace();
+                    }
+                }
             }
         });
 

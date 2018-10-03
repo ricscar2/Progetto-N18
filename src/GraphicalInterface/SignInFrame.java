@@ -1,6 +1,7 @@
 package GraphicalInterface;
 
 import Database.Queries;
+import User.User;
 import Web.Client;
 import Web.JsonCommand;
 
@@ -12,7 +13,10 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class SignInFrame extends JFrame {
 
@@ -124,8 +128,18 @@ public class SignInFrame extends JFrame {
                             txtName.getText(), txtSurname.getText(), txtBirthday.getText(), cmbNation.getSelectedItem().toString(),
                             txtEmail.getText());
                     client.sendMessage(jsonCommand.getJsonString());
-                    if(client.getResponse().equals("true"))
+                    if(client.getResponse().equals("true")){
                         System.out.println("Registrazione avvenuta con successo!");
+                        User user = null;
+                        try {
+                            user = new User(txtUsername.getText(), txtPassword.getText(), txtName.getText(), txtSurname.getText(),
+                                    new SimpleDateFormat("dd-MM-yyyy").parse(txtBirthday.getText()),
+                                    cmbNation.getSelectedItem().toString(), txtEmail.getText());
+                        } catch (ParseException e1) {
+                            e1.printStackTrace();
+                        }
+                        MainPageFrame mainPageFrame = new MainPageFrame(client, user);
+                    }
                     else
                         System.out.println("Failed");
                 }
