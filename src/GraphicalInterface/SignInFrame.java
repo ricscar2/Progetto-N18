@@ -1,6 +1,8 @@
 package GraphicalInterface;
 
 import Database.Queries;
+import Eccezioni.AllFieldsAreMandatoryException;
+import Eccezioni.DifferentPasswordException;
 import User.User;
 import Web.Client;
 import Web.JsonCommand;
@@ -123,25 +125,42 @@ public class SignInFrame extends JFrame {
         btnRegister.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(txtPassword.getText().equals(txtConfermedPassword.getText())){
-                    JsonCommand jsonCommand = new JsonCommand("01", txtUsername.getText(), txtPassword.getText(),
-                            txtName.getText(), txtSurname.getText(), txtBirthday.getText(), cmbNation.getSelectedItem().toString(),
-                            txtEmail.getText());
-                    client.sendMessage(jsonCommand.getJsonString());
-                    if(client.getResponse().equals("true")){
-                        System.out.println("Registrazione avvenuta con successo!");
-                        User user = null;
-                        try {
-                            user = new User(txtUsername.getText(), txtPassword.getText(), txtName.getText(), txtSurname.getText(),
-                                    new SimpleDateFormat("dd-MM-yyyy").parse(txtBirthday.getText()),
-                                    cmbNation.getSelectedItem().toString(), txtEmail.getText());
-                        } catch (ParseException e1) {
-                            e1.printStackTrace();
-                        }
-                        MainPageFrame mainPageFrame = new MainPageFrame(client, user);
+                try {
+                    if(!txtUsername.getText().equals("") && !txtSurname.getText().equals("") && !txtBirthday.getText().equals("") && !txtEmail.getText().equals("") && !txtName.getText().equals("") && !txtPassword.equals("") && !txtConfermedPassword.getText().equals("") ){
+                    if (txtPassword.getText().equals(txtConfermedPassword.getText())) {
+                        JsonCommand jsonCommand = new JsonCommand("01", txtUsername.getText(), txtPassword.getText(),
+                                txtName.getText(), txtSurname.getText(), txtBirthday.getText(), cmbNation.getSelectedItem().toString(),
+                                txtEmail.getText());
+                        client.sendMessage(jsonCommand.getJsonString());
+                        if (client.getResponse().equals("true")) {
+                            System.out.println("Registrazione avvenuta con successo!");
+                            User user = null;
+                            try {
+                                user = new User(txtUsername.getText(), txtPassword.getText(), txtName.getText(), txtSurname.getText(),
+                                        new SimpleDateFormat("dd-MM-yyyy").parse(txtBirthday.getText()),
+                                        cmbNation.getSelectedItem().toString(), txtEmail.getText());
+                            } catch (ParseException e1) {
+                                e1.printStackTrace();
+                            }
+                            MainPageFrame mainPageFrame = new MainPageFrame(client, user);
+                        } else
+                            System.out.println("Failed");
+                    } else {
+                        throw new DifferentPasswordException("Le password devono concidere");
+                    }}else {
+                        throw new AllFieldsAreMandatoryException("Tutti i campi devono essere obbligatori");
                     }
-                    else
-                        System.out.println("Failed");
+
+                } catch (DifferentPasswordException e1) {
+                    String s = e1.getMessage();
+                    ExceptionFrame eFrame = new ExceptionFrame();
+                    eFrame.initComponents();
+                    eFrame.Print(s);
+                } catch (AllFieldsAreMandatoryException e2){
+                    String s = e2.getMessage();
+                    ExceptionFrame eFrame = new ExceptionFrame();
+                    eFrame.initComponents();
+                    eFrame.Print(s);
                 }
             }
         });
