@@ -98,8 +98,8 @@
       <file leaf-file-name="SignInFrame.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/SignInFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="148" column="90" lean-forward="false" selection-start-line="148" selection-start-column="90" selection-end-line="148" selection-end-column="90" />
+            <state relative-caret-position="450">
+              <caret line="36" column="54" lean-forward="true" selection-start-line="36" selection-start-column="54" selection-end-line="36" selection-end-column="54" />
               <folding />
             </state>
           </provider>
@@ -183,7 +183,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-50" />
     <option name="y" value="-25" />
     <option name="width" value="1425" />
@@ -493,15 +493,15 @@
       <workItem from="1538178682488" duration="17000" />
       <workItem from="1538472918497" duration="3118000" />
       <workItem from="1538558747969" duration="1098000" />
-      <workItem from="1538665992085" duration="1759000" />
+      <workItem from="1538665992085" duration="2101000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57593000" />
+    <option name="totallyTimeSpent" value="57935000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
+    <frame x="-11" y="-11" width="1942" height="1042" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -891,8 +891,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/SignInFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="148" column="90" lean-forward="false" selection-start-line="148" selection-start-column="90" selection-end-line="148" selection-end-column="90" />
+        <state relative-caret-position="450">
+          <caret line="36" column="54" lean-forward="true" selection-start-line="36" selection-start-column="54" selection-end-line="36" selection-end-column="54" />
           <folding />
         </state>
       </provider>
