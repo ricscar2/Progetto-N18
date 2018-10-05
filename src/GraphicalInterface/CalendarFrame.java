@@ -12,6 +12,7 @@ public class CalendarFrame extends JFrame {
         private JLabel lblDay = new JLabel("Day:");
         private JLabel lblMonth = new JLabel("Month:");
         private JLabel lblYear = new JLabel("Year:");
+        private JLabel lblOut = new JLabel();
         private JTextField txtDay = new JTextField();
         private JComboBox cmbMonth = null;
         private JTextField txtYear = new JTextField("1996");
@@ -156,6 +157,7 @@ public class CalendarFrame extends JFrame {
                                     date = txtDay.getText() + "-12-" + txtYear.getText();
                         }
                     setVisible(false);
+
                 }
             });
 
