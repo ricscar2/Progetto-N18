@@ -3,10 +3,14 @@ package GraphicalInterface;
 import User.User;
 import Web.Client;
 
+import javax.imageio.ImageIO;
+import javax.imageio.stream.FileImageInputStream;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.File;
+import java.io.IOException;
 
 public class MainPageFrame extends JFrame {
 
@@ -23,9 +27,12 @@ public class MainPageFrame extends JFrame {
     JButton btnSelectFlight = new JButton("Select Flight");
     JButton btnGoToProfile = new JButton("Go To Your Profile");
 
+    Image img = null;
+
+
     public MainPageFrame(Client client, User user){
         super("Airline Company");
-        setSize(300,150);
+        setSize(400,300);
         setVisible(true);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -39,17 +46,25 @@ public class MainPageFrame extends JFrame {
 
     public void initComponents(){
         lblUsername = new JLabel("Welcome " + user.getName() + " " + user.getSurname() + "!");
-        pTitle.add(lblDisconnect);
+        pTitle.add(lblDisconnect,BorderLayout.NORTH);
         add(pTitle, BorderLayout.EAST);
         pUsername.add(lblUsername,BorderLayout.CENTER);
-        add(pUsername,BorderLayout.CENTER);
+        add(pUsername,BorderLayout.NORTH);
         pButton.add(btnGoToProfile);
         pButton.add(btnSelectFlight);
         add(pButton,BorderLayout.SOUTH);
-    }
+        try {
+            img= ImageIO.read(new FileImageInputStream(new File("C:\\Users\\Nicola\\Desktop\\fotoprogetto.jpg")));
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(this, "Image loading error!");
+        }
 
-    public void addListeners(){
 
+
+        ImageIcon imm = new ImageIcon(img);
+        JLabel lbl = new JLabel(imm);
+        add(lbl,BorderLayout.CENTER);
+  
         lblDisconnect.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
