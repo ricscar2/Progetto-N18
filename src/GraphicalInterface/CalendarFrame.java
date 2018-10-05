@@ -32,7 +32,7 @@ public class CalendarFrame extends JFrame {
             setLocationRelativeTo(null);
             initComponents();
             //addListeners();
-            setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            //setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             this.setVisible(true);
         }
 
@@ -46,7 +46,7 @@ public class CalendarFrame extends JFrame {
 
 
             String[] mesi = new String[]{"Gennaio","Febbraio","Marzo","Aprile","Maggio","Giugno","Luglio","Agosto","Settembre","Ottobre","Novembre","Dicembre"};
-            mese = new JComboBox<>(mesi);
+            cmbMonth = new JComboBox<>(mesi);
             String[] giorni30 = new String[n];
             giorno30= new JComboBox<>(CalcoloGiorni(giorni30.length));
             giorno30.setFont(new Font("SansSerif", Font.PLAIN, 10));
