@@ -11,13 +11,16 @@ public class CalendarFrame extends JFrame {
         private JPanel pButton = new JPanel();
         private JLabel lblDay = new JLabel("Day:");
         private JLabel lblMonth = new JLabel("Month:");
-        private JLabel lblYear = new JLabel("Month:");
+        private JLabel lblYear = new JLabel("Year:");
         private JTextField txtDay = new JTextField();
         private JComboBox cmbMonth = null;
         private JTextField txtYear = new JTextField("1996");
         private JButton btnSelect = new JButton("Add Birthdate");
         private String[] months;
         private String date = "";
+        private JComboBox giorno30 = null;
+        private JComboBox mese = null;
+        int n = 31;
 
         public CalendarFrame() {
             super("Airline Company - Select Your Birthday");
@@ -39,8 +42,53 @@ public class CalendarFrame extends JFrame {
             txtYear.setFont(new Font("SansSerif", Font.PLAIN, 10));
             setLayout(new BorderLayout());
             pData.setLayout(new GridLayout(3,3));
+
+
+
+            String[] mesi = new String[]{"Gennaio","Febbraio","Marzo","Aprile","Maggio","Giugno","Luglio","Agosto","Settembre","Ottobre","Novembre","Dicembre"};
+            mese = new JComboBox<>(mesi);
+            String[] giorni30 = new String[n];
+            giorno30= new JComboBox<>(CalcoloGiorni(giorni30.length));
+            giorno30.setFont(new Font("SansSerif", Font.PLAIN, 10));
+
+            cmbMonth.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    cmbMonth.getSelectedItem();
+                    if(cmbMonth.getSelectedItem().toString().equals("Giugno")||cmbMonth.getSelectedItem().toString().equals("Novembre")||cmbMonth.getSelectedItem().toString().equals("Aprile")||cmbMonth.getSelectedItem().toString().equals("Settembre")){
+                        if(n==31){
+                            giorno30.removeItemAt(30);
+                            n=30;
+                        }
+                        if(n==29){
+                            giorno30.addItem(30);
+                            n=30;
+                        }
+                    } if(cmbMonth.getSelectedItem().toString().equals("Gennaio")||cmbMonth.getSelectedItem().toString().equals("Marzo")||cmbMonth.getSelectedItem().toString().equals("Maggio")||cmbMonth.getSelectedItem().toString().equals("Luglio")||cmbMonth.getSelectedItem().toString().equals("Agosto")||cmbMonth.getSelectedItem().toString().equals("Ottobre")||cmbMonth.getSelectedItem().toString().equals("Dicembre")){
+                        if(n==30) {
+                            n = 31;
+                            giorno30.insertItemAt(31, 30);
+                        } if(n==29){
+                            n=31;
+                            giorno30.addItem(30);
+                            giorno30.addItem(31);
+                        }
+                    }
+
+                    if(cmbMonth.getSelectedItem().toString().equals("Febbraio")){
+                        if(n==31){
+                            giorno30.removeItemAt(30);
+                            giorno30.removeItemAt(29);}
+                        if(n==30){
+                            giorno30.removeItemAt(29);
+                        }
+                        n=29;
+                    }
+                }
+            });
+
             pData.add(lblDay);
-            pData.add(txtDay);
+            pData.add(giorno30);
             pData.add(lblMonth);
             pData.add(cmbMonth);
             pData.add(lblYear);
@@ -49,7 +97,20 @@ public class CalendarFrame extends JFrame {
             pButton.setLayout(new FlowLayout());
             pButton.add(btnSelect);
             add(pButton,BorderLayout.SOUTH);
+
+
+
         }
+
+    public String[] CalcoloGiorni(int n){
+        String[] string= new String[n];
+        string[0]="1";
+        for(int i =1 ; i<n ; i++){
+            String k= new String(Integer.toString(i+1));
+            string[i] = k;
+        }
+        return string;
+    }
 
         public void addListeners(){
 

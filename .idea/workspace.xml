@@ -95,24 +95,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SignInFrame.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SignInFrame.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/SignInFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="36" column="54" lean-forward="true" selection-start-line="36" selection-start-column="54" selection-end-line="36" selection-end-column="54" />
-              <folding />
+            <state relative-caret-position="25">
+              <caret line="119" column="0" lean-forward="false" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
+              <folding>
+                <element signature="e#7054#7055#0" expanded="true" />
+                <element signature="e#7135#7136#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CommandAnalizer.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Web/CommandAnalizer.java">
+      <file leaf-file-name="CalendarFrame.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/CalendarFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="1075">
+              <caret line="62" column="34" lean-forward="true" selection-start-line="62" selection-start-column="34" selection-end-line="62" selection-end-column="34" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -161,7 +162,6 @@
         <option value="$PROJECT_DIR$/src/Web/ConnectedClient.java" />
         <option value="$PROJECT_DIR$/src/Database/Database.java" />
         <option value="$PROJECT_DIR$/sql/tables.sql" />
-        <option value="$PROJECT_DIR$/src/GraphicalInterface/CalendarFrame.java" />
         <option value="$PROJECT_DIR$/src/GraphicalInterface/MainPageFrame.java" />
         <option value="$PROJECT_DIR$/src/Test/MainClass1.java" />
         <option value="$PROJECT_DIR$/src/User/User.java" />
@@ -174,6 +174,7 @@
         <option value="$PROJECT_DIR$/src/Eccezioni/DifferentPasswordException.java" />
         <option value="$PROJECT_DIR$/src/GraphicalInterface/ExceptionFrame.java" />
         <option value="$PROJECT_DIR$/src/GraphicalInterface/SignInFrame.java" />
+        <option value="$PROJECT_DIR$/src/GraphicalInterface/CalendarFrame.java" />
       </list>
     </option>
   </component>
@@ -183,7 +184,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-50" />
     <option name="y" value="-25" />
     <option name="width" value="1425" />
@@ -493,15 +494,15 @@
       <workItem from="1538178682488" duration="17000" />
       <workItem from="1538472918497" duration="3118000" />
       <workItem from="1538558747969" duration="1098000" />
-      <workItem from="1538665992085" duration="2101000" />
+      <workItem from="1538665992085" duration="4229000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57935000" />
+    <option name="totallyTimeSpent" value="60063000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-11" y="-11" width="1942" height="1042" extended-state="7" />
+    <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -541,7 +542,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="18" />
+      <option name="time" value="19" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -746,13 +747,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/CalendarFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="21" column="29" lean-forward="false" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Web/Client.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="952">
@@ -820,14 +814,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/LogInFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="75" column="26" lean-forward="false" selection-start-line="75" selection-start-column="26" selection-end-line="75" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Web/JsonCommand.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="50">
@@ -861,16 +847,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/ExceptionFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="606">
-          <caret line="31" column="5" lean-forward="true" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Test/ServerTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
@@ -889,10 +865,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/LogInFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="75" column="26" lean-forward="false" selection-start-line="75" selection-start-column="26" selection-end-line="75" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/ExceptionFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="606">
+          <caret line="31" column="5" lean-forward="true" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/SignInFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="36" column="54" lean-forward="true" selection-start-line="36" selection-start-column="54" selection-end-line="36" selection-end-column="54" />
+        <state relative-caret-position="25">
+          <caret line="119" column="0" lean-forward="false" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
+          <folding>
+            <element signature="e#7054#7055#0" expanded="true" />
+            <element signature="e#7135#7136#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/CalendarFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1075">
+          <caret line="62" column="34" lean-forward="true" selection-start-line="62" selection-start-column="34" selection-end-line="62" selection-end-column="34" />
           <folding />
         </state>
       </provider>
