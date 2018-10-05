@@ -64,7 +64,7 @@ public class MainPageFrame extends JFrame {
         ImageIcon imm = new ImageIcon(img);
         JLabel lbl = new JLabel(imm);
         add(lbl,BorderLayout.CENTER);
-  
+
         lblDisconnect.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
