@@ -32,7 +32,8 @@ public class MainPageFrame extends JFrame {
 
     public MainPageFrame(Client client, User user){
         super("Airline Company");
-        setSize(400,300);
+        setSize(480,350);
+        setResizable(false);
         setVisible(true);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -46,10 +47,13 @@ public class MainPageFrame extends JFrame {
 
     public void initComponents(){
         lblUsername = new JLabel("Welcome " + user.getName() + " " + user.getSurname() + "!");
-        pTitle.add(lblDisconnect,BorderLayout.NORTH);
-        add(pTitle, BorderLayout.EAST);
-        pUsername.add(lblUsername,BorderLayout.CENTER);
-        add(pUsername,BorderLayout.NORTH);
+
+        pTitle.setLayout(new FlowLayout(FlowLayout.CENTER,40,10));
+        pTitle.add(lblUsername);
+        pTitle.add(lblDisconnect);
+
+        add(pTitle, BorderLayout.NORTH);
+
         pButton.add(btnGoToProfile);
         pButton.add(btnSelectFlight);
         add(pButton,BorderLayout.SOUTH);
@@ -58,6 +62,9 @@ public class MainPageFrame extends JFrame {
         } catch (IOException e) {
             JOptionPane.showMessageDialog(this, "Image loading error!");
         }
+
+
+
 
 
 
