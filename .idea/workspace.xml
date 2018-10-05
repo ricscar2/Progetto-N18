@@ -15,7 +15,7 @@
       <file leaf-file-name="LogInFrame.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/LogInFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1550">
+            <state relative-caret-position="1137">
               <caret line="75" column="26" lean-forward="false" selection-start-line="75" selection-start-column="26" selection-end-line="75" selection-end-column="26" />
               <folding />
             </state>
@@ -491,12 +491,12 @@
       <workItem from="1538178682488" duration="17000" />
       <workItem from="1538472918497" duration="3118000" />
       <workItem from="1538558747969" duration="1098000" />
-      <workItem from="1538665992085" duration="15411000" />
+      <workItem from="1538665992085" duration="15873000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="71245000" />
+    <option name="totallyTimeSpent" value="71707000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="7" />
@@ -897,7 +897,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/LogInFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1550">
+        <state relative-caret-position="1137">
           <caret line="75" column="26" lean-forward="false" selection-start-line="75" selection-start-column="26" selection-end-line="75" selection-end-column="26" />
           <folding />
         </state>
