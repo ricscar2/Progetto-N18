@@ -2,10 +2,15 @@ package Database;
 
 import User.User;
 import Web.JsonCommand;
+import Web.JsonResponse;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Queries {
 
@@ -41,13 +46,30 @@ public class Queries {
     }
 
     public static String getUserInfo(Statement dbStatement, String username) throws SQLException {
-        JsonCommand user = null;
+        JsonResponse user = null;
         ResultSet myRs = dbStatement.executeQuery("select * from users where username = '" + username + "'");
         while (myRs.next()) {
-            user = new JsonCommand("C01", username, myRs.getString("pwd"), myRs.getString("nome"), myRs.getString("surname"),
+            user = new JsonResponse(username, myRs.getString("pwd"), myRs.getString("nome"), myRs.getString("surname"),
                     myRs.getString("birthdate"), myRs.getString("nation"), myRs.getString("email"));
         }
         return user.getJsonString();
+    }
+
+
+    public static String getAirports(Statement dbStatement) throws SQLException {
+        JSONObject jsonRoot = new JSONObject();
+        JSONArray airports = new JSONArray();
+        ResultSet myRs = dbStatement.executeQuery("select * from airports");
+        while (myRs.next()){
+            JSONObject airport = new JSONObject();
+            airport.put("iata", myRs.getString("IATA"));
+            airport.put("name", myRs.getString("nome"));
+            airport.put("city", myRs.getString("city"));
+            airport.put("nation", myRs.getString("nation"));
+            airports.add(airport);
+        }
+        jsonRoot.put("airports", airports);
+        return jsonRoot.toJSONString();
     }
 
 }

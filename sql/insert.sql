@@ -1,6 +1,8 @@
 USE PROGETTON;
 
 INSERT INTO USERS (USERNAME, PWD, NOME, SURNAME, BIRTHDATE, NATION, EMAIL) 
+		VALUES ('aaa', 'aaa', 'NomeProva', 'CognomeProva', '1996-02-03', 'Italy', 'prova@prova.it');
+INSERT INTO USERS (USERNAME, PWD, NOME, SURNAME, BIRTHDATE, NATION, EMAIL) 
 		VALUES ('alessandrabianchi', 'passworda', 'Alessandra', 'Bianchi', '1999-06-06', 'Italy', 'alessandrabianchi@prova.it');
 INSERT INTO USERS (USERNAME, PWD, NOME, SURNAME, BIRTHDATE, NATION, EMAIL) 
 		VALUES ('brunorossi', 'passwordb', 'Bruno', 'Rossi', '1981-02-01', 'Italy', 'brunorossi@prova.it');
@@ -17,50 +19,48 @@ INSERT INTO USERS (USERNAME, PWD, NOME, SURNAME, BIRTHDATE, NATION, EMAIL)
 INSERT INTO USERS (USERNAME, PWD, NOME, SURNAME, BIRTHDATE, NATION, EMAIL) 
 		VALUES ('lucarossi', 'passwordl', 'Luca', 'Rossi', '1993-04-07', 'Italy', 'lucarossi@ciaomondo.it');
 INSERT INTO AIRPORTS (IATA, NOME, CITY, NATION)
-		VALUES ('BGY', 'Orio al Serio International', 'Bergamo', 'Italy');
+		VALUES ('BGY', 'Bergamo Orio al Serio', 'Bergamo', 'Italy');
 INSERT INTO AIRPORTS (IATA, NOME, CITY, NATION)
-		VALUES ('LIN', 'Aeroporto di Milano - Linate', 'Milano', 'Italy');
+		VALUES ('LIN', 'Milano Linate', 'Milano', 'Italy');
 INSERT INTO AIRPORTS (IATA, NOME, CITY, NATION)
-		VALUES ('MXP', 'Aeroporto di Milano - Malpensa', 'Milano', 'Italy');
+		VALUES ('MXP', 'Milano Malpensa', 'Milano', 'Italy');
 INSERT INTO AIRPORTS (IATA, NOME, CITY, NATION)
-		VALUES ('VCE', 'Aeroporto di Venezia Tessera - Marco Polo', 'Venezia', 'Italy');
+		VALUES ('VCE', 'Venezia - Tessera', 'Venezia', 'Italy');
 INSERT INTO AIRPORTS (IATA, NOME, CITY, NATION)
-		VALUES ('AOI', 'Aeroporto di Ancona Falconara - Raffaele Sanzio', 'Ancona', 'Italy');
+		VALUES ('AOI', 'Ancona - Falconara', 'Ancona', 'Italy');
 INSERT INTO AIRPORTS (IATA, NOME, CITY, NATION)
-		VALUES ('BRI', 'Aeroporto di Bari - Palese', 'Bari', 'Italy');
+		VALUES ('BRI', 'Bari - Palese', 'Bari', 'Italy');
 INSERT INTO AIRPORTS (IATA, NOME, CITY, NATION)
-		VALUES ('GOA', 'Aeroporto di Genova - Cristoforo Colombo', 'Genova', 'Italy');
+		VALUES ('GOA', 'Genova Cristoforo Colombo', 'Genova', 'Italy');
 INSERT INTO AIRPORTS (IATA, NOME, CITY, NATION)
-		VALUES ('TRN', 'Aeroporto di Torino - Caselle - Sandro Pertini', 'Torino', 'Italy');
+		VALUES ('TRN', 'Torino - Caselle', 'Torino', 'Italy');
 INSERT INTO AIRPORTS (IATA, NOME, CITY, NATION)
-		VALUES ('FCO','Aeroporto di Roma Fiumicino - Leonardo Da Vinci', 'Roma', 'Italy');
+		VALUES ('FCO','Roma Fiumicino', 'Roma', 'Italy');
 INSERT INTO AIRPORTS (IATA, NOME, CITY, NATION)
-		VALUES ('CAG','Aeroporto di Cagliari Elmas - Mario Mameli', 'Cagliari', 'Italy');
+		VALUES ('CAG','Cagliari - Elmas', 'Cagliari', 'Italy');
 INSERT INTO AIRPLANES (ID, ECONOMY, BUSINESS)
-		VALUES ('PN001', 60, 39);
+		VALUES ('PN001', 60, 40);
 INSERT INTO AIRPLANES (ID, ECONOMY, BUSINESS)
-		VALUES ('PN002', 60, 39);
+		VALUES ('PN002', 60, 40);
 INSERT INTO AIRPLANES (ID, ECONOMY, BUSINESS)
-		VALUES ('PN003', 60, 39);
+		VALUES ('PN003', 60, 40);
 INSERT INTO AIRPLANES (ID, ECONOMY, BUSINESS)
-		VALUES ('PN004', 60, 39);
+		VALUES ('PN004', 60, 40);
 INSERT INTO AIRPLANES (ID, ECONOMY, BUSINESS)
-		VALUES ('PN005', 80, 19);
+		VALUES ('PN005', 80, 20);
 INSERT INTO AIRPLANES (ID, ECONOMY, BUSINESS)
-		VALUES ('PN006', 60, 39);
+		VALUES ('PN006', 60, 40);
 INSERT INTO AIRPLANES (ID, ECONOMY, BUSINESS)
-		VALUES ('PN007', 60, 39);
+		VALUES ('PN007', 60, 40);
 INSERT INTO AIRPLANES (ID, ECONOMY, BUSINESS)
-		VALUES ('PN008', 20, 79);
+		VALUES ('PN008', 20, 80);
 INSERT INTO FLIGHTS (ID, DEPARTURE, ARRIVE, DATED, DATEA, AIRPLANE)
-		VALUES ('MXPFCO001', 'MXP', 'FCO', '2016-02-26 09:34:00', '2016-02-26 10:50:00', 'PN001');
+		VALUES ('MXPFCO001', 'MXP', 'FCO', '06:34:00', '08:00:00', 'PN001');
 INSERT INTO FLIGHTS (ID, DEPARTURE, ARRIVE, DATED, DATEA, AIRPLANE)
-		VALUES ('BRITRN001', 'BRI', 'TRN', '2014-03-25 05:17:00', '2014-03-25 06:55:00', 'PN002');
+		VALUES ('MXPFCO002', 'MXP', 'FCO', '11:05:00', '12:20:00', 'PN002');        
 INSERT INTO FLIGHTS (ID, DEPARTURE, ARRIVE, DATED, DATEA, AIRPLANE)
-		VALUES ('AOIVCE001', 'AOI', 'VCE', '2016-03-24 15:00:00', '2016-03-24 15:50:00', 'PN003');
-INSERT INTO FLIGHTS (ID,DEPARTURE, ARRIVE, DATED, DATEA, AIRPLANE)
-		VALUES('BGYCAG001', 'BGY', 'CAG', '2017-06-02 12:04:00', '2017-06-02 13:28:00', 'PN004');
-
-        
+		VALUES ('FCOMXP001', 'FCO', 'MXP', '09:05:00', '10:20:00', 'PN001');
+INSERT INTO FLIGHTS (ID, DEPARTURE, ARRIVE, DATED, DATEA, AIRPLANE)
+		VALUES ('FCOMXP002', 'FCO', 'MXP', '17:15:00', '18:25:00', 'PN002');         
 
         

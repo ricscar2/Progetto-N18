@@ -10,6 +10,11 @@ public class JsonCommand{
         this.jsonCommand = jsonObject;
     }
 
+    public JsonCommand(String code){
+        jsonCommand = new JSONObject();
+        jsonCommand.put("code", code);
+    }
+
     public JsonCommand(String code, String username, String password) {
         jsonCommand = new JSONObject();
         jsonCommand.put("code", code);

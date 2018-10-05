@@ -2,6 +2,7 @@ package User;
 
 import Core.Ticket;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -26,6 +27,10 @@ public class User {
         this.email = email;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
     public String getName() {
         return name;
     }
@@ -34,4 +39,20 @@ public class User {
         return surname;
     }
 
+    public Date getBirthdate() {
+        return birthdate;
+    }
+
+    public String getBirthdateString(){
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        return simpleDateFormat.format(birthdate);
+    }
+
+    public String getNation() {
+        return nation;
+    }
+
+    public String getEmail() {
+        return email;
+    }
 }

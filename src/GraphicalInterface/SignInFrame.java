@@ -135,10 +135,12 @@ public class SignInFrame extends JFrame {
                             user = new User(txtUsername.getText(), txtPassword.getText(), txtName.getText(), txtSurname.getText(),
                                     new SimpleDateFormat("dd-MM-yyyy").parse(txtBirthday.getText()),
                                     cmbNation.getSelectedItem().toString(), txtEmail.getText());
+                            MainPageFrame mainPageFrame = new MainPageFrame(client, user);
                         } catch (ParseException e1) {
                             e1.printStackTrace();
+                        } catch (org.json.simple.parser.ParseException e1) {
+                            e1.printStackTrace();
                         }
-                        MainPageFrame mainPageFrame = new MainPageFrame(client, user);
                     }
                     else
                         System.out.println("Failed");

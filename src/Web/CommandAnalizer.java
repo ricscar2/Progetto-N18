@@ -22,6 +22,11 @@ public class CommandAnalizer {
         this.response = "";
     }
 
+    /*
+    00: LogIn
+    01: Informazioni utente dato l'username
+    02: Elenco aeroporti nel database
+     */
     public String analize(JsonCommand jsonCommand) throws SQLException, CommandNotFoundException, ParseException {
         switch (jsonCommand.getCode()){
             case "00":
@@ -37,6 +42,8 @@ public class CommandAnalizer {
                     response = "true";
                 else response = "false";
                 return response;
+            case "02":
+                return Queries.getAirports(dbStatement);
         }
         throw new CommandNotFoundException();
 

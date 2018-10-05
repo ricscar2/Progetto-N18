@@ -4,6 +4,7 @@ import Database.Database;
 import User.User;
 import Web.Client;
 import Web.JsonCommand;
+import Web.JsonResponse;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -27,7 +28,7 @@ public class LogInFrame extends JFrame {
     private JPasswordField txtPassword = new JPasswordField();
     private JButton btnLogin = new JButton("LogIn");
     private JButton btnSignin = new JButton("SignIn");
-    private SimpleDateFormat birthdayFormat = new SimpleDateFormat("dd-MM-yyyy");
+    private SimpleDateFormat birthdayFormat = new SimpleDateFormat("yyyy-MM-dd");
 
     public LogInFrame(Client client) {
         super("Airline Company - LogIn");
@@ -74,7 +75,7 @@ public class LogInFrame extends JFrame {
                 } else {
                     try {
                         JSONParser jsonParser = new JSONParser();
-                        JsonCommand userInfo = new JsonCommand((JSONObject) jsonParser.parse(client.getResponse()));
+                        JsonResponse userInfo = new JsonResponse((JSONObject) jsonParser.parse(client.getResponse()));
                         User user = new User(userInfo.getParameter("usr"), userInfo.getParameter("pwd"),
                                 userInfo.getParameter("name"), userInfo.getParameter("surname"),
                                 birthdayFormat.parse(userInfo.getParameter("birthdate")), userInfo.getParameter("nation"),
