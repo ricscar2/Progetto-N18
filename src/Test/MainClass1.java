@@ -1,7 +1,7 @@
 package Test;
 
 import GraphicalInterface.LogInFrame;
-import Service.Client;
+import Web.Client;
 
 import java.io.IOException;
 import java.sql.SQLException;

@@ -1,13 +1,18 @@
 package GraphicalInterface;
 
-import Service.Client;
-import Service.Database;
+import User.User;
+import Web.Client;
+import Web.JsonCommand;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.SQLException;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 
 public class LogInFrame extends JFrame {
 
@@ -21,10 +26,9 @@ public class LogInFrame extends JFrame {
     private JPasswordField txtPassword = new JPasswordField();
     private JButton btnLogin = new JButton("LogIn");
     private JButton btnSignin = new JButton("SignIn");
-
+    private SimpleDateFormat birthdayFormat = new SimpleDateFormat("yyyy-MM-dd");
 
     public LogInFrame(Client client) {
-
         super("Airline Company - LogIn");
         this.client = client;
         setSize(500,110);
@@ -61,17 +65,40 @@ public class LogInFrame extends JFrame {
         btnLogin.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e){
-                        mainPageFrame = new MainPageFrame(client);
-                        client.sendMessage("Ciao");
+                JsonCommand jsonCommand = new JsonCommand("00", txtUsername.getText(), txtPassword.getText());
+                // Send to server
+                client.sendMessage(jsonCommand.getJsonString());
+                if(client.getResponse().equals("false")) {
+                    System.out.println("Connection Attempt failed! Response: " + client.getResponse());
+                } else {
+                    try {
+                        JSONParser jsonParser = new JSONParser();
+                        JSONObject userInfo = (JSONObject) jsonParser.parse(client.getResponse());
+                        User user = new User((String) userInfo.get("usr"),(String) userInfo.get("pwd"),
+                                (String) userInfo.get("name"), (String) userInfo.get("surname"),
+                                birthdayFormat.parse( (String) userInfo.get("birthdate")), (String) userInfo.get("nation"),
+                                (String) userInfo.get("email"));
+                        mainPageFrame = new MainPageFrame(client, user);
+                        System.out.println("Connected. Response: " + client.getResponse());
                         setVisible(false);
+                    } catch (ParseException ex){
+                        ex.printStackTrace();
+                    } catch (java.text.ParseException e1) {
+                        e1.printStackTrace();
+                    }
+                }
             }
         });
 
         btnSignin.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SignInFrame signInFrame = new SignInFrame(client);
-                setVisible(false);
+                try {
+                    SignInFrame signInFrame = new SignInFrame(client);
+                    setVisible(false);
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
             }
         });
 

@@ -1,13 +1,22 @@
 package GraphicalInterface;
 
-import GraphicalInterface.LogInFrame;
-import Service.Client;
+import Database.Queries;
+import User.User;
+import Web.Client;
+import Web.JsonCommand;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.SQLException;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 
 public class SignInFrame extends JFrame {
 
@@ -17,6 +26,7 @@ public class SignInFrame extends JFrame {
     private JPanel pSotto = new JPanel();
     private JPanel pData = new JPanel();
     private JPanel pButtons = new JPanel();
+    private JPanel pCalendar = new JPanel();
     private JLabel lblName = new JLabel("Name: ");
     private JTextField txtName = new JTextField();
     private JLabel lblSurname = new JLabel("Surname: ");
@@ -30,18 +40,35 @@ public class SignInFrame extends JFrame {
     private JLabel lblConfermedPassword = new JLabel("Confirm Password: ");
     private JPasswordField txtConfermedPassword = new JPasswordField();
     private JLabel lblNation = new JLabel("Nation: ");
-    private JComboBox<String> cmbNation = new JComboBox<>();
+    private JComboBox<String> cmbNation;
     private JLabel lblEmail = new JLabel("Email: ");
     private JTextField txtEmail = new JTextField();
     private JButton btnBack = new JButton("Back");
     private JButton btnRegister = new JButton("Register");
+    private JButton btnCalendar = new JButton("Select");
 
-
-    public SignInFrame(Client client){
+    public SignInFrame(Client client) throws IOException {
 
         super("Airplane Company - SignIn");
         this.client = client;
-        setSize(400,300);
+        BufferedReader input = new BufferedReader(new FileReader("res/Countries.txt"));
+        ArrayList<String> nations = new ArrayList<String>();
+        try {
+            String line = null;
+            while (( line = input.readLine()) != null){
+                nations.add(line);
+            }
+        }
+        catch (FileNotFoundException e) {
+            System.err.println("Error, file didn't exist.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            input.close();
+        }
+        String[] lineArray = nations.toArray(new String[]{});
+        cmbNation = new JComboBox<>(lineArray);
+        setSize(600,400);
         setResizable(true);
         setLocationRelativeTo(null);
         initComponents();
@@ -52,15 +79,17 @@ public class SignInFrame extends JFrame {
     }
 
     public void initComponents(){
-
         setLayout(new BorderLayout());
         pData.setLayout(new GridLayout(8,2));
+        pCalendar.setLayout(new GridLayout(1,2));
+        pCalendar.add(txtBirthday);
+        pCalendar.add(btnCalendar);
         pData.add(lblName);
         pData.add(txtName);
         pData.add(lblSurname);
         pData.add(txtSurname);
         pData.add(lblBirthday);
-        pData.add(txtBirthday);
+        pData.add(pCalendar);
         pData.add(lblNation);
         pData.add(cmbNation);
         pData.add(lblEmail);
@@ -88,6 +117,41 @@ public class SignInFrame extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 logInFrame = new LogInFrame(client);
                 setVisible(false);
+            }
+        });
+
+        btnRegister.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(txtPassword.getText().equals(txtConfermedPassword.getText())){
+                    JsonCommand jsonCommand = new JsonCommand("01", txtUsername.getText(), txtPassword.getText(),
+                            txtName.getText(), txtSurname.getText(), txtBirthday.getText(), cmbNation.getSelectedItem().toString(),
+                            txtEmail.getText());
+                    client.sendMessage(jsonCommand.getJsonString());
+                    if(client.getResponse().equals("true")){
+                        System.out.println("Registrazione avvenuta con successo!");
+                        User user = null;
+                        try {
+                            user = new User(txtUsername.getText(), txtPassword.getText(), txtName.getText(), txtSurname.getText(),
+                                    new SimpleDateFormat("dd-MM-yyyy").parse(txtBirthday.getText()),
+                                    cmbNation.getSelectedItem().toString(), txtEmail.getText());
+                            MainPageFrame mainPageFrame = new MainPageFrame(client, user);
+                        } catch (ParseException e1) {
+                            e1.printStackTrace();
+                        } catch (org.json.simple.parser.ParseException e1) {
+                            e1.printStackTrace();
+                        }
+                    }
+                    else
+                        System.out.println("Failed");
+                }
+            }
+        });
+
+        btnCalendar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                CalendarFrame calendarFrame = new CalendarFrame();
             }
         });
 
