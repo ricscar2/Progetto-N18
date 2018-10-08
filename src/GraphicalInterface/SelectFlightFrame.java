@@ -38,6 +38,7 @@ public class SelectFlightFrame extends JFrame {
         this.airlineCompany = airlineCompany;
         this.client = client;
         this.user = user;
+
         setSize(400,400);
         setLocationRelativeTo(null);
         setResizable(false);
@@ -48,12 +49,10 @@ public class SelectFlightFrame extends JFrame {
     }
 
     private void initComponents(){
+
         getAirports();
         this.lblSelectFlight = new JLabel("Hi " + user.getName() + "! Select Your Flight!");
         setLayout(new BorderLayout());
-        add(pTitle, BorderLayout.NORTH);
-        add(pDepArr, BorderLayout.CENTER);
-        add(pButton, BorderLayout.SOUTH);
         pTitle.add(lblSelectFlight);
         pDepArr.setLayout(new GridLayout(3,2));
         pDepArr.add(lblDeparture);
@@ -63,6 +62,12 @@ public class SelectFlightFrame extends JFrame {
         pDepArr.add(chkDepArr);
         pButton.add(btnBack);
         pButton.add(btnNext);
+        add(pTitle, BorderLayout.NORTH);
+        add(pDepArr, BorderLayout.CENTER);
+        add(pButton, BorderLayout.SOUTH);
+
+        cmbDeparture.setFont(new Font("SansSerif",Font.PLAIN,10));
+        cmbArrive.setFont(new Font("SansSerif",Font.PLAIN,10));
     }
 
     public void addListeners(){
