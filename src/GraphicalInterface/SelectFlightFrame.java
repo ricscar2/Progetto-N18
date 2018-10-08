@@ -38,9 +38,9 @@ public class SelectFlightFrame extends JFrame {
         this.airlineCompany = airlineCompany;
         this.client = client;
         this.user = user;
-        setSize(300,300);
+        setSize(400,400);
         setLocationRelativeTo(null);
-        setResizable(true);
+        setResizable(false);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         initComponents();
