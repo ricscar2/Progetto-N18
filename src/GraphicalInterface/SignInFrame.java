@@ -92,7 +92,7 @@ public class SignInFrame extends JFrame {
         setLayout(new BorderLayout());
         pData.setLayout(new GridLayout(8,2));
         pCalendar.setLayout(new GridLayout(1,2));
-        pCalendar.add(lblBirthday);
+        pCalendar.add(lblDate);
         pCalendar.add(btnCalendar);
         pData.add(lblName);
         pData.add(txtName);
@@ -135,28 +135,25 @@ public class SignInFrame extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 try{
                     if(!txtUsername.getText().equals("") && !txtSurname.getText().equals("") && !lblDate.getText().equals("") && !txtEmail.getText().equals("") && !txtName.getText().equals("") && !txtPassword.equals("") && !txtConfermedPassword.getText().equals("") ){
-                    if(txtPassword.getText().equals(txtConfermedPassword.getText())){
-                    JsonCommand jsonCommand = new JsonCommand("01", txtUsername.getText(), txtPassword.getText(),
-                            txtName.getText(), txtSurname.getText(), lblDate.getText(), cmbNation.getSelectedItem().toString(),
-                            txtEmail.getText());
-                    client.sendMessage(jsonCommand.getJsonString());
-                    if(client.getResponse().equals("true")){
-                        System.out.println("Registrazione avvenuta con successo!");
-                        User user = null;
-                        try {
-                            user = new User(txtUsername.getText(), txtPassword.getText(), txtName.getText(), txtSurname.getText(),
-                                    new SimpleDateFormat("dd-MM-yyyy").parse(lblDate.getText()),
-                                    cmbNation.getSelectedItem().toString(), txtEmail.getText());
+                    if(txtPassword.getText().equals(txtConfermedPassword.getText())) {
+                        JsonCommand jsonCommand = new JsonCommand("01", txtUsername.getText(), txtPassword.getText(),
+                                txtName.getText(), txtSurname.getText(), lblDate.getText(), cmbNation.getSelectedItem().toString(),
+                                txtEmail.getText());
+                        client.sendMessage(jsonCommand.getJsonString());
+                        if (client.getResponse().equals("true")) {
+                            System.out.println("Registrazione avvenuta con successo!");
+                            User user = null;
+                            try {
+                                user = new User(txtUsername.getText(), txtPassword.getText(), txtName.getText(), txtSurname.getText(),
+                                        new SimpleDateFormat("dd-MM-yyyy").parse(lblDate.getText()),
+                                        cmbNation.getSelectedItem().toString(), txtEmail.getText());
+                            } catch (ParseException e1) {
+                                e1.printStackTrace();
+                            }
                             MainPageFrame mainPageFrame = new MainPageFrame(client, user);
-                        } catch (ParseException e1) {
-                            e1.printStackTrace();
-                        } catch (org.json.simple.parser.ParseException e1) {
-                            e1.printStackTrace();
-                        }
-                    }
-                    else
-                        System.out.println("Failed");
-                } else{
+                        } else
+                            System.out.println("Failed");
+                    } else {
                         throw new DifferentPasswordException("Le password devono concidere");
                     }}else {
                         throw new AllFieldsAreMandatoryException("Tutti i campi devono essere obbligatori");
@@ -172,6 +169,8 @@ public class SignInFrame extends JFrame {
                     ExceptionFrame eFrame = new ExceptionFrame();
                     eFrame.initComponents();
                     eFrame.Print(s);
+                } catch (org.json.simple.parser.ParseException e1) {
+                    e1.printStackTrace();
                 }
             }
         });
