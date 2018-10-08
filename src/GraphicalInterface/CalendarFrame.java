@@ -46,6 +46,8 @@ public class CalendarFrame extends JFrame {
     }
 
         public void initComponents(){
+
+
             txtDay.setFont(new Font("SansSerif", Font.PLAIN, 10));
             cmbMonth.setFont(new Font("SansSerif", Font.PLAIN, 10));
             cmbYear.setFont(new Font("SansSerif", Font.PLAIN, 10));
@@ -100,7 +102,8 @@ public class CalendarFrame extends JFrame {
 
 
             pData.add(lblDay);
-            pData.add(txtDay);
+            //pData.add(txtDay);
+            pData.add(giorno30);
             pData.add(lblMonth);
             pData.add(cmbMonth);
             pData.add(lblYear);
@@ -109,6 +112,9 @@ public class CalendarFrame extends JFrame {
             pButton.setLayout(new FlowLayout());
             pButton.add(btnSelect);
             add(pButton,BorderLayout.SOUTH);
+
+            initFrame.setVisible(false);
+            addListeners();
         }
 
 

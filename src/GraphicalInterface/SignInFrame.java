@@ -118,6 +118,7 @@ public class SignInFrame extends JFrame {
         add(pSopra, BorderLayout.NORTH);
         add(pSotto,BorderLayout.CENTER);
 
+
     }
 
     public void addListeners(){
@@ -185,6 +186,7 @@ public class SignInFrame extends JFrame {
                 } catch (IOException e1) {
                     e1.printStackTrace();
                 }
+
                 calendarFrame.setInitFrame(SignInFrame.this);
             }
 
