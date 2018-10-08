@@ -36,6 +36,7 @@ public class MainPageFrame extends JFrame {
         super("Airline Company");
         setSize(480,350);
         setVisible(true);
+        setResizable(false);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         Font f = new Font("",Font.HANGING_BASELINE,10);
