@@ -31,12 +31,13 @@ public class CalendarFrame extends JFrame {
             months = new String[]{"January", "February", "March", "April", "May", "June", "July", "August", "September",
                     "October", "November", "December"};
             cmbMonth = new JComboBox<>(months);
+            cmbYear = new JComboBox<>(CalcoloAnni());
             setSize(600,150);
             setResizable(false);
             setLocationRelativeTo(null);
             initComponents();
             //addListeners();
-            setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
             this.setVisible(true);
         }
 
