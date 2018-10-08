@@ -6,9 +6,12 @@ import Web.Client;
 import User.User;
 import Web.JsonCommand;
 import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class SelectFlightFrame extends JFrame {
@@ -62,7 +65,19 @@ public class SelectFlightFrame extends JFrame {
         pButton.add(btnNext);
     }
 
-    private void addListeners(){
+    public void addListeners(){
+
+        btnBack.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    MainPageFrame mainPageFrame = new MainPageFrame(client, user);
+                    setVisible(false);
+                } catch (ParseException e1) {
+                    e1.printStackTrace();
+                }
+            }
+        });
 
     }
 
