@@ -10,9 +10,9 @@ import org.json.simple.parser.ParseException;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import java.io.IOException;
+import java.security.Key;
 import java.text.SimpleDateFormat;
 
 public class LogInFrame extends JFrame {
@@ -37,13 +37,17 @@ public class LogInFrame extends JFrame {
         setLocationRelativeTo(null);
 		initComponents();
 		addListeners();
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
 
     }
 
+
+
+
     public void initComponents(){
-		
+
 		txtUsername.setFont(new Font("SansSerif", Font.PLAIN, 15));
         txtPassword.setFont(new Font("SansSerif", Font.PLAIN, 15));
 
@@ -58,6 +62,8 @@ public class LogInFrame extends JFrame {
         pButton.add(btnSignin);
         pButton.add(btnLogin);
         add(pButton,BorderLayout.SOUTH);
+
+
 
     }
 
@@ -89,7 +95,48 @@ public class LogInFrame extends JFrame {
                     }
                 }
             }
+
+
         });
+
+
+       txtPassword.addKeyListener(new KeyListener() {
+           @Override
+           public void keyTyped(KeyEvent e) {
+
+           }
+
+           @Override
+           public void keyPressed(KeyEvent e) {
+                if(e.getKeyCode() == KeyEvent.VK_ENTER){
+                    btnLogin.doClick();
+                }
+           }
+
+           @Override
+           public void keyReleased(KeyEvent e) {
+
+           }
+       });
+
+       txtUsername.addKeyListener(new KeyListener() {
+           @Override
+           public void keyTyped(KeyEvent e) {
+
+           }
+
+           @Override
+           public void keyPressed(KeyEvent e) {
+               if(e.getKeyCode() == KeyEvent.VK_ENTER){
+                    
+               }
+           }
+
+           @Override
+           public void keyReleased(KeyEvent e) {
+
+           }
+       });
 
         btnSignin.addActionListener(new ActionListener() {
             @Override
@@ -103,6 +150,12 @@ public class LogInFrame extends JFrame {
             }
         });
 
+
     }
+
+
+
+
+
 
 }

@@ -63,11 +63,6 @@ public class MainPageFrame extends JFrame {
             JOptionPane.showMessageDialog(this, "Image loading error!");
         }
 
-
-
-
-
-
         ImageIcon imm = new ImageIcon(img);
         JLabel lbl = new JLabel(imm);
         add(lbl,BorderLayout.CENTER);
@@ -103,6 +98,8 @@ public class MainPageFrame extends JFrame {
 
 
         });
+
+
 
     }
 
