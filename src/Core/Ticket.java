@@ -10,6 +10,6 @@ public class Ticket {
     private Baggage baggage;
     private int seat;
     private boolean checked;
-
+/*La classe Ticket è costituita da una stringa id che identifica il biglietto,vieni indicato il proprietario,il volo che viene  */
 
 }

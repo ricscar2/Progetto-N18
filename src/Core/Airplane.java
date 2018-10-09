@@ -8,3 +8,5 @@ public class Airplane {
     private List <Seat> seats;
 
 }
+
+//La classe Airplane contiene una stringa che identifica l'aereo,e una lista dei posti sull'aereo,viene utilizzata nella classe Flight

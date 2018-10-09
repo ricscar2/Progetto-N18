@@ -45,5 +45,5 @@ public class Company {
         }
         return airportsNames;
     }
-
+/*La classe Company ha un oggetto Client,una ArrayList di Airports ed una ArrayList di Flights     */
 }
