@@ -152,6 +152,7 @@ public class SignInFrame extends JFrame {
                                 e1.printStackTrace();
                             }
                             MainPageFrame mainPageFrame = new MainPageFrame(client, user);
+                            setVisible(false);
                         } else
                             System.out.println("Failed");
                     } else {
