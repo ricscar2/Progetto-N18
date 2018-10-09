@@ -1,16 +1,11 @@
 package Database;
 
-import User.User;
-import Web.JsonCommand;
-import Web.JsonResponse;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Queries {
 
@@ -46,13 +41,18 @@ public class Queries {
     }
 
     public static String getUserInfo(Statement dbStatement, String username) throws SQLException {
-        JsonResponse user = null;
+        JSONObject user = new JSONObject();
         ResultSet myRs = dbStatement.executeQuery("select * from users where username = '" + username + "'");
         while (myRs.next()) {
-            user = new JsonResponse(username, myRs.getString("pwd"), myRs.getString("nome"), myRs.getString("surname"),
-                    myRs.getString("birthdate"), myRs.getString("nation"), myRs.getString("email"));
+            user.put("usr", username);
+            user.put("pwd", myRs.getString("pwd"));
+            user.put("name", myRs.getString("nome"));
+            user.put("surname", myRs.getString("surname"));
+            user.put("birthdate", myRs.getString("birthdate"));
+            user.put("nation", myRs.getString("nation"));
+            user.put("email", myRs.getString("email"));
         }
-        return user.getJsonString();
+        return user.toJSONString();
     }
 
 
@@ -70,6 +70,63 @@ public class Queries {
         }
         jsonRoot.put("airports", airports);
         return jsonRoot.toJSONString();
+    }
+
+    public static String getFlights(Statement dbStatement) throws SQLException {
+        JSONObject jsonRoot = new JSONObject();
+        JSONArray flights = new JSONArray();
+        ResultSet myRs = dbStatement.executeQuery("select * from flights");
+        while (myRs.next()){
+            JSONObject flight = new JSONObject();
+            flight.put("id", myRs.getString("id"));
+            flight.put("departure", myRs.getString("departure"));
+            flight.put("arrive", myRs.getString("arrive"));
+            flight.put("departuretime", myRs.getString("dated"));
+            flight.put("departuretime", myRs.getString("datea"));
+            flight.put("airplane", myRs.getString("airplane"));
+            flights.add(flight);
+        }
+        jsonRoot.put("flights", flights);
+        return jsonRoot.toJSONString();
+    }
+
+    public static String getAirplanes(Statement dbStatement) throws SQLException {
+        JSONObject jsonRoot = new JSONObject();
+        JSONArray airplanes = new JSONArray();
+        ResultSet myRs = dbStatement.executeQuery("select * from airplanes");
+        while (myRs.next()){
+            JSONObject airplane = new JSONObject();
+            airplane.put("id", myRs.getString("id"));
+            airplane.put("economy", myRs.getString("economy"));
+            airplane.put("business", myRs.getString("business"));
+            airplanes.add(airplane);
+        }
+        jsonRoot.put("airplanes", airplanes);
+        return jsonRoot.toJSONString();
+    }
+
+    public static String getPaymentMethods(Statement dbStatement, String username) throws SQLException {
+        JSONObject jsonRoot = new JSONObject();
+        JSONArray paymentMethods = new JSONArray();
+        ResultSet myRs = dbStatement.executeQuery("select * from payments where holder = '" + username + "'");
+        while (myRs.next()){
+            JSONObject paymentMethod = new JSONObject();
+            paymentMethod.put("id", myRs.getString("id"));
+            paymentMethod.put("method", myRs.getString("method"));
+            paymentMethods.add(paymentMethod);
+        }
+        jsonRoot.put("paymentMethods", paymentMethods);
+        return jsonRoot.toJSONString();
+    }
+
+    public static boolean addPaymentMethod(Connection dbConnection, String id, String method, String holder) throws SQLException, ParseException {
+            String query = "INSERT INTO PAYMENTS (ID, METHOD, HOLDER) VALUES(?,?,?)";
+            PreparedStatement preparedStatement = dbConnection.prepareStatement(query);
+            preparedStatement.setString(1, id);
+            preparedStatement.setString(2, method);
+            preparedStatement.setString(3, holder);
+            preparedStatement.executeUpdate();
+            return true;
     }
 
 }

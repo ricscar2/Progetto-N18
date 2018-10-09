@@ -18,4 +18,7 @@ public class Airport {
         return name;
     }
 
+    public String getIATA() {
+        return IATA;
+    }
 }

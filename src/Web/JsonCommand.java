@@ -15,11 +15,34 @@ public class JsonCommand{
         jsonCommand.put("code", code);
     }
 
-    public JsonCommand(String code, String username, String password) {
+    public JsonCommand(String code, String username){
         jsonCommand = new JSONObject();
         jsonCommand.put("code", code);
-        jsonCommand.put("usr", username);
-        jsonCommand.put("pwd", password);
+        jsonCommand.put("username", username);
+    }
+
+    public JsonCommand(String code, String first, String second) {
+        jsonCommand = new JSONObject();
+        switch (code) {
+            case "00":
+                jsonCommand.put("code", code);
+                jsonCommand.put("usr", first);
+                jsonCommand.put("pwd", second);
+                break;
+            case "03":
+                jsonCommand.put("code", code);
+                jsonCommand.put("departure", first);
+                jsonCommand.put("arrive", second);
+                break;
+        }
+    }
+
+    public JsonCommand(String code, String id, String method, String holder){
+        jsonCommand = new JSONObject();
+        jsonCommand.put("code", code);
+        jsonCommand.put("id", id);
+        jsonCommand.put("method", method);
+        jsonCommand.put("holder", holder);
     }
 
     public JsonCommand(String code, String username, String password, String name, String surname,

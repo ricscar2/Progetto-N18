@@ -85,6 +85,14 @@ public class UserFrame extends JFrame {
             }
         });
 
+       btnPayments.addActionListener(new ActionListener() {
+           @Override
+           public void actionPerformed(ActionEvent e) {
+               PaymentMethodsFrame paymentMethodsFrame = new PaymentMethodsFrame(client, user);
+               setVisible(false);
+           }
+       });
+
     }
 
 }

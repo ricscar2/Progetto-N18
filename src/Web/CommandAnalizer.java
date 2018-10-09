@@ -44,6 +44,19 @@ public class CommandAnalizer {
                 return response;
             case "02":
                 return Queries.getAirports(dbStatement);
+            case "03":
+                return Queries.getFlights(dbStatement);
+            case "04":
+                return Queries.getAirplanes(dbStatement);
+            case "05":
+                return Queries.getPaymentMethods(dbStatement, jsonCommand.getParameter("username"));
+            case "06":
+                if( Queries.addPaymentMethod(dbConnection, jsonCommand.getParameter("id"), jsonCommand.getParameter("method"),
+                        jsonCommand.getParameter("holder")))
+                    response = "true";
+                else
+                    response = "false";
+                return response;
         }
         throw new CommandNotFoundException();
 
