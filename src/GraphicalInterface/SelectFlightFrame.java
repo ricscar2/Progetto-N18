@@ -49,9 +49,9 @@ public class SelectFlightFrame extends JFrame {
     }
 
     private void initComponents(){
-
         getAirports();
         this.lblSelectFlight = new JLabel("Hi " + user.getName() + "! Select Your Flight!");
+        lblSelectFlight.setFont(new Font("SansSerif",Font.PLAIN,20));
         setLayout(new BorderLayout());
         pTitle.add(lblSelectFlight);
         pDepArr.setLayout(new GridLayout(5,2));
@@ -66,8 +66,8 @@ public class SelectFlightFrame extends JFrame {
         add(pDepArr, BorderLayout.CENTER);
         add(pButton, BorderLayout.SOUTH);
 
-        lblDeparture.setFont(new Font("DIALOG",Font.HANGING_BASELINE,20));
-        lblArrive.setFont(new Font("DIALOG",Font.HANGING_BASELINE,20));
+        lblDeparture.setFont(new Font("DIALOG",Font.HANGING_BASELINE,15));
+        lblArrive.setFont(new Font("DIALOG",Font.HANGING_BASELINE,15));
         cmbDeparture.setFont(new Font("SansSerif",Font.PLAIN,10));
         cmbArrive.setFont(new Font("SansSerif",Font.PLAIN,10));
     }
@@ -83,6 +83,14 @@ public class SelectFlightFrame extends JFrame {
                 } catch (ParseException e1) {
                     e1.printStackTrace();
                 }
+            }
+        });
+
+        btnNext.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                BaggageFrame baggageFrame = new BaggageFrame(client,user);
+                setVisible(false);
             }
         });
 
