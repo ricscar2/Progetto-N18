@@ -132,7 +132,7 @@ public class SignInFrame extends JFrame {
                         System.out.println("Registrazione avvenuta con successo!");
                         User user = null;
                         try {
-                            user = new User(txtUsername.getText(), txtPassword.getText(), txtName.getText(), txtSurname.getText(),
+                            user = new User(client, txtUsername.getText(), txtPassword.getText(), txtName.getText(), txtSurname.getText(),
                                     new SimpleDateFormat("dd-MM-yyyy").parse(txtBirthday.getText()),
                                     cmbNation.getSelectedItem().toString(), txtEmail.getText());
                             MainPageFrame mainPageFrame = new MainPageFrame(client, user);

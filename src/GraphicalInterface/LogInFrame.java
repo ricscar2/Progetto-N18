@@ -74,7 +74,7 @@ public class LogInFrame extends JFrame {
                     try {
                         JSONParser jsonParser = new JSONParser();
                         JSONObject userInfo = (JSONObject) jsonParser.parse(client.getResponse());
-                        User user = new User((String) userInfo.get("usr"),(String) userInfo.get("pwd"),
+                        User user = new User(client, (String) userInfo.get("usr"),(String) userInfo.get("pwd"),
                                 (String) userInfo.get("name"), (String) userInfo.get("surname"),
                                 birthdayFormat.parse( (String) userInfo.get("birthdate")), (String) userInfo.get("nation"),
                                 (String) userInfo.get("email"));

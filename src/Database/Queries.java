@@ -105,4 +105,28 @@ public class Queries {
         return jsonRoot.toJSONString();
     }
 
+    public static String getPaymentMethods(Statement dbStatement, String username) throws SQLException {
+        JSONObject jsonRoot = new JSONObject();
+        JSONArray paymentMethods = new JSONArray();
+        ResultSet myRs = dbStatement.executeQuery("select * from payments where holder = '" + username + "'");
+        while (myRs.next()){
+            JSONObject paymentMethod = new JSONObject();
+            paymentMethod.put("id", myRs.getString("id"));
+            paymentMethod.put("method", myRs.getString("method"));
+            paymentMethods.add(paymentMethod);
+        }
+        jsonRoot.put("paymentMethods", paymentMethods);
+        return jsonRoot.toJSONString();
+    }
+
+    public static boolean addPaymentMethod(Connection dbConnection, String id, String method, String holder) throws SQLException, ParseException {
+            String query = "INSERT INTO PAYMENTS (ID, METHOD, HOLDER) VALUES(?,?,?)";
+            PreparedStatement preparedStatement = dbConnection.prepareStatement(query);
+            preparedStatement.setString(1, id);
+            preparedStatement.setString(2, method);
+            preparedStatement.setString(3, holder);
+            preparedStatement.executeUpdate();
+            return true;
+    }
+
 }

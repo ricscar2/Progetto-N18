@@ -15,6 +15,12 @@ public class JsonCommand{
         jsonCommand.put("code", code);
     }
 
+    public JsonCommand(String code, String username){
+        jsonCommand = new JSONObject();
+        jsonCommand.put("code", code);
+        jsonCommand.put("username", username);
+    }
+
     public JsonCommand(String code, String first, String second) {
         jsonCommand = new JSONObject();
         switch (code) {
@@ -29,6 +35,14 @@ public class JsonCommand{
                 jsonCommand.put("arrive", second);
                 break;
         }
+    }
+
+    public JsonCommand(String code, String id, String method, String holder){
+        jsonCommand = new JSONObject();
+        jsonCommand.put("code", code);
+        jsonCommand.put("id", id);
+        jsonCommand.put("method", method);
+        jsonCommand.put("holder", holder);
     }
 
     public JsonCommand(String code, String username, String password, String name, String surname,
