@@ -23,10 +23,10 @@ public class SelectFlightFrame extends JFrame {
     private JPanel pDepArr = new JPanel();
     private JPanel pButton = new JPanel();
     private JLabel lblSelectFlight;
-    private JLabel lblDeparture = new JLabel("Departure");
+    private JLabel lblDeparture = new JLabel("Departure :");
     private JComboBox cmbDeparture;
     private JComboBox cmbArrive;
-    private JLabel lblArrive = new JLabel("Arrive");
+    private JLabel lblArrive = new JLabel("Arrive :");
     private JCheckBox chkDepArr = new JCheckBox("Roundtrip");
     private JButton btnBack = new JButton("Back To Home Page");
     private JButton btnNext = new JButton("Next");
@@ -54,7 +54,7 @@ public class SelectFlightFrame extends JFrame {
         this.lblSelectFlight = new JLabel("Hi " + user.getName() + "! Select Your Flight!");
         setLayout(new BorderLayout());
         pTitle.add(lblSelectFlight);
-        pDepArr.setLayout(new GridLayout(3,2));
+        pDepArr.setLayout(new GridLayout(5,2));
         pDepArr.add(lblDeparture);
         pDepArr.add(cmbDeparture);
         pDepArr.add(lblArrive);
@@ -66,6 +66,8 @@ public class SelectFlightFrame extends JFrame {
         add(pDepArr, BorderLayout.CENTER);
         add(pButton, BorderLayout.SOUTH);
 
+        lblDeparture.setFont(new Font("DIALOG",Font.HANGING_BASELINE,20));
+        lblArrive.setFont(new Font("DIALOG",Font.HANGING_BASELINE,20));
         cmbDeparture.setFont(new Font("SansSerif",Font.PLAIN,10));
         cmbArrive.setFont(new Font("SansSerif",Font.PLAIN,10));
     }
@@ -84,7 +86,12 @@ public class SelectFlightFrame extends JFrame {
             }
         });
 
+
+
     }
+
+
+
 
     private void getAirports(){
         String[] lineArray = airlineCompany.getAirportsNames().toArray(new String[]{});
