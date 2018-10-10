@@ -26,7 +26,7 @@ public class BaggageFrame extends JFrame {
     private JLabel lblCountHand = new JLabel("-");
     private JButton btnPlusHand = new JButton("+");
     private JButton btnLessHand = new JButton("-");
-    private JLabel lbl23 = new JLabel("Baggage 23kg");
+    private JLabel lbl23 = new JLabel("Other Baggage");
     private JLabel lblCount23 = new JLabel("-");
     private JButton btnPlus23 = new JButton("+");
     private JButton btnLess23 = new JButton("-");
