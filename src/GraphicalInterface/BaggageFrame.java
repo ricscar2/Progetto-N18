@@ -15,21 +15,22 @@ public class BaggageFrame extends JFrame {
     private Client client;
     private User user;
     private Company airlineCompany;
+    private JPanel pSopra = new JPanel();
     private JPanel pTitle = new JPanel();
     private JPanel pInfo = new JPanel();
+    private  JPanel pinfo2 = new JPanel();
     private JPanel pButton = new JPanel();
     private JLabel lblTitle = new JLabel("Select your Baggage");
-    private JCheckBox chkHand = new JCheckBox("HandBaggage");
-
-
-    private JLabel lbl15 = new JLabel("Baggage 15kg");
-    private JLabel lblCount15 = new JLabel("-");
-    private JButton btnPlus15 = new JButton("+");
-    private JButton btnLess15 = new JButton("-");
+    private JLabel lblHand = new JLabel("Hand Baggage");
+    private JCheckBox hand = new JCheckBox();
+    private JLabel lblCountHand = new JLabel("-");
+    private JButton btnPlusHand = new JButton("+");
+    private JButton btnLessHand = new JButton("-");
     private JLabel lbl23 = new JLabel("Baggage 23kg");
     private JLabel lblCount23 = new JLabel("-");
     private JButton btnPlus23 = new JButton("+");
     private JButton btnLess23 = new JButton("-");
+    private int cont=0;
 
 
     private JButton btnNext = new JButton("Next");
@@ -39,7 +40,7 @@ public class BaggageFrame extends JFrame {
         super("Airline Company - Baggage's Info");
         this.user = user;
         this.client = client;
-        setSize(400,400);
+        setSize(400,200);
         setVisible(true);
         setResizable(false);
         setLocationRelativeTo(null);
@@ -50,24 +51,21 @@ public class BaggageFrame extends JFrame {
 
     public void initComponents(){
 
-
+        setLayout(new BorderLayout());
         pTitle.add(lblTitle);
         add(pTitle,BorderLayout.NORTH);
-        pInfo.setLayout(new GridLayout(3,4));
-        pInfo.add(lbl15);
-        pInfo.add(btnPlus15);
-        pInfo.add(lblCount15);
-        pInfo.add(btnLess15);
-        pInfo.add(chkHand);
-        pInfo.add(lbl23);
-        pInfo.add(btnPlus23);
-        pInfo.add(lblCount23);
-        pInfo.add(btnLess23);
-        add(pInfo,BorderLayout.CENTER);
-        //add(pInfo23,BorderLayout.CENTER);
+        pInfo.add(lblHand,BorderLayout.SOUTH);
+        pInfo.add(hand, BorderLayout.SOUTH);
 
+        pinfo2.add(lbl23,BorderLayout.SOUTH);
+        pinfo2.add(btnPlusHand, BorderLayout.SOUTH);
+        pinfo2.add(lblCountHand,BorderLayout.SOUTH);
+        pinfo2.add(btnLessHand,BorderLayout.SOUTH);
 
-        pButton.setLayout(new GridLayout(1,2));
+        pSopra.setLayout(new GridLayout(2,1));
+        pSopra.add(pInfo);
+        pSopra.add(pinfo2);
+        add(pSopra,BorderLayout.CENTER);
         pButton.add(btnBack);
         pButton.add(btnNext);
         add(pButton,BorderLayout.SOUTH);
@@ -82,6 +80,20 @@ public class BaggageFrame extends JFrame {
                     e1.printStackTrace();
                 }
 
+            }
+        });
+
+        btnLess23.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                lblCountHand.setText(Integer.toString(cont-1));
+            }
+        });
+
+        btnPlus23.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                lblCountHand.setText(Integer.toString(cont-1));
             }
         });
 

@@ -29,7 +29,7 @@ public class Client {
     public void startClient() throws IOException {
 
         System.out.println("Connection estabilished");
-        /*Scanner stdin = new Scanner(System.in);
+        Scanner stdin = new Scanner(System.in);
 
           try {
             while (true){
@@ -49,7 +49,7 @@ public class Client {
             socketIn.close();
             clientSocket.close();
         }
-*/
+
     }
 
     public void sendMessage(String message) {

@@ -1,10 +1,10 @@
 package GraphicalInterface;
 
-import Database.Database;
 import User.User;
 import Web.Client;
 import Web.JsonCommand;
-import Web.JsonResponse;
+
+
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -64,6 +64,7 @@ public class LogInFrame extends JFrame {
 
     public void addListeners(){
 
+
         btnLogin.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e){
@@ -75,11 +76,11 @@ public class LogInFrame extends JFrame {
                 } else {
                     try {
                         JSONParser jsonParser = new JSONParser();
-                        JsonResponse userInfo = new JsonResponse((JSONObject) jsonParser.parse(client.getResponse()));
-                        User user = new User(userInfo.getParameter("usr"), userInfo.getParameter("pwd"),
-                                userInfo.getParameter("name"), userInfo.getParameter("surname"),
-                                birthdayFormat.parse(userInfo.getParameter("birthdate")), userInfo.getParameter("nation"),
-                                userInfo.getParameter("email"));
+                        JSONObject userInfo = new JSONObject((JSONObject) jsonParser.parse(client.getResponse()));
+                        User user = new User(client,(String) userInfo.get("usr"),(String) userInfo.get("pwd"),
+                                (String) userInfo.get("name"), (String) userInfo.get("surname"),
+                                birthdayFormat.parse( (String) userInfo.get("birthdate")), (String) userInfo.get("nation"),
+                                (String) userInfo.get("email"));
                         mainPageFrame = new MainPageFrame(client, user);
                         System.out.println("Connected. Response: " + client.getResponse());
                         setVisible(false);
