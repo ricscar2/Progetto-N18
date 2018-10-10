@@ -56,5 +56,8 @@ public class Client {
 
     }
 
+    /*La classe Client è costituita da una stringa che indica il proprio ip,un intero che indica la porta con cui comunicherà con il server,un oggetto Socket che tramite l'indirzzo ip ed il numero di porta,permette la connessione al server.
+        * Un oggetto PrintWriter che ,ed un oggetto BufferReader che interagisce  */
+
 
 }
