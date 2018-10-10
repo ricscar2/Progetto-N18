@@ -22,4 +22,5 @@ public class Database {
     public Connection getConnection() {
         return connection;
     }
+    /*La classe Database viene utilizzata per creare la connessione tra java ed il database su mysql,è costiutita da un oggetto Connection,ed da un oggetto Statement */
 }

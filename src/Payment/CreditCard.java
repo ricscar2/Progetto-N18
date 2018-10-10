@@ -6,4 +6,6 @@ public class CreditCard extends Payment {
         super(PaymentType.CREDITCARD, balance);
     }
 
+    /*La classe CreditCard,estende la classe Payment,prende gli attributi della sua superclasse,ovvero il PaymentType ed il Balance  */
+
 }

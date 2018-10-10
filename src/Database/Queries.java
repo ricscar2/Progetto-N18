@@ -72,4 +72,7 @@ public class Queries {
         return jsonRoot.toJSONString();
     }
 
+    /*La classe queries permette la lettura delle queries su mysql direttamente da java,contiene i database di Airports e UserInfo.
+    Va inoltre ad inserire i dati, che vengono messi da tastiera al momento del signIn,all'interno delle tabelle su myql.  */
+
 }

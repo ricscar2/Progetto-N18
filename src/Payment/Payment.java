@@ -10,6 +10,8 @@ public abstract class Payment {
         this.balance = balance;
     }
 
+    /*La classe Payment è costituita da un tipo di pagamento ed un saldo del proprio conto.*/
+
 
 
 }
