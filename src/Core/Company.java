@@ -115,3 +115,6 @@ public class Company {
     }
 
 }
+
+/*La classe Company ha un oggetto Client,una ArrayList di Airports ed una ArrayList di Flights     */
+
