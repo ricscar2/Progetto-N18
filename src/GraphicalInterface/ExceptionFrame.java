@@ -9,7 +9,7 @@ public class ExceptionFrame extends JFrame {
 
     public ExceptionFrame() {
         super("Error!");
-        setSize(300,100);
+        setSize(350,150);
         setResizable(false);
         setLocationRelativeTo(null);
         setVisible(true);

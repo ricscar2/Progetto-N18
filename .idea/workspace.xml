@@ -35,10 +35,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SelectFlightFrame2.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SelectFlightFrame2.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/SelectFlightFrame2.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="70">
+            <state relative-caret-position="1176">
               <caret line="80" column="75" lean-forward="false" selection-start-line="80" selection-start-column="75" selection-end-line="80" selection-end-column="75" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -47,11 +47,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ExceptionFrame.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SelectFlight.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/SelectFlight.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-686">
+              <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ExceptionFrame.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/ExceptionFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+            <state relative-caret-position="210">
+              <caret line="11" column="22" lean-forward="false" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -60,8 +70,18 @@
       <file leaf-file-name="Airplane.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Core/Airplane.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="441">
-              <caret line="23" column="1" lean-forward="false" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
+            <state relative-caret-position="210">
+              <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Company.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Core/Company.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1239">
+              <caret line="69" column="54" lean-forward="true" selection-start-line="69" selection-start-column="54" selection-end-line="69" selection-end-column="54" />
               <folding />
             </state>
           </provider>
@@ -132,7 +152,6 @@
         <option value="$PROJECT_DIR$/src/Test/MainPageTest1.java" />
         <option value="$PROJECT_DIR$/src/GraphicalInterface/SelectFlight.java" />
         <option value="$PROJECT_DIR$/src/Web/JsonResponse.java" />
-        <option value="$PROJECT_DIR$/src/GraphicalInterface/ExceptionFrame.java" />
         <option value="$PROJECT_DIR$/src/Core/BaggageType.java" />
         <option value="$PROJECT_DIR$/src/Core/Baggage.java" />
         <option value="$PROJECT_DIR$/src/Core/Seat.java" />
@@ -167,6 +186,7 @@
         <option value="$PROJECT_DIR$/src/GraphicalInterface/CalendarFrame.java" />
         <option value="$PROJECT_DIR$/src/Eccezioni/SameAirportException.java" />
         <option value="$PROJECT_DIR$/src/GraphicalInterface/SelectFlightFrame2.java" />
+        <option value="$PROJECT_DIR$/src/GraphicalInterface/ExceptionFrame.java" />
       </list>
     </option>
   </component>
@@ -925,14 +945,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/SelectFlight.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-336">
-          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Core/TempTicket.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="693">
@@ -968,22 +980,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Core/Airplane.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="23" column="1" lean-forward="false" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Core/Company.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="69" column="54" lean-forward="true" selection-start-line="69" selection-start-column="54" selection-end-line="69" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/CalendarFrame.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="287">
@@ -1000,26 +996,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/PaymentMethodsFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/ExceptionFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/SignInFrame.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="630">
           <caret line="173" column="43" lean-forward="false" selection-start-line="173" selection-start-column="43" selection-end-line="173" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/SelectFlightFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="98" column="55" lean-forward="false" selection-start-line="98" selection-start-column="55" selection-end-line="98" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/SelectFlightFrame2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1176">
+          <caret line="80" column="75" lean-forward="false" selection-start-line="80" selection-start-column="75" selection-end-line="80" selection-end-column="75" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1037,21 +1035,43 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/SelectFlightFrame.java">
+    <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/PaymentMethodsFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="98" column="55" lean-forward="false" selection-start-line="98" selection-start-column="55" selection-end-line="98" selection-end-column="55" />
+        <state relative-caret-position="84">
+          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/SelectFlightFrame2.java">
+    <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/SelectFlight.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="70">
-          <caret line="80" column="75" lean-forward="false" selection-start-line="80" selection-start-column="75" selection-end-line="80" selection-end-column="75" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="-686">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Core/Company.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1239">
+          <caret line="69" column="54" lean-forward="true" selection-start-line="69" selection-start-column="54" selection-end-line="69" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Core/Airplane.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/ExceptionFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="11" column="22" lean-forward="false" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>
