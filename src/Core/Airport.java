@@ -14,6 +14,18 @@ public class Airport {
         this.nation = nation;
     }
 
+    public String getIATA() {
+        return IATA;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public String getNation() {
+        return nation;
+    }
+
     public String getName() {
         return name;
     }

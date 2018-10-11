@@ -2,9 +2,12 @@ package GraphicalInterface;
 
 import Core.Airport;
 import Core.Company;
+import Core.Flight;
+import Core.TempTicket;
 import Web.Client;
 import User.User;
 import Web.JsonCommand;
+import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
@@ -89,14 +92,24 @@ public class SelectFlightFrame extends JFrame {
         btnNext.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                BaggageFrame baggageFrame = new BaggageFrame(client,user);
+                boolean roundtrip = false;
+                if(chkDepArr.isSelected())
+                    roundtrip = true;
+                TempTicket tempTicket = new TempTicket(user, airlineCompany.getAirportByName(cmbDeparture.getSelectedItem().toString()),
+                        airlineCompany.getAirportByName(cmbArrive.getSelectedItem().toString()), roundtrip);
+                SelectFlightFrame2 selectFlightFrame2 = new SelectFlightFrame2(client, user, airlineCompany, tempTicket);
                 setVisible(false);
+
             }
         });
 
 
 
     }
+
+
+
+
 
 
 
