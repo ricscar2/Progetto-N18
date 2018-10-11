@@ -2,6 +2,7 @@ package GraphicalInterface;
 
 import Core.Company;
 import Core.TempTicket;
+import Eccezioni.SameAirportException;
 import User.User;
 import Web.Client;
 
@@ -75,12 +76,27 @@ public class SelectFlightFrame2 extends JFrame {
         ArrayList<String> goingFlights = airlineCompany.getSelectedFlights(tempTicket.getDepartureIATA(), tempTicket.getArriveIATA());
         String[] goingArray = goingFlights.toArray(new String[]{});
         this.cmbGoing = new JComboBox<>(goingArray);
-        if (tempTicket.isRoundtrip() == true){
-            ArrayList <String> returnFlights = airlineCompany.getSelectedFlights(tempTicket.getArriveIATA(), tempTicket.getDepartureIATA());
-            String[] returnArray = returnFlights.toArray(new String[]{});
-            this.cmbReturn = new JComboBox<>(returnArray);
-            pDepArr.add(lblReturn);
-            pDepArr.add(cmbReturn);
+        try {
+            if(tempTicket.getDepartureIATA().equals(tempTicket.getArriveIATA())) {
+                throw new SameAirportException("Aereoporto Partenza/Arrivo Uguale");
+
+            }
+            if (tempTicket.isRoundtrip() == true) {
+                    ArrayList<String> returnFlights = airlineCompany.getSelectedFlights(tempTicket.getArriveIATA(), tempTicket.getDepartureIATA());
+                    String[] returnArray = returnFlights.toArray(new String[]{});
+                    this.cmbReturn = new JComboBox<>(returnArray);
+                    pDepArr.add(lblReturn);
+                    pDepArr.add(cmbReturn);
+                }
+
+        }catch (SameAirportException e1){
+            setVisible(false);
+            SelectFlightFrame selectFlightFrame = new SelectFlightFrame(client,user,airlineCompany);
+            String s = e1.getMessage();
+            ExceptionFrame eFrame = new ExceptionFrame();
+            eFrame.initComponents();
+            eFrame.Print(s);
+
         }
     }
 
