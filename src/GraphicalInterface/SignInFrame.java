@@ -1,6 +1,8 @@
 package GraphicalInterface;
 
 import Database.Queries;
+import Eccezioni.AllFieldsAreMandatoryException;
+import Eccezioni.DifferentPasswordException;
 import User.User;
 import Web.Client;
 import Web.JsonCommand;
@@ -32,7 +34,7 @@ public class SignInFrame extends JFrame {
     private JLabel lblSurname = new JLabel("Surname: ");
     private JTextField txtSurname = new JTextField();
     private JLabel lblBirthday = new JLabel("Birthdate: ");
-    private JTextField txtBirthday = new JTextField();
+    private JLabel lblDate = new JLabel("'Select a Date'");
     private JLabel lblUsername = new JLabel("Username: ");
     private JTextField txtUsername = new JTextField();
     private JLabel lblPassword = new JLabel("Password: ");
@@ -78,11 +80,19 @@ public class SignInFrame extends JFrame {
 
     }
 
+    public void addData(String s){
+        lblDate.setText(s);
+        lblDate.setFont(new Font("SansSerif", Font.PLAIN, 10));
+    }
+
+
+
     public void initComponents(){
+        lblDate.setFont(new Font("SansSerif",Font.PLAIN,10));
         setLayout(new BorderLayout());
         pData.setLayout(new GridLayout(8,2));
         pCalendar.setLayout(new GridLayout(1,2));
-        pCalendar.add(txtBirthday);
+        pCalendar.add(lblDate);
         pCalendar.add(btnCalendar);
         pData.add(lblName);
         pData.add(txtName);
@@ -108,6 +118,7 @@ public class SignInFrame extends JFrame {
         add(pSopra, BorderLayout.NORTH);
         add(pSotto,BorderLayout.CENTER);
 
+
     }
 
     public void addListeners(){
@@ -123,27 +134,45 @@ public class SignInFrame extends JFrame {
         btnRegister.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(txtPassword.getText().equals(txtConfermedPassword.getText())){
-                    JsonCommand jsonCommand = new JsonCommand("01", txtUsername.getText(), txtPassword.getText(),
-                            txtName.getText(), txtSurname.getText(), txtBirthday.getText(), cmbNation.getSelectedItem().toString(),
-                            txtEmail.getText());
-                    client.sendMessage(jsonCommand.getJsonString());
-                    if(client.getResponse().equals("true")){
-                        System.out.println("Registrazione avvenuta con successo!");
-                        User user = null;
-                        try {
-                            user = new User(client, txtUsername.getText(), txtPassword.getText(), txtName.getText(), txtSurname.getText(),
-                                    new SimpleDateFormat("dd-MM-yyyy").parse(txtBirthday.getText()),
-                                    cmbNation.getSelectedItem().toString(), txtEmail.getText());
+                try{
+                    if(!txtUsername.getText().equals("") && !txtSurname.getText().equals("") && !lblDate.getText().equals("") && !txtEmail.getText().equals("") && !txtName.getText().equals("") && !txtPassword.equals("") && !txtConfermedPassword.getText().equals("") ){
+                    if(txtPassword.getText().equals(txtConfermedPassword.getText())) {
+                        JsonCommand jsonCommand = new JsonCommand("01", txtUsername.getText(), txtPassword.getText(),
+                                txtName.getText(), txtSurname.getText(), lblDate.getText(), cmbNation.getSelectedItem().toString(),
+                                txtEmail.getText());
+                        client.sendMessage(jsonCommand.getJsonString());
+                        if (client.getResponse().equals("true")) {
+                            System.out.println("Registrazione avvenuta con successo!");
+                            User user = null;
+                            try {
+                                user = new User(client,txtUsername.getText(), txtPassword.getText(), txtName.getText(), txtSurname.getText(),
+                                        new SimpleDateFormat("dd-MM-yyyy").parse(lblDate.getText()),
+                                        cmbNation.getSelectedItem().toString(), txtEmail.getText());
+                            } catch (ParseException e1) {
+                                e1.printStackTrace();
+                            }
                             MainPageFrame mainPageFrame = new MainPageFrame(client, user);
-                        } catch (ParseException e1) {
-                            e1.printStackTrace();
-                        } catch (org.json.simple.parser.ParseException e1) {
-                            e1.printStackTrace();
-                        }
+                            setVisible(false);
+                        } else
+                            System.out.println("Failed");
+                    } else {
+                        throw new DifferentPasswordException("Le password devono concidere");
+                    }}else {
+                        throw new AllFieldsAreMandatoryException("Tutti i campi devono essere obbligatori");
                     }
-                    else
-                        System.out.println("Failed");
+
+                } catch (DifferentPasswordException e1) {
+                    String s = e1.getMessage();
+                    ExceptionFrame eFrame = new ExceptionFrame();
+                    eFrame.initComponents();
+                    eFrame.Print(s);
+                } catch (AllFieldsAreMandatoryException e2){
+                    String s = e2.getMessage();
+                    ExceptionFrame eFrame = new ExceptionFrame();
+                    eFrame.initComponents();
+                    eFrame.Print(s);
+                } catch (org.json.simple.parser.ParseException e1) {
+                    e1.printStackTrace();
                 }
             }
         });
@@ -151,8 +180,19 @@ public class SignInFrame extends JFrame {
         btnCalendar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                CalendarFrame calendarFrame = new CalendarFrame();
+                CalendarFrame calendarFrame=null;
+                try {
+                    calendarFrame = new CalendarFrame(client);
+                    setVisible(false);
+
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+
+                calendarFrame.setInitFrame(SignInFrame.this);
+
             }
+
         });
 
     }
