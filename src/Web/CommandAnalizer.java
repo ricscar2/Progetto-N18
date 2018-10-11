@@ -57,6 +57,8 @@ public class CommandAnalizer {
                 else
                     response = "false";
                 return response;
+            /*case "07":
+                return Queries.getSelectedFlights(dbStatement, jsonCommand.getParameter("departure"), jsonCommand.getParameter("arrive"));*/
         }
         throw new CommandNotFoundException();
 

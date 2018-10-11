@@ -20,6 +20,10 @@ public class TempTicket {
         this.roundtrip = roundtrip;
     }
 
+    public boolean isRoundtrip() {
+        return roundtrip;
+    }
+
     public void setId(String id) {
         this.id = id;
     }
@@ -36,5 +40,12 @@ public class TempTicket {
         return arrive;
     }
 
+    public String getDepartureIATA(){
+        return departure.getIATA();
+    }
+
+    public String getArriveIATA(){
+        return arrive.getIATA();
+    }
 
 }

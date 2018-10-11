@@ -29,7 +29,7 @@ public class JsonCommand{
                 jsonCommand.put("usr", first);
                 jsonCommand.put("pwd", second);
                 break;
-            case "03":
+            case "07":
                 jsonCommand.put("code", code);
                 jsonCommand.put("departure", first);
                 jsonCommand.put("arrive", second);

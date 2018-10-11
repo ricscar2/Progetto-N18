@@ -18,6 +18,14 @@ public class Flight {
         this.airplane = airplane;
     }
 
+    public String getDepartureIATA() {
+        return departure.getIATA();
+    }
+
+    public String getArriveIATA() {
+        return arrive.getIATA();
+    }
+
     public String getDepartureName() {
         return departure.getName();
     }
@@ -26,5 +34,10 @@ public class Flight {
         return arrive.getName();
     }
 
-
+    @Override
+    public String toString() {
+        String s = "Departure: " + departure.getName() + " " + departureTime + " - Arrive: " + arrive.getName() + " "
+                + arriveTime;
+        return s;
+    }
 }

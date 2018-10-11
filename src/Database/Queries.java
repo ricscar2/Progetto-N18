@@ -82,7 +82,7 @@ public class Queries {
             flight.put("departure", myRs.getString("departure"));
             flight.put("arrive", myRs.getString("arrive"));
             flight.put("departuretime", myRs.getString("dated"));
-            flight.put("departuretime", myRs.getString("datea"));
+            flight.put("arrivetime", myRs.getString("datea"));
             flight.put("airplane", myRs.getString("airplane"));
             flights.add(flight);
         }
@@ -128,5 +128,23 @@ public class Queries {
             preparedStatement.executeUpdate();
             return true;
     }
+
+   /* public static String getSelectedFlights(Statement dbStatement, String departure, String arrive) throws SQLException {
+        JSONObject jsonRoot = new JSONObject();
+        JSONArray selectedFlights = new JSONArray();
+        ResultSet myRs = dbStatement.executeQuery("select * from flights where departure = '" + departure + "' AND arrive = '" + arrive+"'");
+        while (myRs.next()){
+            JSONObject sFlight = new JSONObject();
+            sFlight.put("id", myRs.getString("id"));
+            sFlight.put("departure", myRs.getString("departure"));
+            sFlight.put("arrive", myRs.getString("arrive"));
+            sFlight.put("departuretime", myRs.getString("dated"));
+            sFlight.put("departuretime", myRs.getString("datea"));
+            sFlight.put("airplane", myRs.getString("airplane"));
+            selectedFlights.add(sFlight);
+        }
+        jsonRoot.put("selectedFlights", selectedFlights);
+        return jsonRoot.toJSONString();
+    }*/
 
 }
