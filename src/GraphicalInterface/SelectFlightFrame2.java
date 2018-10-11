@@ -65,7 +65,7 @@ public class SelectFlightFrame2 extends JFrame {
         btnBack.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SelectFlightFrame selectFlightFrame1 = new SelectFlightFrame(client, user, airlineCompany);
+                SelectFlightFrame selectFlightFrame = new SelectFlightFrame(client, user, airlineCompany);
                 setVisible(false);
             }
         });
@@ -82,7 +82,7 @@ public class SelectFlightFrame2 extends JFrame {
 
             }
             if (tempTicket.isRoundtrip() == true) {
-                    ArrayList<String> returnFlights = airlineCompany.getSelectedFlights(tempTicket.getArriveIATA(), tempTicket.getDepartureIATA());
+                    ArrayList<String> returnFlights = airlineCompany.getSelectedFlights(tempTicket.getDepartureIATA(),tempTicket.getArriveIATA() );
                     String[] returnArray = returnFlights.toArray(new String[]{});
                     this.cmbReturn = new JComboBox<>(returnArray);
                     pDepArr.add(lblReturn);
