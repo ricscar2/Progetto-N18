@@ -71,6 +71,14 @@ public class SelectFlightFrame2 extends JFrame {
             }
         });
 
+        btnNext.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                BaggageFrame baggageFrame = new BaggageFrame(client,user);
+                setVisible(false);
+            }
+        });
+
     }
 
     private void getFlights(){
@@ -78,7 +86,7 @@ public class SelectFlightFrame2 extends JFrame {
         String[] goingArray = goingFlights.toArray(new String[]{});
         this.cmbGoing = new JComboBox<>(goingArray);
         try {
-            if(goingFlights.size() == 0){
+            if(goingFlights.size() == 0 && tempTicket.getDepartureIATA()!=tempTicket.getArriveIATA()){
                 throw new FlightNotAvailableException("Nessun Volo disponibile");
             }
             else if(tempTicket.getDepartureIATA().equals(tempTicket.getArriveIATA())) {
