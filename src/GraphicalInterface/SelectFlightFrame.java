@@ -4,6 +4,9 @@ import Core.Airport;
 import Core.Company;
 import Core.Flight;
 import Core.TempTicket;
+import Eccezioni.FlightNotAvailableException;
+import Eccezioni.SameAirportException;
+import Eccezioni.SameCityException;
 import Web.Client;
 import User.User;
 import Web.JsonCommand;
@@ -97,8 +100,38 @@ public class SelectFlightFrame extends JFrame {
                     roundtrip = true;
                 TempTicket tempTicket = new TempTicket(user, airlineCompany.getAirportByName(cmbDeparture.getSelectedItem().toString()),
                         airlineCompany.getAirportByName(cmbArrive.getSelectedItem().toString()), roundtrip);
-                SelectFlightFrame2 selectFlightFrame2 = new SelectFlightFrame2(client, user, airlineCompany, tempTicket);
-                setVisible(false);
+                ArrayList<String> goingFlights = airlineCompany.getSelectedFlights(tempTicket.getDepartureIATA(), tempTicket.getArriveIATA());
+                try {
+                    if (tempTicket.getDeparture().getCity().equals(tempTicket.getArrive().getCity()) && tempTicket.getDepartureIATA() != tempTicket.getArriveIATA()) {
+                        throw new SameCityException("Le città di partenza ed arrivo devono essere diverse");
+                    }
+                    if (goingFlights.size() == 0 && tempTicket.getDepartureIATA() != tempTicket.getArriveIATA()) {
+                        throw new FlightNotAvailableException("Nessun Volo disponibile");
+                    } else if (tempTicket.getDepartureIATA().equals(tempTicket.getArriveIATA())) {
+                        throw new SameAirportException("Aereoporto Partenza/Arrivo Uguale");
+
+                    }
+                    SelectFlightFrame2 selectFlightFrame2 = new SelectFlightFrame2(client, user, airlineCompany, tempTicket);
+                    setVisible(false);
+                } catch (SameAirportException e1) {
+                    String s = e1.getMessage();
+                    ExceptionFrame eFrame = new ExceptionFrame();
+                    eFrame.initComponents();
+                    eFrame.Print(s);
+                } catch (FlightNotAvailableException e2) {
+
+                    String s = e2.getMessage();
+                    ExceptionFrame eFrame = new ExceptionFrame();
+                    eFrame.initComponents();
+                    eFrame.Print(s);
+                } catch (SameCityException e3) {
+
+                    String s = e3.getMessage();
+                    ExceptionFrame eFrame = new ExceptionFrame();
+                    eFrame.initComponents();
+                    eFrame.Print(s);
+                }
+
 
             }
         });
