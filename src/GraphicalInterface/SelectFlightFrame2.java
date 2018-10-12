@@ -2,6 +2,7 @@ package GraphicalInterface;
 
 import Core.Company;
 import Core.TempTicket;
+import Eccezioni.FlightNotAvailableException;
 import Eccezioni.SameAirportException;
 import User.User;
 import Web.Client;
@@ -77,7 +78,10 @@ public class SelectFlightFrame2 extends JFrame {
         String[] goingArray = goingFlights.toArray(new String[]{});
         this.cmbGoing = new JComboBox<>(goingArray);
         try {
-            if(tempTicket.getDepartureIATA().equals(tempTicket.getArriveIATA())) {
+            if(goingFlights.size() == 0){
+                throw new FlightNotAvailableException("Nessun Volo disponibile");
+            }
+            else if(tempTicket.getDepartureIATA().equals(tempTicket.getArriveIATA())) {
                 throw new SameAirportException("Aereoporto Partenza/Arrivo Uguale");
 
             }
@@ -96,7 +100,13 @@ public class SelectFlightFrame2 extends JFrame {
             ExceptionFrame eFrame = new ExceptionFrame();
             eFrame.initComponents();
             eFrame.Print(s);
-
+        }catch (FlightNotAvailableException e2){
+            setVisible(false);
+            SelectFlightFrame selectFlightFrame = new SelectFlightFrame(client,user,airlineCompany);
+            String s = e2.getMessage();
+            ExceptionFrame eFrame = new ExceptionFrame();
+            eFrame.initComponents();
+            eFrame.Print(s);
         }
     }
 
