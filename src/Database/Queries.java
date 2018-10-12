@@ -87,7 +87,7 @@ public class Queries {
             flight.put("departure", myRs.getString("departure"));
             flight.put("arrive", myRs.getString("arrive"));
             flight.put("departuretime", myRs.getString("dated"));
-            flight.put("departuretime", myRs.getString("datea"));
+            flight.put("arrivetime", myRs.getString("datea"));
             flight.put("airplane", myRs.getString("airplane"));
             flights.add(flight);
         }
