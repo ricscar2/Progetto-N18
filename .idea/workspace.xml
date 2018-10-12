@@ -12,10 +12,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="SelectFlightFrame2.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SelectFlightFrame2.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/SelectFlightFrame2.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="470">
+            <state relative-caret-position="218">
               <caret line="77" column="32" lean-forward="false" selection-start-line="77" selection-start-column="32" selection-end-line="77" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -34,6 +34,18 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="Flight.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Core/Flight.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="FlightNotAvailableException.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Eccezioni/FlightNotAvailableException.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -43,16 +55,6 @@
                 <element signature="e#132#133#0" expanded="true" />
                 <element signature="e#159#160#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Company.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Core/Company.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2289">
-              <caret line="119" column="0" lean-forward="false" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -77,16 +79,6 @@
               <folding>
                 <element signature="e#386#387#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="insert.sql" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sql/insert.sql">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1197">
-              <caret line="57" column="45" lean-forward="false" selection-start-line="57" selection-start-column="45" selection-end-line="57" selection-end-column="45" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -116,12 +108,22 @@
       <file leaf-file-name="SignInFrame.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/SignInFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="768">
+            <state relative-caret-position="957">
               <caret line="173" column="43" lean-forward="false" selection-start-line="173" selection-start-column="43" selection-end-line="173" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2244#2252#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CalendarFrame.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/CalendarFrame.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-511">
+              <caret line="118" column="31" lean-forward="false" selection-start-line="118" selection-start-column="31" selection-end-line="118" selection-end-column="31" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -187,7 +189,6 @@
         <option value="$PROJECT_DIR$/src/Core/Airport.java" />
         <option value="$PROJECT_DIR$/src/Core/Flight.java" />
         <option value="$PROJECT_DIR$/src/Core/Airplane.java" />
-        <option value="$PROJECT_DIR$/src/GraphicalInterface/CalendarFrame.java" />
         <option value="$PROJECT_DIR$/src/Eccezioni/SameAirportException.java" />
         <option value="$PROJECT_DIR$/src/GraphicalInterface/ExceptionFrame.java" />
         <option value="$PROJECT_DIR$/sql/insert.sql" />
@@ -196,6 +197,7 @@
         <option value="$PROJECT_DIR$/src/GraphicalInterface/LogInFrame.java" />
         <option value="$PROJECT_DIR$/src/Eccezioni/FlightNotAvailableException.java" />
         <option value="$PROJECT_DIR$/src/GraphicalInterface/SelectFlightFrame2.java" />
+        <option value="$PROJECT_DIR$/src/GraphicalInterface/CalendarFrame.java" />
       </list>
     </option>
   </component>
@@ -659,7 +661,7 @@
           <option name="timeStamp" value="28" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="33" />
+      <option name="time" value="34" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -906,14 +908,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/CalendarFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="114" column="68" lean-forward="false" selection-start-line="114" selection-start-column="68" selection-end-line="114" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/AddPaymentMethodFrame.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-483">
@@ -990,16 +984,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Core/Flight.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Desktop/NEWProgetto-N18-master/src/GraphicalInterface/SelectFlightFrame1.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1045">
@@ -1064,17 +1048,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/SignInFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="768">
-          <caret line="173" column="43" lean-forward="false" selection-start-line="173" selection-start-column="43" selection-end-line="173" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2244#2252#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/SelectFlightFrame.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1428">
@@ -1093,8 +1066,37 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/SelectFlightFrame2.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="470">
+        <state relative-caret-position="218">
           <caret line="77" column="32" lean-forward="false" selection-start-line="77" selection-start-column="32" selection-end-line="77" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/SignInFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="957">
+          <caret line="173" column="43" lean-forward="false" selection-start-line="173" selection-start-column="43" selection-end-line="173" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2244#2252#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/CalendarFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-511">
+          <caret line="118" column="31" lean-forward="false" selection-start-line="118" selection-start-column="31" selection-end-line="118" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Core/Flight.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

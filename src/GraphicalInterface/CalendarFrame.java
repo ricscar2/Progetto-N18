@@ -116,6 +116,7 @@ public class CalendarFrame extends JFrame {
 
             initFrame.setVisible(false);
             addListeners();
+            setAlwaysOnTop(true);
         }
 
 
