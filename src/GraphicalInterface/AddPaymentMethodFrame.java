@@ -1,5 +1,6 @@
 package GraphicalInterface;
 
+import Eccezioni.IDException;
 import Payment.CreditCard;
 import User.User;
 import Web.Client;
@@ -74,20 +75,41 @@ public class AddPaymentMethodFrame extends JFrame {
         btnAdd.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JsonCommand jsonCommand = new JsonCommand("06", txtID.getText(), cmbMethod.getSelectedItem().toString(), user.getUsername());
-                client.sendMessage(jsonCommand.getJsonString());
-                if (client.getResponse().equals("true")){
-                    System.out.println("Metodo aggiunto con successo!");
-                    switch (cmbMethod.getSelectedItem().toString()){
-                        case "CREDITCARD":
-                            user.setPaymentMethod(new CreditCard(txtID.getText(), user.getUsername()));
+                try {
+                    if (txtID.getText().length() == 16) {
+                        int i;
+                        boolean check=true;
+                        for(i=0;i<=txtID.getText().length()-1;i++) {
+                            if (txtID.getText().charAt(i) >= 'a' && txtID.getText().charAt(i) <= 'z') {
+                                check=false;
+                                throw new IDException("Sono ammessi solo caratteri numerici");
+                            }
+                        }
+                        if(check==true) {
+                            JsonCommand jsonCommand = new JsonCommand("06", txtID.getText(), cmbMethod.getSelectedItem().toString(), user.getUsername());
+                            client.sendMessage(jsonCommand.getJsonString());
+                            if (client.getResponse().equals("true")) {
+                                System.out.println("Metodo aggiunto con successo!");
+                                switch (cmbMethod.getSelectedItem().toString()) {
+                                    case "CREDITCARD":
+                                        user.setPaymentMethod(new CreditCard(txtID.getText(), user.getUsername()));
+                                }
+                                PaymentMethodsFrame paymentMethodsFrame = new PaymentMethodsFrame(client, user);
+                                setVisible(false);
+                            }
+                        }else
+                            System.out.println("Failed");
+                    }else {
+                        throw new IDException("L'id deve essere composto da 16 caratteri");
                     }
-                    PaymentMethodsFrame paymentMethodsFrame = new PaymentMethodsFrame(client, user);
-                    setVisible(false);
+                }catch (IDException e1){
+                    String s = e1.getMessage();
+                    ExceptionFrame eFrame = new ExceptionFrame();
+                    eFrame.initComponents();
+                    eFrame.Print(s);
                 }
-                else
-                    System.out.println("Failed");
             }
+
         });
 
     }
