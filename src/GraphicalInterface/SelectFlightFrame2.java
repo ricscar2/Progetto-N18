@@ -86,46 +86,16 @@ public class SelectFlightFrame2 extends JFrame {
         ArrayList<String> goingFlights = airlineCompany.getSelectedFlights(tempTicket.getDepartureIATA(), tempTicket.getArriveIATA());
         String[] goingArray = goingFlights.toArray(new String[]{});
         this.cmbGoing = new JComboBox<>(goingArray);
-        /*try {
-            if (tempTicket.getDeparture().getCity().equals(tempTicket.getArrive().getCity()) && tempTicket.getDepartureIATA() != tempTicket.getArriveIATA()) {
-                throw new SameCityException("Le città di partenza ed arrivo devono essere diverse");
-            }
-            if (goingFlights.size() == 0 && tempTicket.getDepartureIATA() != tempTicket.getArriveIATA()) {
-                throw new FlightNotAvailableException("Nessun Volo disponibile");
-            } else if (tempTicket.getDepartureIATA().equals(tempTicket.getArriveIATA())) {
-                throw new SameAirportException("Aereoporto Partenza/Arrivo Uguale");
 
-            }*/
-            if (tempTicket.isRoundtrip() == true) {
+        if (tempTicket.isRoundtrip() == true) {
                 ArrayList<String> returnFlights = airlineCompany.getSelectedFlights(tempTicket.getDepartureIATA(), tempTicket.getArriveIATA());
                 String[] returnArray = returnFlights.toArray(new String[]{});
                 this.cmbReturn = new JComboBox<>(returnArray);
                 pDepArr.add(lblReturn);
                 pDepArr.add(cmbReturn);
-            }
+        }
 
-        /*} catch (SameAirportException e1) {
-            setVisible(false);
-            SelectFlightFrame selectFlightFrame = new SelectFlightFrame(client, user, airlineCompany);
-            String s = e1.getMessage();
-            ExceptionFrame eFrame = new ExceptionFrame();
-            eFrame.initComponents();
-            eFrame.Print(s);
-        } catch (FlightNotAvailableException e2) {
-            setVisible(false);
-            SelectFlightFrame selectFlightFrame = new SelectFlightFrame(client, user, airlineCompany);
-            String s = e2.getMessage();
-            ExceptionFrame eFrame = new ExceptionFrame();
-            eFrame.initComponents();
-            eFrame.Print(s);
-        } catch (SameCityException e3) {
-            setVisible(false);
-            SelectFlightFrame selectFlightFrame = new SelectFlightFrame(client, user, airlineCompany);
-            String s = e3.getMessage();
-            ExceptionFrame eFrame = new ExceptionFrame();
-            eFrame.initComponents();
-            eFrame.Print(s);
-        }*/
+
     }
 
 }

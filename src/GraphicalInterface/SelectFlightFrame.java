@@ -119,7 +119,6 @@ public class SelectFlightFrame extends JFrame {
                     eFrame.initComponents();
                     eFrame.Print(s);
                 } catch (FlightNotAvailableException e2) {
-
                     String s = e2.getMessage();
                     ExceptionFrame eFrame = new ExceptionFrame();
                     eFrame.initComponents();
