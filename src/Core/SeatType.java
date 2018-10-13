@@ -2,6 +2,6 @@ package Core;
 
 public enum SeatType {
 
-    ECONOMY, BUISNESS
+    ECONOMY, BUSINESS
 
 }

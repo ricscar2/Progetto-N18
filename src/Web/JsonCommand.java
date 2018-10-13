@@ -23,26 +23,28 @@ public class JsonCommand{
 
     public JsonCommand(String code, String first, String second) {
         jsonCommand = new JSONObject();
-        switch (code) {
-            case "00":
-                jsonCommand.put("code", code);
-                jsonCommand.put("usr", first);
-                jsonCommand.put("pwd", second);
-                break;
-            case "07":
-                jsonCommand.put("code", code);
-                jsonCommand.put("departure", first);
-                jsonCommand.put("arrive", second);
-                break;
-        }
+        jsonCommand.put("code", code);
+        jsonCommand.put("usr", first);
+        jsonCommand.put("pwd", second);
     }
 
-    public JsonCommand(String code, String id, String method, String holder){
+    public JsonCommand(String code, String first, String second, String third){
         jsonCommand = new JSONObject();
-        jsonCommand.put("code", code);
-        jsonCommand.put("id", id);
-        jsonCommand.put("method", method);
-        jsonCommand.put("holder", holder);
+        switch (code) {
+            case "06":
+                jsonCommand.put("code", code);
+                jsonCommand.put("id", first);
+                jsonCommand.put("method", second);
+                jsonCommand.put("holder", third);
+                break;
+            case "07":
+            case "08":
+                jsonCommand.put("code", code);
+                jsonCommand.put("flight", first);
+                jsonCommand.put("date", second);
+                jsonCommand.put("seatType", third);
+                break;
+        }
     }
 
     public JsonCommand(String code, String username, String password, String name, String surname,

@@ -57,8 +57,19 @@ public class CommandAnalizer {
                 else
                     response = "false";
                 return response;
-            /*case "07":
-                return Queries.getSelectedFlights(dbStatement, jsonCommand.getParameter("departure"), jsonCommand.getParameter("arrive"));*/
+            case "07":
+                if(jsonCommand.getParameter("seatType").equals("ECONOMY"))
+                    return Queries.getRemainderEconomy(dbStatement, jsonCommand.getParameter("flight"), jsonCommand.getParameter("date"));
+                else if (jsonCommand.getParameter("seatType").equals("BUSINESS"))
+                    return Queries.getRemainderBusiness(dbStatement, jsonCommand.getParameter("flight"), jsonCommand.getParameter("date"));
+            case "08":
+                if(jsonCommand.getParameter("seatType").equals("ECONOMY")){
+                    Queries.decEconomy(dbConnection, dbStatement, jsonCommand.getParameter("flight"), jsonCommand.getParameter("date"));
+                    return "AVAIABLE";
+                } else if (jsonCommand.getParameter("seatType").equals("BUSINESS")){
+                    Queries.decBusiness(dbConnection, dbStatement, jsonCommand.getParameter("flight"), jsonCommand.getParameter("date"));
+                    return "AVAIABLE";
+                }
         }
         throw new CommandNotFoundException();
 

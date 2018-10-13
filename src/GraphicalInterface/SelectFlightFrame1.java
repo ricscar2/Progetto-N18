@@ -86,7 +86,7 @@ public class SelectFlightFrame1 extends JFrame {
                 boolean roundtrip = false;
                 if(chkDepArr.isSelected())
                     roundtrip = true;
-                TempTicket tempTicket = new TempTicket(user, airlineCompany.getAirportByName(cmbDeparture.getSelectedItem().toString()),
+                TempTicket tempTicket = new TempTicket(client, user, airlineCompany.getAirportByName(cmbDeparture.getSelectedItem().toString()),
                         airlineCompany.getAirportByName(cmbArrive.getSelectedItem().toString()), roundtrip);
                     SelectFlightFrame2 selectFlightFrame2 = new SelectFlightFrame2(client, user, airlineCompany, tempTicket);
                     setVisible(false);

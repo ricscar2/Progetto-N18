@@ -16,20 +16,20 @@ public class CalendarFrame extends JFrame {
     private JLabel lblDay = new JLabel("Day:");
     private JLabel lblMonth = new JLabel("Month:");
     private JLabel lblYear = new JLabel("Year:");
-    private JLabel lblOut = new JLabel();
     private JTextField txtDay = new JTextField();
-    private JComboBox cmbMonth = null;
-    private JComboBox cmbYear = new JComboBox();
-    private JButton btnSelect = new JButton("Add Birthdate");
+    private JComboBox cmbMonth;
+    private JComboBox cmbYear;
+    private JButton btnSelect = new JButton("Add Date");
     private String[] months;
     private String date = "";
     private JComboBox giorno30 = null;
-    private JComboBox mese = null;
     int n = 31;
-    private  SignInFrame initFrame;
+    String who;
+    private SignInFrame initFrame;
+    private SelectFlightFrame2 selectFlightFrame2;
+    private JLabel jLabel;
 
-
-        public CalendarFrame(Client client) throws IOException {
+        public CalendarFrame(Client client, String who) throws IOException {
             super("Airline Company - Select Your Birthday");
             this.client = client;
             initFrame = new SignInFrame(client);
@@ -42,12 +42,17 @@ public class CalendarFrame extends JFrame {
             setLocationRelativeTo(null);
             initComponents();
             //addListeners();
-
+            this.jLabel = jLabel;
             this.setVisible(true);
+            this.who = who;
         }
 
     public void setInitFrame(SignInFrame frame){
         initFrame=frame;
+    }
+
+    public void setSelectFlightFrame2(SelectFlightFrame2 selectFlightFrame2){
+            this.selectFlightFrame2 = selectFlightFrame2;
     }
 
         public void initComponents(){
@@ -203,9 +208,18 @@ public class CalendarFrame extends JFrame {
                             date = giorno30.getSelectedItem().toString() + "-" + "12" + "-" + cmbYear.getSelectedItem().toString();
                             break;
                     }
-                    initFrame.addData(date);
-                    setVisible(false);
-                    initFrame.setVisible(true);
+                    switch (who){
+                        case "SignIn":
+                            initFrame.addData(date);
+                            setVisible(false);
+                            initFrame.setVisible(true);
+                            break;
+                        case "Select2":
+                            selectFlightFrame2.addData(date);
+                            setVisible(false);
+                            selectFlightFrame2.setVisible(true);
+                            break;
+                    }
                 }
 
             });

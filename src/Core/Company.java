@@ -79,13 +79,22 @@ public class Company {
         return airportsNames;
     }
 
-    public ArrayList<String> getSelectedFlights(String departure, String arrive){
+    public ArrayList<String> getSelectedFlightsString(String departure, String arrive){
         ArrayList<String> fligthsString = new ArrayList<String>();
         for (Flight f: flights) {
                if (f.getDepartureIATA().equals(departure) && f.getArriveIATA().equals(arrive))
                    fligthsString.add(f.toString());
         }
         return fligthsString;
+    }
+
+    public ArrayList<Flight> getSelectedFlights(String departure, String arrive){
+        ArrayList<Flight> fligths = new ArrayList<Flight>();
+        for (Flight f: flights) {
+            if (f.getDepartureIATA().equals(departure) && f.getArriveIATA().equals(arrive))
+                fligths.add(f);
+        }
+        return fligths;
     }
 
     public Airport getAirport(String name){

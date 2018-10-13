@@ -129,22 +129,52 @@ public class Queries {
             return true;
     }
 
-   /* public static String getSelectedFlights(Statement dbStatement, String departure, String arrive) throws SQLException {
-        JSONObject jsonRoot = new JSONObject();
-        JSONArray selectedFlights = new JSONArray();
-        ResultSet myRs = dbStatement.executeQuery("select * from flights where departure = '" + departure + "' AND arrive = '" + arrive+"'");
-        while (myRs.next()){
-            JSONObject sFlight = new JSONObject();
-            sFlight.put("id", myRs.getString("id"));
-            sFlight.put("departure", myRs.getString("departure"));
-            sFlight.put("arrive", myRs.getString("arrive"));
-            sFlight.put("departuretime", myRs.getString("dated"));
-            sFlight.put("departuretime", myRs.getString("datea"));
-            sFlight.put("airplane", myRs.getString("airplane"));
-            selectedFlights.add(sFlight);
+    public static String getRemainderEconomy(Statement dbStatement, String flight, String ddate) throws SQLException {
+        JSONObject economy = new JSONObject();
+        ResultSet myRs = dbStatement.executeQuery("select eseat from bookedflights where ddate = '" + ddate + "' and id = '" + flight + "'");
+        while (myRs.next()) {
+            economy.put("economy", myRs.getString("eseat"));
         }
-        jsonRoot.put("selectedFlights", selectedFlights);
-        return jsonRoot.toJSONString();
-    }*/
+        return economy.toJSONString();
+    }
+
+    public static String getRemainderBusiness(Statement dbStatement, String flight, String ddate) throws SQLException {
+        JSONObject business = new JSONObject();
+        ResultSet myRs = dbStatement.executeQuery("select bseat from bookedflights where ddate = '" + ddate + "' and id = '" + flight + "'");
+        while (myRs.next()) {
+            business.put("business", myRs.getString("bseat"));
+        }
+        return business.toJSONString();
+    }
+
+    public static boolean decEconomy(Connection dbConnection, Statement dbStatement, String flight, String ddate) throws SQLException {
+        ResultSet myRs = dbStatement.executeQuery("select eseat from bookedflights where ddate = '" + ddate + "' and id = '" + flight + "'");
+        int remainder = 0;
+        while (myRs.next()) {
+            remainder = Integer.parseInt(myRs.getString("eseat")) - 1;
+        }
+        String query = "UPDATE BOOKEDFLIGHTS SET ESEAT = ? WHERE DDATE = ? AND ID = ?";
+        PreparedStatement preparedStatement = dbConnection.prepareStatement(query);
+        preparedStatement.setString(1, String.valueOf(remainder));
+        preparedStatement.setString(2, ddate);
+        preparedStatement.setString(3, flight);
+        preparedStatement.executeUpdate();
+        return true;
+    }
+
+    public static boolean decBusiness(Connection dbConnection, Statement dbStatement, String flight, String ddate) throws SQLException {
+        ResultSet myRs = dbStatement.executeQuery("select bseat from bookedflights where ddate = '" + ddate + "' and id = '" + flight + "'");
+        int remainder = 0;
+        while (myRs.next()) {
+            remainder = Integer.parseInt(myRs.getString("bseat")) - 1;
+        }
+        String query = "UPDATE BOOKEDFLIGHTS SET BSEAT = ? WHERE DDATE = ? AND ID = ?";
+        PreparedStatement preparedStatement = dbConnection.prepareStatement(query);
+        preparedStatement.setString(1, String.valueOf(remainder));
+        preparedStatement.setString(2, ddate);
+        preparedStatement.setString(3, flight);
+        preparedStatement.executeUpdate();
+        return true;
+    }
 
 }

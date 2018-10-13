@@ -80,10 +80,10 @@ public class SignInFrame extends JFrame {
 
     }
 
-    public void addData(String s){
+     public void addData(String s){
         lblDate.setText(s);
         lblDate.setFont(new Font("SansSerif", Font.PLAIN, 10));
-    }
+     }
 
 
 
@@ -182,7 +182,7 @@ public class SignInFrame extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 CalendarFrame calendarFrame=null;
                 try {
-                    calendarFrame = new CalendarFrame(client);
+                    calendarFrame = new CalendarFrame(client, "SignIn");
                     setVisible(false);
 
                 } catch (IOException e1) {
