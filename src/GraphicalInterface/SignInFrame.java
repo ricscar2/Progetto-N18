@@ -1,5 +1,6 @@
 package GraphicalInterface;
 
+import Core.Company;
 import Database.Queries;
 import Eccezioni.AllFieldsAreMandatoryException;
 import Eccezioni.DifferentPasswordException;
@@ -134,6 +135,12 @@ public class SignInFrame extends JFrame {
         btnRegister.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                Company airlineCompany = null;
+                try {
+                    airlineCompany = new Company(client);
+                } catch (org.json.simple.parser.ParseException e1) {
+                    e1.printStackTrace();
+                }
                 try{
                     if(!txtUsername.getText().equals("") && !txtSurname.getText().equals("") && !lblDate.getText().equals("") && !txtEmail.getText().equals("") && !txtName.getText().equals("") && !txtPassword.equals("") && !txtConfermedPassword.getText().equals("") ){
                     if(txtPassword.getText().equals(txtConfermedPassword.getText())) {
@@ -147,11 +154,11 @@ public class SignInFrame extends JFrame {
                             try {
                                 user = new User(client,txtUsername.getText(), txtPassword.getText(), txtName.getText(), txtSurname.getText(),
                                         new SimpleDateFormat("dd-MM-yyyy").parse(lblDate.getText()),
-                                        cmbNation.getSelectedItem().toString(), txtEmail.getText());
+                                        cmbNation.getSelectedItem().toString(), txtEmail.getText(), airlineCompany);
                             } catch (ParseException e1) {
                                 e1.printStackTrace();
                             }
-                            MainPageFrame mainPageFrame = new MainPageFrame(client, user);
+                            MainPageFrame mainPageFrame = new MainPageFrame(client, user, airlineCompany);
                             setVisible(false);
                         } else
                             System.out.println("Failed");

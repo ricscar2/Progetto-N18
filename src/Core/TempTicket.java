@@ -22,6 +22,9 @@ public class TempTicket {
     private Airport arrive;
     private boolean roundtrip;
     private int number;
+    private int nEconomy;
+    private int nBusiness;
+    private String nSeat;
     private ArrayList<Ticket> tickets;
 
     public TempTicket(Client client, User user, Airport departure, Airport arrive, boolean roundtrip){
@@ -31,6 +34,8 @@ public class TempTicket {
         this.arrive = arrive;
         this.roundtrip = roundtrip;
         this.number = 0;
+        this.nEconomy = 0;
+        this.nBusiness = 0;
         this.tickets = new ArrayList<Ticket>();
     }
 
@@ -77,9 +82,9 @@ public class TempTicket {
     }
 
     public void addTicket(String holder, String seatType, String baggageType) throws org.json.simple.parser.ParseException {
-        Baggage baggage = new Baggage(BaggageType.valueOf(baggageType));
-        Seat seat = new Seat(SeatType.valueOf(seatType));
         String id = createID(seatType);
+        Baggage baggage = new Baggage(BaggageType.valueOf(baggageType));
+        Seat seat = new Seat(SeatType.valueOf(seatType), nSeat);
         Ticket ticket = new Ticket(id, user, holder, flight, date, baggage, seat);
         tickets.add(ticket);
     }
@@ -89,18 +94,23 @@ public class TempTicket {
     }
 
     public String createID(String seatType) throws org.json.simple.parser.ParseException {
+        nSeat = new String("");
         JSONParser jsonParser = new JSONParser();
         String s = flight.getId();
         if(seatType.equals("ECONOMY")){
             client.sendMessage(new JsonCommand("07", flight.getId(), getDateString(), "ECONOMY").getJsonString());
             JSONObject rSeat = (JSONObject) jsonParser.parse(client.getResponse());
-            s = s + "E" + rSeat.get("economy");
+            nSeat = "E" + rSeat.get("economy");
+            nEconomy++;
+            s = s + nSeat;
             client.sendMessage(new JsonCommand("08", flight.getId(), getDateString(),"ECONOMY").getJsonString());
         }
         else if (seatType.equals("BUSINESS")){
             client.sendMessage(new JsonCommand("07", flight.getId(), getDateString(), "BUSINESS").getJsonString());
             JSONObject rSeat = (JSONObject) jsonParser.parse(client.getResponse());
-            s = s + "B" + rSeat.get("business");
+            nSeat = "B" + rSeat.get("business");
+            nBusiness++;
+            s = s + nSeat;
             client.sendMessage(new JsonCommand("08", flight.getId(), getDateString(),"BUSINESS").getJsonString());
         }
         s = s + getDateString().substring(0,4) + getDateString().substring(5,7) + getDateString().substring(8,10);
@@ -116,8 +126,21 @@ public class TempTicket {
         return strings;
     }
 
+    public void bookTickets(){
+        for (Ticket t : tickets) {
+            client.sendMessage(new JsonCommand("11", t.getId(), t.getUserName(), t.getHolder(), t.getFlightId(), getDateString(),
+                    t.getBaggage(), t.getSeatType(), t.geNSeat()).getJsonString());
+            user.addTicket(t);
+        }
+    }
+
     public void resetTickets(){
         this.tickets = new ArrayList<Ticket>();
+        for (int i = 0; i < nEconomy; i++)
+            client.sendMessage(new JsonCommand("09", flight.getId(), getDateString()).getJsonString());
+        for (int i = 0; i < nBusiness; i++)
+            client.sendMessage(new JsonCommand("10", flight.getId(), getDateString()).getJsonString());
+        number -= (nEconomy + nBusiness);
     }
 
 }

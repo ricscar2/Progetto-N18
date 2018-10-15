@@ -97,6 +97,14 @@ public class Company {
         return fligths;
     }
 
+    public Flight getFlightById(String id){
+        for (Flight f: this.flights) {
+            if (f.getId().equals(id))
+                return f;
+        }
+        return null;
+    }
+
     public Airport getAirport(String name){
         for (Airport a: this.airports) {
             if (a.getIATA().equals(name))

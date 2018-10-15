@@ -1,7 +1,7 @@
 package User;
 
+import Core.*;
 import Payment.*;
-import Core.Ticket;
 import Payment.Payment;
 import Web.Client;
 import Web.JsonCommand;
@@ -28,8 +28,9 @@ public class User {
     private JSONParser jsonParser = new JSONParser();
     private ArrayList<Payment> paymentMethods;
     private List<Ticket> tickets;
+    private Company airlineCompany;
 
-    public User(Client client, String username, String password, String name, String surname, Date birthdate, String nation, String email) throws ParseException {
+    public User(Client client, String username, String password, String name, String surname, Date birthdate, String nation, String email, Company airlineCompany) throws ParseException, java.text.ParseException {
         this.client = client;
         this.username = username;
         this.password = password;
@@ -39,6 +40,8 @@ public class User {
         this.nation = nation;
         this.email = email;
         this.paymentMethods = setPaymentMethods(client);
+        this.airlineCompany = airlineCompany;
+        this.tickets = setTickets(client);
     }
 
     public String getUsername() {
@@ -55,6 +58,10 @@ public class User {
 
     public Date getBirthdate() {
         return birthdate;
+    }
+
+    public void setAirlineCompany(Company airlineCompany) {
+        this.airlineCompany = airlineCompany;
     }
 
     public String getBirthdateString(){
@@ -86,12 +93,42 @@ public class User {
         return paymentMethods;
     }
 
+    public ArrayList<Ticket> setTickets(Client client) throws ParseException, java.text.ParseException {
+        ArrayList<Ticket> tickets = new ArrayList<Ticket>();
+        client.sendMessage(new JsonCommand("12", this.username).getJsonString());
+        JSONObject objRoot = (JSONObject) jsonParser.parse(client.getResponse());
+        JSONArray jsonTickets = (JSONArray) objRoot.get("tickets");
+        for (int i = 0; i < jsonTickets.size(); i++){
+            JSONObject currentTicket = (JSONObject) jsonTickets.get(i);
+            Date date =new SimpleDateFormat("yyyy-MM-dd").parse((String) currentTicket.get("date"));
+            Ticket ticket = new Ticket((String) currentTicket.get("id"), User.this, (String) currentTicket.get("holder"),
+                    airlineCompany.getFlightById((String) currentTicket.get("flight")), date, new Baggage(BaggageType.valueOf((String) currentTicket.get("baggage"))),
+                    new Seat(SeatType.valueOf((String) currentTicket.get("seat")),(String) currentTicket.get("nseat")));
+            ticket.setChecked(Boolean.parseBoolean((String) currentTicket.get("checked")));
+            tickets.add(ticket);
+            }
+        return tickets;
+        }
+
+
     public ArrayList<String> getPaymentMethodsStrings(){
         ArrayList<String> strings = new ArrayList<String>();
         for (Payment p: this.paymentMethods) {
             strings.add(p.toString());
         }
         return strings;
+    }
+
+    public ArrayList<String> getTicketsStrng(){
+        ArrayList<String> strings = new ArrayList<String>();
+        for (Ticket t: this.tickets) {
+            strings.add(t.toString());
+        }
+        return strings;
+    }
+
+    public void addTicket(Ticket ticket){
+        tickets.add(ticket);
     }
 
     public void setPaymentMethod (Payment paymentMethod){

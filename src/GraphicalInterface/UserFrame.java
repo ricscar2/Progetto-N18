@@ -1,5 +1,6 @@
 package GraphicalInterface;
 
+import Core.Company;
 import User.User;
 import Web.Client;
 import org.json.simple.parser.ParseException;
@@ -13,6 +14,7 @@ public class UserFrame extends JFrame {
 
     private User user;
     private Client client;
+    private Company airlineCompany;
     private JPanel pTitle;
     private JPanel pInfo;
     private JPanel pButton;
@@ -28,10 +30,11 @@ public class UserFrame extends JFrame {
     private JButton btnTickets;
     private JButton btnBack;
 
-    public UserFrame(Client client, User user){
+    public UserFrame(Client client, User user, Company airlineCompany){
         super("Airline Company - User's Info");
         this.user = user;
         this.client = client;
+        this.airlineCompany = airlineCompany;
         setSize(400,250);
         setVisible(true);
         setLocationRelativeTo(null);
@@ -77,7 +80,7 @@ public class UserFrame extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    MainPageFrame mainPageFrame = new MainPageFrame(client, user);
+                    MainPageFrame mainPageFrame = new MainPageFrame(client, user, airlineCompany);
                     setVisible(false);
                 } catch (ParseException e1) {
                     e1.printStackTrace();
@@ -85,10 +88,18 @@ public class UserFrame extends JFrame {
             }
         });
 
+        btnTickets.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                YourTicketsFrame yourTicketsFrame = new YourTicketsFrame(client, user, airlineCompany);
+                setVisible(false);
+            }
+        });
+
        btnPayments.addActionListener(new ActionListener() {
            @Override
            public void actionPerformed(ActionEvent e) {
-               PaymentMethodsFrame paymentMethodsFrame = new PaymentMethodsFrame(client, user);
+               PaymentMethodsFrame paymentMethodsFrame = new PaymentMethodsFrame(client, user, airlineCompany);
                setVisible(false);
            }
        });

@@ -23,9 +23,19 @@ public class JsonCommand{
 
     public JsonCommand(String code, String first, String second) {
         jsonCommand = new JSONObject();
-        jsonCommand.put("code", code);
-        jsonCommand.put("usr", first);
-        jsonCommand.put("pwd", second);
+        switch (code){
+            case "00":
+                jsonCommand.put("code", code);
+                jsonCommand.put("usr", first);
+                jsonCommand.put("pwd", second);
+                break;
+            case "09":
+            case "10":
+                jsonCommand.put("code", code);
+                jsonCommand.put("flight", first);
+                jsonCommand.put("date", second);
+                break;
+        }
     }
 
     public JsonCommand(String code, String first, String second, String third){
@@ -47,17 +57,31 @@ public class JsonCommand{
         }
     }
 
-    public JsonCommand(String code, String username, String password, String name, String surname,
-                       String birthdate, String nation, String email) {
+    public JsonCommand(String code, String first, String second, String third, String fourth,
+                       String fifth, String sixth, String seventh) {
         jsonCommand = new JSONObject();
         jsonCommand.put("code", code);
-        jsonCommand.put("usr", username);
-        jsonCommand.put("pwd", password);
-        jsonCommand.put("name", name);
-        jsonCommand.put("surname", surname);
-        jsonCommand.put("birthdate", birthdate);
-        jsonCommand.put("nation", nation);
-        jsonCommand.put("email", email);
+        jsonCommand.put("usr", first);
+        jsonCommand.put("pwd", second);
+        jsonCommand.put("name", third);
+        jsonCommand.put("surname", fourth);
+        jsonCommand.put("birthdate", fifth);
+        jsonCommand.put("nation", sixth);
+        jsonCommand.put("email", seventh);
+    }
+
+    public JsonCommand(String code, String first, String second, String third, String fourth,
+                       String fifth, String sixth, String seventh, String eighth){
+        jsonCommand = new JSONObject();
+        jsonCommand.put("code", code);
+        jsonCommand.put("id", first);
+        jsonCommand.put("user", second);
+        jsonCommand.put("holder", third);
+        jsonCommand.put("flight", fourth);
+        jsonCommand.put("date", fifth);
+        jsonCommand.put("baggage", sixth);
+        jsonCommand.put("seat", seventh);
+        jsonCommand.put("nSeat", eighth);
     }
 
     public String getJsonString() {
