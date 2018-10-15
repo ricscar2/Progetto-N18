@@ -1,5 +1,6 @@
 package GraphicalInterface;
 
+import Core.Company;
 import User.User;
 import Web.Client;
 
@@ -11,6 +12,7 @@ import java.awt.event.ActionListener;
 public class PaymentMethodsFrame extends JFrame {
     private User user;
     private Client client;
+    private Company airlineCompany;
     private JPanel pTitle;
     private JPanel pInfo;
     private JPanel pButton;
@@ -19,10 +21,11 @@ public class PaymentMethodsFrame extends JFrame {
     private JButton btnAddPayment;
     private JButton btnBack;
 
-    public PaymentMethodsFrame(Client client, User user){
+    public PaymentMethodsFrame(Client client, User user,Company airlineCompany){
         super("Airline Company - User's Payment Methods");
         this.user = user;
         this.client = client;
+        this.airlineCompany=airlineCompany;
         setSize(400,250);
         setVisible(true);
         setLocationRelativeTo(null);
@@ -53,7 +56,7 @@ public class PaymentMethodsFrame extends JFrame {
         btnBack.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                UserFrame userFrame = new UserFrame(client, user);
+                UserFrame userFrame = new UserFrame(client, user,airlineCompany);
                 setVisible(false);
             }
         });
@@ -61,7 +64,7 @@ public class PaymentMethodsFrame extends JFrame {
         btnAddPayment.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                AddPaymentMethodFrame addPaymentMethodFrame = new AddPaymentMethodFrame(client, user);
+                AddPaymentMethodFrame addPaymentMethodFrame = new AddPaymentMethodFrame(client, user,airlineCompany);
                 setVisible(false);
             }
         });

@@ -7,8 +7,9 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import java.util.ArrayList;
 
+import java.time.LocalTime;
+import java.util.ArrayList;
 
 public class Company {
 
@@ -97,6 +98,14 @@ public class Company {
         return fligths;
     }
 
+    public Flight getFlightById(String id){
+        for (Flight f: this.flights) {
+            if (f.getId().equals(id))
+                return f;
+        }
+        return null;
+    }
+
     public Airport getAirport(String name){
         for (Airport a: this.airports) {
             if (a.getIATA().equals(name))
@@ -122,6 +131,3 @@ public class Company {
     }
 
 }
-
-/*La classe Company ha un oggetto Client,una ArrayList di Airports ed una ArrayList di Flights     */
-

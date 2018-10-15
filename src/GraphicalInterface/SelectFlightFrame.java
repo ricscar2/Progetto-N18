@@ -84,7 +84,7 @@ public class SelectFlightFrame extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    MainPageFrame mainPageFrame = new MainPageFrame(client, user);
+                    MainPageFrame mainPageFrame = new MainPageFrame(client, user,airlineCompany);
                     setVisible(false);
                 } catch (ParseException e1) {
                     e1.printStackTrace();

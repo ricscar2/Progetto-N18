@@ -1,5 +1,6 @@
 package GraphicalInterface;
 
+import Core.Company;
 import Eccezioni.IDException;
 import Payment.CreditCard;
 import User.User;
@@ -14,6 +15,7 @@ import java.awt.event.ActionListener;
 public class AddPaymentMethodFrame extends JFrame {
     private User user;
     private Client client;
+    private Company airlineCompany;
     private JPanel pTitle;
     private JPanel pInfo;
     private JPanel pButton;
@@ -25,10 +27,11 @@ public class AddPaymentMethodFrame extends JFrame {
     private JButton btnAdd;
     private JButton btnBack;
 
-    public AddPaymentMethodFrame(Client client, User user){
+    public AddPaymentMethodFrame(Client client, User user,Company airlineCompany){
         super("Airline Company - Add Payment Method");
         this.user = user;
         this.client = client;
+        this.airlineCompany=airlineCompany;
         setSize(400,250);
         setVisible(true);
         setLocationRelativeTo(null);
@@ -67,7 +70,7 @@ public class AddPaymentMethodFrame extends JFrame {
         btnBack.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                PaymentMethodsFrame paymentMethodsFrame = new PaymentMethodsFrame(client, user);
+                PaymentMethodsFrame paymentMethodsFrame = new PaymentMethodsFrame(client, user,airlineCompany);
                 setVisible(false);
             }
         });
@@ -94,7 +97,7 @@ public class AddPaymentMethodFrame extends JFrame {
                                     case "CREDITCARD":
                                         user.setPaymentMethod(new CreditCard(txtID.getText(), user.getUsername()));
                                 }
-                                PaymentMethodsFrame paymentMethodsFrame = new PaymentMethodsFrame(client, user);
+                                PaymentMethodsFrame paymentMethodsFrame = new PaymentMethodsFrame(client, user,airlineCompany);
                                 setVisible(false);
                             }
                         }else

@@ -1,5 +1,6 @@
 package GraphicalInterface;
 
+import Core.Company;
 import User.User;
 import Web.Client;
 import Web.JsonCommand;
@@ -21,6 +22,7 @@ import java.text.SimpleDateFormat;
 public class LogInFrame extends JFrame {
 
     private Client client;
+
     private MainPageFrame mainPageFrame;
     private JPanel pData = new JPanel();
     private JPanel pButton = new JPanel();
@@ -79,11 +81,12 @@ public class LogInFrame extends JFrame {
                     try {
                         JSONParser jsonParser = new JSONParser();
                         JSONObject userInfo = new JSONObject((JSONObject) jsonParser.parse(client.getResponse()));
+                        Company airlineCompany = new Company(client);
                         User user = new User(client,(String) userInfo.get("usr"),(String) userInfo.get("pwd"),
                                 (String) userInfo.get("name"), (String) userInfo.get("surname"),
                                 birthdayFormat.parse( (String) userInfo.get("birthdate")), (String) userInfo.get("nation"),
-                                (String) userInfo.get("email"));
-                        mainPageFrame = new MainPageFrame(client, user);
+                                (String) userInfo.get("email"),airlineCompany);
+                        mainPageFrame = new MainPageFrame(client, user,airlineCompany);
                         System.out.println("Connected. Response: " + client.getResponse());
                         setVisible(false);
                     } catch (ParseException ex){

@@ -21,6 +21,7 @@ public class TempTicket {
     private Airport arrive;
     private boolean roundtrip;
     private int number;
+    private String nSeat;
     private ArrayList<Ticket> tickets;
 
     public TempTicket(Client client,User user, Airport departure, Airport arrive, boolean roundtrip){
@@ -87,7 +88,7 @@ public class TempTicket {
 
     public void addTicket(String holder, String seatType, String baggageType) throws org.json.simple.parser.ParseException {
         Baggage baggage = new Baggage(BaggageType.valueOf(baggageType));
-        Seat seat = new Seat(SeatType.valueOf(seatType));
+        Seat seat = new Seat(SeatType.valueOf(seatType),nSeat);
         String id = createID(seatType);
         Ticket ticket = new Ticket(id, user, holder, flight, date, baggage, seat);
         tickets.add(ticket);

@@ -32,7 +32,7 @@ public class MainPageFrame extends JFrame {
 
     Image img = null;
 
-    public MainPageFrame(Client client, User user) throws ParseException {
+    public MainPageFrame(Client client, User user,Company airlineCompany) throws ParseException {
         super("Airline Company");
         setSize(480,350);
         setVisible(true);
@@ -42,7 +42,7 @@ public class MainPageFrame extends JFrame {
         Font f = new Font("",Font.HANGING_BASELINE,10);
         this.client = client;
         this.user = user;
-        this.airlineCompany = new Company(client);
+        this.airlineCompany = airlineCompany;
         lblDisconnect.setFont(f);
         initComponents();
         addListeners();
@@ -112,7 +112,7 @@ public class MainPageFrame extends JFrame {
         btnGoToProfile.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                UserFrame userFrame = new UserFrame(client, user);
+                UserFrame userFrame = new UserFrame(client, user,airlineCompany);
                 setVisible(false);
             }
         });
