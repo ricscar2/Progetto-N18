@@ -35,6 +35,7 @@ public class TicketFrame extends JFrame {
     private JComboBox cmbSeat = new JComboBox(seatType);
     private JComboBox cmbBaggage = new JComboBox(baggageType);
     private JButton btnNext = new JButton("Next");
+    private JButton btnBack = new JButton("Back");
 
     public TicketFrame(Client client, User user, Company airlineCompany, TempTicket tempTicket){
         super("Airline Company - Your Tickets");
@@ -66,7 +67,10 @@ public class TicketFrame extends JFrame {
         pData.add(cmbSeat);
         pData.add(lblBaggage);
         pData.add(cmbBaggage);
+        pButtons.setLayout(new GridLayout(1,2));
+        pButtons.add(btnBack);
         pButtons.add(btnNext);
+
     }
 
     private void addListeners(){
@@ -94,6 +98,14 @@ public class TicketFrame extends JFrame {
                     SummaryFrame summaryFrame = new SummaryFrame(client, user, airlineCompany, tempTicket);
                     setVisible(false);
                 }
+            }
+        });
+
+        btnBack.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                SelectFlightFrame2 selectFlightFrame2 = new SelectFlightFrame2(client,user,airlineCompany,tempTicket);
+                setVisible(false);
             }
         });
 

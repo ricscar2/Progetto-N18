@@ -34,7 +34,7 @@ public class CalendarFrame extends JFrame {
 
 
         public CalendarFrame(Client client,String who) throws IOException {
-            super("Airline Company - Select Your Birthday");
+            super("Airline Company");
             this.client=client;
             initFrame=new SignInFrame(client);
             months = new String[]{"January", "February", "March", "April", "May", "June", "July", "August", "September",
