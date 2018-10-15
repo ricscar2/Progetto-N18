@@ -182,7 +182,7 @@ public class SignInFrame extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 CalendarFrame calendarFrame=null;
                 try {
-                    calendarFrame = new CalendarFrame();
+                    calendarFrame = new CalendarFrame(client,"SignIn");
 
                 } catch (IOException e1) {
                     e1.printStackTrace();

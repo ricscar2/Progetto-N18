@@ -23,7 +23,7 @@ public class BaggageFrame extends JFrame {
     private JLabel lblTitle = new JLabel("Select your Baggage");
     private JLabel lblHand = new JLabel("Hand Baggage");
     private JCheckBox hand = new JCheckBox();
-    private JLabel lblCountHand = new JLabel("-");
+    private JLabel lblCountHand = new JLabel("--");
     private JButton btnPlusHand = new JButton("+");
     private JButton btnLessHand = new JButton("-");
     private JLabel lbl23 = new JLabel("Other Baggage");
@@ -86,14 +86,16 @@ public class BaggageFrame extends JFrame {
         btnLess23.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                lblCountHand.setText(Integer.toString(cont-1));
+                cont--;
+                lblCountHand.setText(String.valueOf((cont)));
             }
         });
 
         btnPlus23.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                lblCountHand.setText(Integer.toString(cont-1));
+                cont++;
+                lblCountHand.setText(String.valueOf(cont));
             }
         });
 

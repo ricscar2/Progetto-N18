@@ -2,8 +2,17 @@ package Core;
 
 public class Seat {
 
-    private int number;
+    private SeatType seatType;
 
-    private boolean occupied;
-/*La classe Seat ha un intero che indica il numero del posto,ed un booleano che indice se quel posto è occupato o meno.    */
+    public Seat(SeatType seatType){
+        this.seatType = seatType;
+    }
+
+    public SeatType getSeatType() {
+        return seatType;
+    }
+
 }
+
+/*La classe Seat ha un intero che indica il numero del posto,ed un booleano che indice se quel posto è occupato o meno.    */
+

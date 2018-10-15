@@ -31,12 +31,23 @@ public class Flight {
         return arrive.getIATA();
     }
 
-    public String getDepartureName() {
-        return departure.getName();
+    public String getId() {
+        return id;
     }
 
-    public String getArriveName() {
-        return arrive.getName();
+    public String getDepartureString(){
+        String str = "Departure: " + departure.getName() + " - " + departureTime;
+        return str;
+    }
+
+    public String getArriveString(){
+        String str = "Arrive: " + arrive.getName() + " - " + arriveTime;
+        return str;
+    }
+
+    public String getAirplaneString(){
+        String str = "Airplane: " + airplane.getId();
+        return str;
     }
 
     @Override

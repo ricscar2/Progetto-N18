@@ -2,15 +2,43 @@ package Core;
 
 import User.User;
 
+import java.util.Date;
+
 public class Ticket {
 
     private String id;
-    private User owner;
+    private Date date;
+    private User user;
+    private String owner;
     private Flight flight;
     private Baggage baggage;
-    private int seat;
+    private Seat seat;
     private boolean checked;
+
+    public Ticket(String id, User user, String owner, Flight flight, Date date, Baggage baggage, Seat seat ){
+        this.id = id;
+        this.user = user;
+        this.owner = owner;
+        this.flight = flight;
+        this.date = date;
+        this.baggage = baggage;
+        this.seat = seat;
+        this.checked = false;
+    }
+
+    public boolean checkIn(){
+        this.checked = true;
+        return true;
+    }
+
+    public String previewString(){
+        String str = "Holder: " + owner + "Seat: " + seat.getSeatType() + "Baggage: " + baggage.getType();
+        return str;
+    }
+
+
+}
 /*La classe Ticket è costituita da una stringa id che identifica il biglietto,vieni indicato il proprietario con un oggetto User,il volo che viene definito come oggetto Flight,un oggetto Baggage,il numero del posto.
   * Il biglietto si troverà nel profilo dell'account dell'utente */
 
-}
+

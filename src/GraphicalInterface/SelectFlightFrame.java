@@ -98,9 +98,9 @@ public class SelectFlightFrame extends JFrame {
                 boolean roundtrip = false;
                 if(chkDepArr.isSelected())
                     roundtrip = true;
-                TempTicket tempTicket = new TempTicket(user, airlineCompany.getAirportByName(cmbDeparture.getSelectedItem().toString()),
+                TempTicket tempTicket = new TempTicket(client,user, airlineCompany.getAirportByName(cmbDeparture.getSelectedItem().toString()),
                         airlineCompany.getAirportByName(cmbArrive.getSelectedItem().toString()), roundtrip);
-                ArrayList<String> goingFlights = airlineCompany.getSelectedFlights(tempTicket.getDepartureIATA(), tempTicket.getArriveIATA());
+                ArrayList<Flight> goingFlights = airlineCompany.getSelectedFlights(tempTicket.getDepartureIATA(), tempTicket.getArriveIATA());
                 try {
                     if (tempTicket.getDeparture().getCity().equals(tempTicket.getArrive().getCity()) && tempTicket.getDepartureIATA() != tempTicket.getArriveIATA()) {
                         throw new SameCityException("Le città di partenza ed arrivo devono essere diverse");
