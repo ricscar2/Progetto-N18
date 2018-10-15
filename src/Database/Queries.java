@@ -134,4 +134,118 @@ public class Queries {
         return true;
     }
 
+    public static String getRemainderEconomy(Statement dbStatement, String flight, String ddate) throws SQLException {
+        JSONObject economy = new JSONObject();
+        ResultSet myRs = dbStatement.executeQuery("select eseat from bookedflights where ddate = '" + ddate + "' and id = '" + flight + "'");
+        while (myRs.next()) {
+            economy.put("economy", myRs.getString("eseat"));
+        }
+        return economy.toJSONString();
+    }
+
+    public static String getRemainderBusiness(Statement dbStatement, String flight, String ddate) throws SQLException {
+        JSONObject business = new JSONObject();
+        ResultSet myRs = dbStatement.executeQuery("select bseat from bookedflights where ddate = '" + ddate + "' and id = '" + flight + "'");
+        while (myRs.next()) {
+            business.put("business", myRs.getString("bseat"));
+        }
+        return business.toJSONString();
+    }
+
+    public static boolean decEconomy(Connection dbConnection, Statement dbStatement, String flight, String ddate) throws SQLException {
+        ResultSet myRs = dbStatement.executeQuery("select eseat from bookedflights where ddate = '" + ddate + "' and id = '" + flight + "'");
+        int remainder = 0;
+        while (myRs.next()) {
+            remainder = Integer.parseInt(myRs.getString("eseat")) - 1;
+        }
+        String query = "UPDATE BOOKEDFLIGHTS SET ESEAT = ? WHERE DDATE = ? AND ID = ?";
+        PreparedStatement preparedStatement = dbConnection.prepareStatement(query);
+        preparedStatement.setString(1, String.valueOf(remainder));
+        preparedStatement.setString(2, ddate);
+        preparedStatement.setString(3, flight);
+        preparedStatement.executeUpdate();
+        return true;
+    }
+
+    public static boolean decBusiness(Connection dbConnection, Statement dbStatement, String flight, String ddate) throws SQLException {
+        ResultSet myRs = dbStatement.executeQuery("select bseat from bookedflights where ddate = '" + ddate + "' and id = '" + flight + "'");
+        int remainder = 0;
+        while (myRs.next()) {
+            remainder = Integer.parseInt(myRs.getString("bseat")) - 1;
+        }
+        String query = "UPDATE BOOKEDFLIGHTS SET BSEAT = ? WHERE DDATE = ? AND ID = ?";
+        PreparedStatement preparedStatement = dbConnection.prepareStatement(query);
+        preparedStatement.setString(1, String.valueOf(remainder));
+        preparedStatement.setString(2, ddate);
+        preparedStatement.setString(3, flight);
+        preparedStatement.executeUpdate();
+        return true;
+    }
+
+    public static void incrEconomy(Connection dbConnection, Statement dbStatement, String flight, String ddate) throws SQLException {
+        ResultSet myRs = dbStatement.executeQuery("select eseat from bookedflights where ddate = '" + ddate + "' and id = '" + flight + "'");
+        int remainder = 0;
+        while (myRs.next()) {
+            remainder = Integer.parseInt(myRs.getString("eseat")) + 1;
+        }
+        String query = "UPDATE BOOKEDFLIGHTS SET ESEAT = ? WHERE DDATE = ? AND ID = ?";
+        PreparedStatement preparedStatement = dbConnection.prepareStatement(query);
+        preparedStatement.setString(1, String.valueOf(remainder));
+        preparedStatement.setString(2, ddate);
+        preparedStatement.setString(3, flight);
+        preparedStatement.executeUpdate();
+    }
+
+    public static void incrBusiness(Connection dbConnection, Statement dbStatement, String flight, String ddate) throws SQLException {
+        ResultSet myRs = dbStatement.executeQuery("select bseat from bookedflights where ddate = '" + ddate + "' and id = '" + flight + "'");
+        int remainder = 0;
+        while (myRs.next()) {
+            remainder = Integer.parseInt(myRs.getString("bseat")) + 1;
+        }
+        String query = "UPDATE BOOKEDFLIGHTS SET BSEAT = ? WHERE DDATE = ? AND ID = ?";
+        PreparedStatement preparedStatement = dbConnection.prepareStatement(query);
+        preparedStatement.setString(1, String.valueOf(remainder));
+        preparedStatement.setString(2, ddate);
+        preparedStatement.setString(3, flight);
+        preparedStatement.executeUpdate();
+    }
+
+    public static boolean bookTicket(Connection dbConnection, String id, String user, String holder, String flight,
+                                     String date, String baggage, String seat, String nSeat) throws SQLException {
+        String query = "INSERT INTO TICKETS (ID, FLIGHTUSER, HOLDER, FLIGHT, DDATE, BAGGAGE, SEAT, NSEAT, CHECKED) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?); ";
+        PreparedStatement preparedStatement = dbConnection.prepareStatement(query);
+        preparedStatement.setString(1, id);
+        preparedStatement.setString(2, user);
+        preparedStatement.setString(3, holder);
+        preparedStatement.setString(4, flight);
+        preparedStatement.setString(5, date);
+        preparedStatement.setString(6, baggage);
+        preparedStatement.setString(7, seat);
+        preparedStatement.setString(8, nSeat);
+        preparedStatement.setString(9, String.valueOf(0));
+        preparedStatement.executeUpdate();
+        return true;
+    }
+
+    public static String getTickets(Statement dbStatement, String username) throws SQLException {
+        JSONObject jsonRoot = new JSONObject();
+        JSONArray tickets = new JSONArray();
+        ResultSet myRs = dbStatement.executeQuery("select * from tickets where flightuser = '" + username + "'");
+        while (myRs.next()){
+            JSONObject ticket = new JSONObject();
+            ticket.put("id", myRs.getString("id"));
+            ticket.put("holder", myRs.getString("holder"));
+            ticket.put("flight", myRs.getString("flight"));
+            ticket.put("date", myRs.getString("ddate"));
+            ticket.put("baggage", myRs.getString("baggage"));
+            ticket.put("seat", myRs.getString("seat"));
+            ticket.put("nseat", myRs.getString("nseat"));
+            ticket.put("checked", myRs.getString("checked"));
+            tickets.add(ticket);
+        }
+        jsonRoot.put("tickets", tickets);
+        return jsonRoot.toJSONString();
+    }
+
 }

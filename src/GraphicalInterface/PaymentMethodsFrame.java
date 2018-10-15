@@ -64,7 +64,7 @@ public class PaymentMethodsFrame extends JFrame {
         btnAddPayment.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                AddPaymentMethodFrame addPaymentMethodFrame = new AddPaymentMethodFrame(client, user,airlineCompany);
+                AddPaymentMethodFrame addPaymentMethodFrame = new AddPaymentMethodFrame(client, user,airlineCompany,null);
                 setVisible(false);
             }
         });

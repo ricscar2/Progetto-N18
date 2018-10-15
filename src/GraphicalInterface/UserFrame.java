@@ -124,6 +124,14 @@ public class UserFrame extends JFrame {
             }
         });
 
+        btnTickets.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                YourTicketsFrame yourTicketsFrame = new YourTicketsFrame(client, user, airlineCompany);
+                setVisible(false);
+            }
+        });
+
     }
 
 }

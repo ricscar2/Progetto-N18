@@ -1,6 +1,7 @@
 package GraphicalInterface;
 
 import Core.Company;
+import Core.TempTicket;
 import Eccezioni.IDException;
 import Payment.CreditCard;
 import User.User;
@@ -16,6 +17,7 @@ public class AddPaymentMethodFrame extends JFrame {
     private User user;
     private Client client;
     private Company airlineCompany;
+    private TempTicket tempTicketDep;
     private JPanel pTitle;
     private JPanel pInfo;
     private JPanel pButton;
@@ -27,11 +29,12 @@ public class AddPaymentMethodFrame extends JFrame {
     private JButton btnAdd;
     private JButton btnBack;
 
-    public AddPaymentMethodFrame(Client client, User user,Company airlineCompany){
+    public AddPaymentMethodFrame(Client client, User user,Company airlineCompany,TempTicket tempTicketDep){
         super("Airline Company - Add Payment Method");
         this.user = user;
         this.client = client;
         this.airlineCompany=airlineCompany;
+        this.tempTicketDep=tempTicketDep;
         setSize(400,250);
         setVisible(true);
         setLocationRelativeTo(null);

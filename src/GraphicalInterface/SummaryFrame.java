@@ -7,6 +7,8 @@ import Web.Client;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class SummaryFrame extends JFrame {
 
@@ -23,7 +25,7 @@ public class SummaryFrame extends JFrame {
     private JLabel lblDeparture;
     private JLabel lblArrive;
     private JList jList;
-    private JButton btnAddPayment;
+    private JButton btnPayment;
     private JButton btnBack;
     private JScrollPane scrollPane = new JScrollPane();
 
@@ -57,7 +59,7 @@ public class SummaryFrame extends JFrame {
         lblTitle = new JLabel("Tickets Preview");
         jList = new JList(tempTicket.getTicketsPreview().toArray());
         btnBack = new JButton("Back");
-        btnAddPayment = new JButton("Go to Payment");
+        btnPayment = new JButton("Go to Payment");
         pTitle.add(lblTitle);
         pInfo.add(lblDate);
         pInfo.add(lblDeparture);
@@ -65,10 +67,27 @@ public class SummaryFrame extends JFrame {
         scrollPane.setViewportView(jList);
         pInfo.add(scrollPane);
         pButton.add(btnBack);
-        pButton.add(btnAddPayment);
+        pButton.add(btnPayment);
     }
 
     public void addListeners(){
+
+        btnPayment.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                PurchaseFrame purchaseFrame = new PurchaseFrame(client, user, airlineCompany, tempTicket);
+                setVisible(false);
+            }
+        });
+
+        btnBack.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tempTicket.resetTickets();
+                SelectFlightFrame2 selectFlightFrame2 = new SelectFlightFrame2(client, user, airlineCompany, tempTicket);
+                setVisible(false);
+            }
+        });
 
     }
 
