@@ -1,7 +1,8 @@
 package Core;
 
-import java.util.List;
-
+/**
+ * @author Gruppo N
+ */
 public class Airplane {
 
     private String id;
@@ -9,6 +10,12 @@ public class Airplane {
     private int business;
     private Seat[] seats;
 
+    /**
+     *
+     * @param id The Identification Code of the Airplane
+     * @param economy The number of Economy seats in the current airplane
+     * @param business The number of Business seats in the current airplane
+     */
     public Airplane(String id, int economy, int business){
         this.id = id;
         this.economy = economy;
@@ -16,7 +23,10 @@ public class Airplane {
         this.seats = new Seat[economy+business];
     }
 
-
+    /**
+     *
+     * @return The Identification Code of the Airplane
+     */
     public String getId() {
         return id;
     }

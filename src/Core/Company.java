@@ -7,9 +7,11 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import java.time.LocalTime;
 import java.util.ArrayList;
 
+/**
+ * @author Gruppo N
+ */
 public class Company {
 
     private Client client;
@@ -18,6 +20,11 @@ public class Company {
     private ArrayList<Flight> flights;
     private ArrayList<Airplane> airplanes;
 
+    /**
+     *
+     * @param client An instance of <code>Client</code> class
+     * @throws ParseException
+     */
     public Company(Client client) throws ParseException {
         this.client = client;
         this.jsonParser = new JSONParser();
@@ -26,6 +33,12 @@ public class Company {
         this.flights = setFlights(client);
     }
 
+    /**
+     *
+     * @param client An instance of <code>Client</code> class
+     * @return The list of all the Airports presents in the Database
+     * @throws ParseException
+     */
     public ArrayList<Airport> setAirports(Client client) throws ParseException {
         ArrayList<Airport> airports = new ArrayList<Airport>();
         client.sendMessage(new JsonCommand("02").getJsonString());
@@ -41,6 +54,12 @@ public class Company {
         return airports;
     }
 
+    /**
+     *
+     * @param client An instance of <code>Client</code> class
+     * @return The list of all the Flights presents in the Database
+     * @throws ParseException
+     */
     public ArrayList<Flight> setFlights(Client client) throws ParseException {
         ArrayList<Flight> flights = new ArrayList<Flight>();
         client.sendMessage(new JsonCommand("03").getJsonString());
@@ -57,6 +76,12 @@ public class Company {
         return flights;
     }
 
+    /**
+     *
+     * @param client An instance of <code>Client</code> class
+     * @return The list of all the Flights presents in the Database
+     * @throws ParseException
+     */
     public ArrayList<Airplane> setAirplanes(Client client) throws ParseException {
         ArrayList<Airplane> airplanes = new ArrayList<Airplane>();
         client.sendMessage(new JsonCommand("04").getJsonString());
@@ -71,6 +96,10 @@ public class Company {
         return airplanes;
     }
 
+    /**
+     *
+     * @return The list of all Airports' names presents in the Database
+     */
     public ArrayList<String> getAirportsNames(){
         ArrayList<String> airportsNames = new ArrayList<String>();
         for (Airport a: this.airports) {
@@ -105,6 +134,7 @@ public class Company {
         return null;
     }
 
+
     public Airport getAirport(String name){
         for (Airport a: this.airports) {
             if (a.getIATA().equals(name))
@@ -113,6 +143,11 @@ public class Company {
         return null;
     }
 
+    /**
+     *
+     * @param name The Name of the requested Airport
+     * @return The Airport according to the Name
+     */
     public Airport getAirportByName(String name){
         for (Airport a: this.airports) {
             if (a.getName().equals(name))
@@ -121,6 +156,11 @@ public class Company {
         return null;
     }
 
+    /**
+     *
+     * @param id The Identification Code of the requested Airplane
+     * @return The Airplane according to the Identification Code
+     */
     public Airplane getAirplane(String id){
         for (Airplane a: this.airplanes) {
             if (a.getId().equals(id))
