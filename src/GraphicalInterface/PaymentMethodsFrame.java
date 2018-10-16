@@ -1,5 +1,6 @@
 package GraphicalInterface;
 
+import Core.Company;
 import User.User;
 import Web.Client;
 import org.json.simple.parser.ParseException;
@@ -13,6 +14,7 @@ public class PaymentMethodsFrame extends JFrame {
 
     private User user;
     private Client client;
+    private Company airlineCompany;
     private JPanel pTitle;
     private JPanel pInfo;
     private JPanel pButton;
@@ -20,11 +22,13 @@ public class PaymentMethodsFrame extends JFrame {
     private JList jList;
     private JButton btnAddPayment;
     private JButton btnBack;
+    private JScrollPane scrollPane;
 
-    public PaymentMethodsFrame(Client client, User user){
-        super("Airline Company - User's Payment Methods");
+    public PaymentMethodsFrame(Client client, User user, Company airlineCompany){
+        super("Airline Company - Your Payment Methods");
         this.user = user;
         this.client = client;
+        this.airlineCompany = airlineCompany;
         setSize(400,250);
         setVisible(true);
         setLocationRelativeTo(null);
@@ -44,8 +48,11 @@ public class PaymentMethodsFrame extends JFrame {
         jList = new JList(user.getPaymentMethodsStrings().toArray());
         btnBack = new JButton("Back");
         btnAddPayment = new JButton("Add Method");
+        scrollPane = new JScrollPane();
         pTitle.add(lblTitle);
-        pInfo.add(jList);
+        scrollPane.setViewportView(jList);
+        pInfo.add(scrollPane);
+        pInfo.add(scrollPane);
         pButton.add(btnBack);
         pButton.add(btnAddPayment);
     }
@@ -55,7 +62,7 @@ public class PaymentMethodsFrame extends JFrame {
       btnBack.addActionListener(new ActionListener() {
           @Override
           public void actionPerformed(ActionEvent e) {
-              UserFrame userFrame = new UserFrame(client, user);
+              UserFrame userFrame = new UserFrame(client, user, airlineCompany);
               setVisible(false);
           }
       });
@@ -63,7 +70,7 @@ public class PaymentMethodsFrame extends JFrame {
       btnAddPayment.addActionListener(new ActionListener() {
           @Override
           public void actionPerformed(ActionEvent e) {
-                AddPaymentMethodFrame addPaymentMethodFrame = new AddPaymentMethodFrame(client, user);
+                AddPaymentMethodFrame addPaymentMethodFrame = new AddPaymentMethodFrame(client, user, airlineCompany, null);
                 setVisible(false);
           }
       });

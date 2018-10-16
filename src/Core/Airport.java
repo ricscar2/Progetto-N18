@@ -1,5 +1,8 @@
 package Core;
 
+/**
+ * @author Gruppo N
+ */
 public class Airport {
 
     private String IATA;
@@ -7,6 +10,13 @@ public class Airport {
     private String city;
     private String nation;
 
+    /**
+     *
+     * @param IATA The IATA code of the Airport
+     * @param name The official name of the Airport
+     * @param city The city where the Airport is situated in
+     * @param nation The nation where the Airport is situated in
+     */
     public Airport(String IATA, String name, String city, String nation){
         this.IATA = IATA;
         this.name = name;
@@ -14,11 +24,20 @@ public class Airport {
         this.nation = nation;
     }
 
+    /**
+     *
+     * @return The IATA code of the Airport
+     */
+    public String getIATA() {
+        return IATA;
+    }
+
+    /**
+     *
+     * @return The official name of the Airport
+     */
     public String getName() {
         return name;
     }
 
-    public String getIATA() {
-        return IATA;
-    }
 }

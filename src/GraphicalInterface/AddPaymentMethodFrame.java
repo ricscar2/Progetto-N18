@@ -1,5 +1,7 @@
 package GraphicalInterface;
 
+import Core.Company;
+import Core.TempTicket;
 import Payment.Payment;
 import User.User;
 import Web.Client;
@@ -22,6 +24,7 @@ public class AddPaymentMethodFrame extends JFrame {
 
     private User user;
     private Client client;
+    private Company airlineCompany;
     private JPanel pTitle;
     private JPanel pInfo;
     private JPanel pButton;
@@ -32,11 +35,14 @@ public class AddPaymentMethodFrame extends JFrame {
     private JComboBox cmbMethod;
     private JButton btnAdd;
     private JButton btnBack;
+    private TempTicket tempTicketDep;
 
-    public AddPaymentMethodFrame(Client client, User user){
+    public AddPaymentMethodFrame(Client client, User user, Company airlineCompany, TempTicket tempTicketDep){
         super("Airline Company - Add Payment Method");
         this.user = user;
         this.client = client;
+        this.airlineCompany = airlineCompany;
+        this.tempTicketDep = tempTicketDep;
         setSize(400,250);
         setVisible(true);
         setLocationRelativeTo(null);
@@ -75,8 +81,13 @@ public class AddPaymentMethodFrame extends JFrame {
         btnBack.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                PaymentMethodsFrame paymentMethodsFrame = new PaymentMethodsFrame(client, user);
-                setVisible(false);
+                if (tempTicketDep.equals(null)){
+                    PaymentMethodsFrame paymentMethodsFrame = new PaymentMethodsFrame(client, user, airlineCompany);
+                    setVisible(false);
+                } else {
+                    PurchaseFrame purchaseFrame = new PurchaseFrame(client, user, airlineCompany, tempTicketDep);
+                    setVisible(false);
+                }
             }
         });
 
@@ -91,7 +102,7 @@ public class AddPaymentMethodFrame extends JFrame {
                         case "CREDITCARD":
                             user.setPaymentMethod(new CreditCard(txtID.getText(), user.getUsername()));
                     }
-                    PaymentMethodsFrame paymentMethodsFrame = new PaymentMethodsFrame(client, user);
+                    PaymentMethodsFrame paymentMethodsFrame = new PaymentMethodsFrame(client, user, airlineCompany);
                     setVisible(false);
                 }
                 else
@@ -101,4 +112,4 @@ public class AddPaymentMethodFrame extends JFrame {
 
     }
 
-    }
+}

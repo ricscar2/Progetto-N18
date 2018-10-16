@@ -71,7 +71,7 @@ public class SelectFlightFrame1 extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    MainPageFrame mainPageFrame = new MainPageFrame(client, user);
+                    MainPageFrame mainPageFrame = new MainPageFrame(client, user, airlineCompany);
                     setVisible(false);
                 } catch (ParseException e1) {
                     e1.printStackTrace();
@@ -86,10 +86,13 @@ public class SelectFlightFrame1 extends JFrame {
                 boolean roundtrip = false;
                 if(chkDepArr.isSelected())
                     roundtrip = true;
-                TempTicket tempTicket = new TempTicket(user, airlineCompany.getAirport(cmbDeparture.getSelectedItem().toString()),
-                        airlineCompany.getAirport(cmbArrive.getSelectedItem().toString()), roundtrip);
-                System.out.println(cmbDeparture.getSelectedItem().toString());
-                SelectFlightFrame2 selectFlightFrame2 = new SelectFlightFrame2(client, user, airlineCompany, tempTicket);
+                TempTicket tempTicketDep = new TempTicket(client, user, airlineCompany.getAirportByName(cmbDeparture.getSelectedItem().toString()),
+                        airlineCompany.getAirportByName(cmbArrive.getSelectedItem().toString()), roundtrip);
+                TempTicket tempTicketArr = new TempTicket(client, user, airlineCompany.getAirportByName(cmbArrive.getSelectedItem().toString()),
+                        airlineCompany.getAirportByName(cmbDeparture.getSelectedItem().toString()), roundtrip);
+                    SelectFlightFrame2 selectFlightFrame2 = new SelectFlightFrame2(client, user, airlineCompany, tempTicketDep);
+                    setVisible(false);
+
             }
         });
 

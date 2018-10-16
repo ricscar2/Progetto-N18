@@ -1,7 +1,5 @@
 package Payment;
 
-import User.User;
-
 public class CreditCard extends Payment {
 
     public CreditCard(String id, String holder) {
