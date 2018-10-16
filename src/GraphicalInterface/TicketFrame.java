@@ -3,6 +3,7 @@ package GraphicalInterface;
 import Core.Company;
 import Core.TempTicket;
 import Core.Ticket;
+import Eccezioni.AllFieldsAreMandatoryException;
 import User.User;
 import Web.Client;
 import org.json.simple.parser.ParseException;
@@ -78,25 +79,36 @@ public class TicketFrame extends JFrame {
         btnNext.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String holder = txtOwnerName.getText() + " " + txtOwnerSurname.getText();
-                int n = tempTicket.getNumber() - 1;
-                tempTicket.setNumber(n);
-                if (tempTicket.getNumber() > 0) {
-                    try {
-                        tempTicket.addTicket(holder, cmbSeat.getSelectedItem().toString(), cmbBaggage.getSelectedItem().toString());
-                    } catch (ParseException e1) {
-                        e1.printStackTrace();
+                try {
+                    if(!txtOwnerName.getText().equals("") && !txtOwnerSurname.getText().equals("")){
+                        String holder = txtOwnerName.getText() + " " + txtOwnerSurname.getText();
+                        int n = tempTicket.getNumber() - 1;
+                        tempTicket.setNumber(n);
+                        if (tempTicket.getNumber() > 0) {
+                            try {
+                                tempTicket.addTicket(holder, cmbSeat.getSelectedItem().toString(), cmbBaggage.getSelectedItem().toString());
+                            } catch (ParseException e1) {
+                                e1.printStackTrace();
+                            }
+                            TicketFrame ticketFrame = new TicketFrame(client, user, airlineCompany, tempTicket);
+                            setVisible(false);
+                        } else {
+                            try {
+                                tempTicket.addTicket(holder, cmbSeat.getSelectedItem().toString(), cmbBaggage.getSelectedItem().toString());
+                            } catch (ParseException e1) {
+                                e1.printStackTrace();
+                            }
+                            SummaryFrame summaryFrame = new SummaryFrame(client, user, airlineCompany, tempTicket);
+                            setVisible(false);
+                        }
+                }else {
+                        throw new AllFieldsAreMandatoryException("Tutti i campi devono essere obbligatori");
                     }
-                    TicketFrame ticketFrame = new TicketFrame(client, user, airlineCompany, tempTicket);
-                    setVisible(false);
-                } else {
-                    try {
-                        tempTicket.addTicket(holder, cmbSeat.getSelectedItem().toString(), cmbBaggage.getSelectedItem().toString());
-                    } catch (ParseException e1) {
-                        e1.printStackTrace();
-                    }
-                    SummaryFrame summaryFrame = new SummaryFrame(client, user, airlineCompany, tempTicket);
-                    setVisible(false);
+                }catch (AllFieldsAreMandatoryException e1){
+                    String s = e1.getMessage();
+                    ExceptionFrame eFrame = new ExceptionFrame();
+                    eFrame.initComponents();
+                    eFrame.Print(s);
                 }
             }
         });

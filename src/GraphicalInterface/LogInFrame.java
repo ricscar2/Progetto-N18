@@ -1,6 +1,7 @@
 package GraphicalInterface;
 
 import Core.Company;
+import Eccezioni.AllFieldsAreMandatoryException;
 import User.User;
 import Web.Client;
 import Web.JsonCommand;
@@ -71,29 +72,40 @@ public class LogInFrame extends JFrame {
 
         btnLogin.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e){
+            public void actionPerformed(ActionEvent e) {
                 JsonCommand jsonCommand = new JsonCommand("00", txtUsername.getText(), txtPassword.getText());
                 // Send to server
                 client.sendMessage(jsonCommand.getJsonString());
-                if(client.getResponse().equals("false")) {
-                    System.out.println("Connection Attempt failed! Response: " + client.getResponse());
-                } else {
-                    try {
-                        JSONParser jsonParser = new JSONParser();
-                        JSONObject userInfo = new JSONObject((JSONObject) jsonParser.parse(client.getResponse()));
-                        Company airlineCompany = new Company(client);
-                        User user = new User(client,(String) userInfo.get("usr"),(String) userInfo.get("pwd"),
-                                (String) userInfo.get("name"), (String) userInfo.get("surname"),
-                                birthdayFormat.parse( (String) userInfo.get("birthdate")), (String) userInfo.get("nation"),
-                                (String) userInfo.get("email"),airlineCompany);
-                        mainPageFrame = new MainPageFrame(client, user,airlineCompany);
-                        System.out.println("Connected. Response: " + client.getResponse());
-                        setVisible(false);
-                    } catch (ParseException ex){
-                        ex.printStackTrace();
-                    } catch (java.text.ParseException e1) {
-                        e1.printStackTrace();
+                try {
+                    if(!txtUsername.getText().equals("") && !txtPassword.getText().equals("")){
+                        if (client.getResponse().equals("false")) {
+                        System.out.println("Connection Attempt failed! Response: " + client.getResponse());
+                        } else {
+                        try {
+                            JSONParser jsonParser = new JSONParser();
+                            JSONObject userInfo = new JSONObject((JSONObject) jsonParser.parse(client.getResponse()));
+                            Company airlineCompany = new Company(client);
+                            User user = new User(client, (String) userInfo.get("usr"), (String) userInfo.get("pwd"),
+                                    (String) userInfo.get("name"), (String) userInfo.get("surname"),
+                                    birthdayFormat.parse((String) userInfo.get("birthdate")), (String) userInfo.get("nation"),
+                                    (String) userInfo.get("email"), airlineCompany);
+                            mainPageFrame = new MainPageFrame(client, user, airlineCompany);
+                            System.out.println("Connected. Response: " + client.getResponse());
+                            setVisible(false);
+                        } catch (ParseException ex) {
+                            ex.printStackTrace();
+                        } catch (java.text.ParseException e1) {
+                            e1.printStackTrace();
+                        }
                     }
+                }else{
+                        throw new AllFieldsAreMandatoryException("Tutti i campi devono essere obbligatori");
+                    }
+                }catch (AllFieldsAreMandatoryException e1){
+                    String s = e1.getMessage();
+                    ExceptionFrame eFrame = new ExceptionFrame();
+                    eFrame.initComponents();
+                    eFrame.Print(s);
                 }
             }
         });

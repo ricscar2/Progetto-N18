@@ -2,6 +2,7 @@ package GraphicalInterface;
 
 import Core.Company;
 import Core.TempTicket;
+import Eccezioni.NoPaymentsMethodException;
 import Web.Client;
 import User.User;
 
@@ -84,9 +85,23 @@ public class PurchaseFrame extends JFrame {
         btnNext.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                tempTicketDep.bookTickets();
-                BookSuccessFrame bookSuccessFrame = new BookSuccessFrame(client, user, airlineCompany);
-                setVisible(false);
+                try {
+                    if(cmbPayment.getSelectedItem().equals("")) {
+                        tempTicketDep.bookTickets();
+                        BookSuccessFrame bookSuccessFrame = new BookSuccessFrame(client, user, airlineCompany);
+                        setVisible(false);
+                    }else {
+                        throw new NoPaymentsMethodException("Aggiungi metodo di pagamento");
+
+                    }
+                }catch (NoPaymentsMethodException e1){
+                    String s = e1.getMessage();
+                    ExceptionFrame eFrame = new ExceptionFrame();
+                    eFrame.initComponents();
+                    eFrame.Print(s);
+                    AddPaymentMethodFrame addPaymentMethodFrame = new AddPaymentMethodFrame(client,user,airlineCompany,tempTicketDep);
+
+                }
             }
         });
 
