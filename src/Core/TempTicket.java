@@ -99,6 +99,10 @@ public class TempTicket {
         String s = flight.getId();
         if(seatType.equals("ECONOMY")){
             client.sendMessage(new JsonCommand("07", flight.getId(), getDateString(), "ECONOMY").getJsonString());
+            if (client.getResponse().equals("{}")){
+                client.sendMessage(new JsonCommand("13", s, getDateString(), flight.getESeat(), flight.getBSeat()).getJsonString());
+                client.sendMessage(new JsonCommand("07", flight.getId(), getDateString(), "ECONOMY").getJsonString());
+            }
             JSONObject rSeat = (JSONObject) jsonParser.parse(client.getResponse());
             nSeat = "E" + rSeat.get("economy");
             nEconomy++;
@@ -107,6 +111,10 @@ public class TempTicket {
         }
         else if (seatType.equals("BUSINESS")){
             client.sendMessage(new JsonCommand("07", flight.getId(), getDateString(), "BUSINESS").getJsonString());
+            if (client.getResponse().equals("{}")){
+                client.sendMessage(new JsonCommand("13", s, getDateString(), flight.getESeat(), flight.getBSeat()).getJsonString());
+                client.sendMessage(new JsonCommand("07", flight.getId(), getDateString(), "BUSINESS").getJsonString());
+            }
             JSONObject rSeat = (JSONObject) jsonParser.parse(client.getResponse());
             nSeat = "B" + rSeat.get("business");
             nBusiness++;

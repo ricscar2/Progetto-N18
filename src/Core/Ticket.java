@@ -63,6 +63,10 @@ public class Ticket {
         this.checked = checked;
     }
 
+    public boolean isChecked() {
+        return checked;
+    }
+
     public String previewString(){
         String str = "Holder: " + holder + "Seat: " + seat.getNumber() + "Baggage: " + baggage.getType();
         return str;

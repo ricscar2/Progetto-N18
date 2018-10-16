@@ -22,6 +22,7 @@ public class YourTicketsFrame extends JFrame {
     private JLabel lblTitle ;
     private JList jList;
     private JButton btnBack;
+    private JButton btnCheckIn;
     private JScrollPane scrollPane;
 
     public YourTicketsFrame(Client client, User user, Company airlineCompany){
@@ -49,10 +50,12 @@ public class YourTicketsFrame extends JFrame {
         user.setAirlineCompany(airlineCompany);
         jList = new JList(user.getTicketsStrng().toArray());
         btnBack = new JButton("Back to Your Profile");
+        btnCheckIn = new JButton("Check-In");
         pTitle.add(lblTitle);
         scrollPane.setViewportView(jList);
         pInfo.add(scrollPane);
         pButton.add(btnBack);
+        pButton.add(btnCheckIn);
     }
 
     private void addListeners(){

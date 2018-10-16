@@ -244,4 +244,16 @@ public class Queries {
         return jsonRoot.toJSONString();
     }
 
+    public static boolean addBookedFlight(Connection dbConnection, String id, String date, String eseat, String bseat) throws SQLException{
+        String query = "INSERT INTO BOOKEDFLIGHTS(ID, DDATE, ESEAT, BSEAT)" +
+                "VALUES (?, ?, ?, ?); ";
+        PreparedStatement preparedStatement = dbConnection.prepareStatement(query);
+        preparedStatement.setString(1, id);
+        preparedStatement.setString(2, date);
+        preparedStatement.setString(3, eseat);
+        preparedStatement.setString(4, bseat);
+        preparedStatement.executeUpdate();
+        return true;
+    }
+
 }

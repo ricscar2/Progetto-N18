@@ -45,6 +45,14 @@ public class Flight {
         return str;
     }
 
+    public String getESeat(){
+        return String.valueOf(airplane.getEconomy());
+    }
+
+    public String getBSeat(){
+        return String.valueOf(airplane.getBusiness());
+    }
+
     @Override
     public String toString() {
         String s = "Departure: " + departure.getName() + " " + departureTime + " - Arrive: " + arrive.getName() + " "

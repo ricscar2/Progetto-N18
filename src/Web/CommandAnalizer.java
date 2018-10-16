@@ -84,6 +84,10 @@ public class CommandAnalizer {
                 return response;
             case "12":
                 return Queries.getTickets(dbStatement, jsonCommand.getParameter("username"));
+            case "13":
+                if(Queries.addBookedFlight(dbConnection, jsonCommand.getParameter("id"), jsonCommand.getParameter("date"),
+                        jsonCommand.getParameter("eseat"), jsonCommand.getParameter("bseat")));
+                return "FLIGHT ADDED TO DATABASE";
         }
         throw new CommandNotFoundException();
 

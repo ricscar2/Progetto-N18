@@ -17,71 +17,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Airport.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Core/Airport.java">
+      <file leaf-file-name="MainClass1.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Test/MainClass1.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="382">
-              <caret line="28" column="43" selection-start-line="28" selection-start-column="43" selection-end-line="28" selection-end-column="43" />
-              <folding>
-                <element signature="e#674#675#0" expanded="true" />
-                <element signature="e#701#702#0" expanded="true" />
-                <element signature="e#676#677#0" expanded="true" />
-                <element signature="e#703#704#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Airplane.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Core/Airplane.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="29" column="27" lean-forward="true" selection-start-line="29" selection-start-column="27" selection-end-line="29" selection-end-column="27" />
-              <folding>
-                <element signature="e#692#693#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Baggage.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Core/Baggage.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="38" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
-              <folding>
-                <element signature="e#177#178#0" expanded="true" />
-                <element signature="e#209#210#0" expanded="true" />
-                <element signature="e#308#309#0" expanded="true" />
-                <element signature="e#335#336#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BaggageType.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Core/BaggageType.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Flight.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Core/Flight.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="303">
-              <caret line="38" column="13" lean-forward="true" selection-start-line="29" selection-start-column="18" selection-end-line="38" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Company.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Core/Company.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret lean-forward="true" />
+            <state relative-caret-position="306">
+              <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -89,16 +29,63 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Seat.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Core/Seat.java">
+      <file leaf-file-name="YourTicketsFrame.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/YourTicketsFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="30" column="37" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
+            <state relative-caret-position="408">
+              <caret line="69" lean-forward="true" selection-start-line="69" selection-end-line="69" />
               <folding>
-                <element signature="e#386#387#0" expanded="true" />
-                <element signature="e#417#418#0" expanded="true" />
-                <element signature="e#489#490#0" expanded="true" />
-                <element signature="e#518#519#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JsonCommand.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Web/JsonCommand.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret lean-forward="true" />
+              <folding>
+                <element signature="e#3435#3436#0" expanded="true" />
+                <element signature="e#3484#3485#0" expanded="true" />
+                <element signature="e#3515#3516#0" expanded="true" />
+                <element signature="e#3577#3578#0" expanded="true" />
+                <element signature="e#3621#3622#0" expanded="true" />
+                <element signature="e#3674#3675#0" expanded="true" />
+                <element signature="e#3720#3721#0" expanded="true" />
+                <element signature="e#3759#3760#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CommandAnalizer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Web/CommandAnalizer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="284">
+              <caret line="82" column="40" lean-forward="true" selection-start-line="82" selection-start-column="40" selection-end-line="82" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserFrame.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/UserFrame.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="94" column="32" selection-start-line="94" selection-start-column="32" selection-end-line="94" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Ticket.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Core/Ticket.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="57" column="28" lean-forward="true" selection-start-line="57" selection-start-column="28" selection-end-line="57" selection-end-column="28" />
+              <folding>
+                <element signature="e#1343#1344#0" expanded="true" />
+                <element signature="e#1373#1374#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -107,26 +94,38 @@
       <file leaf-file-name="TempTicket.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Core/TempTicket.java">
           <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="35" column="24" lean-forward="true" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/User/User.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="29" column="29" lean-forward="true" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="29" />
+              <folding>
+                <element signature="e#4777#4785#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CalendarFrame.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/CalendarFrame.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ExceptionFrame.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/ExceptionFrame.java">
+          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="68">
-              <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Ticket.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Core/Ticket.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="507">
-              <caret line="73" column="65" selection-start-line="73" selection-start-column="65" selection-end-line="73" selection-end-column="65" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SeatType.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Core/SeatType.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
+              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -165,34 +164,36 @@
         <option value="$PROJECT_DIR$/src/Payment/CreditCard.java" />
         <option value="$PROJECT_DIR$/src/Database/Database.java" />
         <option value="$PROJECT_DIR$/src/GraphicalInterface/CalendarFrame.java" />
-        <option value="$PROJECT_DIR$/src/Core/Flight.java" />
         <option value="$PROJECT_DIR$/src/GraphicalInterface/TicketFrame.java" />
-        <option value="$PROJECT_DIR$/src/Web/JsonCommand.java" />
-        <option value="$PROJECT_DIR$/src/GraphicalInterface/SelectFlightFrame2.java" />
         <option value="$PROJECT_DIR$/src/GraphicalInterface/BookSuccessFrame.java" />
-        <option value="$PROJECT_DIR$/src/Core/TempTicket.java" />
         <option value="$PROJECT_DIR$/src/GraphicalInterface/AddPaymentMethodFrame.java" />
         <option value="$PROJECT_DIR$/src/GraphicalInterface/PaymentMethodsFrame.java" />
-        <option value="$PROJECT_DIR$/src/Web/CommandAnalizer.java" />
-        <option value="$PROJECT_DIR$/src/GraphicalInterface/SelectFlightFrame1.java" />
         <option value="$PROJECT_DIR$/src/GraphicalInterface/MainPageFrame.java" />
-        <option value="$PROJECT_DIR$/src/Database/Queries.java" />
-        <option value="$PROJECT_DIR$/src/Test/MainClass1.java" />
-        <option value="$PROJECT_DIR$/src/User/User.java" />
         <option value="$PROJECT_DIR$/src/GraphicalInterface/LogInFrame.java" />
         <option value="$PROJECT_DIR$/src/GraphicalInterface/SignInFrame.java" />
         <option value="$PROJECT_DIR$/src/GraphicalInterface/UserFrame.java" />
-        <option value="$PROJECT_DIR$/src/Core/Ticket.java" />
-        <option value="$PROJECT_DIR$/src/GraphicalInterface/YourTicketsFrame.java" />
         <option value="$PROJECT_DIR$/src/GraphicalInterface/SummaryFrame.java" />
         <option value="$PROJECT_DIR$/src/GraphicalInterface/PurchaseFrame.java" />
-        <option value="$PROJECT_DIR$/src/Core/Airplane.java" />
         <option value="$PROJECT_DIR$/src/Core/Airport.java" />
         <option value="$PROJECT_DIR$/src/Core/Baggage.java" />
         <option value="$PROJECT_DIR$/src/Core/BaggageType.java" />
         <option value="$PROJECT_DIR$/src/Core/SeatType.java" />
         <option value="$PROJECT_DIR$/src/Core/Company.java" />
         <option value="$PROJECT_DIR$/src/Core/Seat.java" />
+        <option value="$PROJECT_DIR$/src/GraphicalInterface/SelectFlightFrame2.java" />
+        <option value="$PROJECT_DIR$/src/GraphicalInterface/SelectFlightFrame1.java" />
+        <option value="$PROJECT_DIR$/src/Eccezioni/NotYetBookedException.java" />
+        <option value="$PROJECT_DIR$/src/Test/Client1Test.java" />
+        <option value="$PROJECT_DIR$/src/Core/Airplane.java" />
+        <option value="$PROJECT_DIR$/src/Core/Flight.java" />
+        <option value="$PROJECT_DIR$/src/Database/Queries.java" />
+        <option value="$PROJECT_DIR$/src/Web/CommandAnalizer.java" />
+        <option value="$PROJECT_DIR$/src/Test/MainClass1.java" />
+        <option value="$PROJECT_DIR$/src/Core/TempTicket.java" />
+        <option value="$PROJECT_DIR$/src/Core/Ticket.java" />
+        <option value="$PROJECT_DIR$/src/GraphicalInterface/YourTicketsFrame.java" />
+        <option value="$PROJECT_DIR$/src/User/User.java" />
+        <option value="$PROJECT_DIR$/src/Web/JsonCommand.java" />
       </list>
     </option>
   </component>
@@ -208,18 +209,19 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="950" />
-    <option name="width" value="980" />
-    <option name="height" value="1040" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="952" />
+    <option name="width" value="977" />
+    <option name="height" value="1038" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
       <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -258,12 +260,6 @@
               <item name="Progetto N" type="b2602c69:ProjectViewProjectNode" />
               <item name="Progetto N" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Eccezioni" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Progetto N" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Progetto N" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="GraphicalInterface" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -294,7 +290,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -510,12 +505,13 @@
       <workItem from="1539588618855" duration="11003000" />
       <workItem from="1539620825477" duration="163000" />
       <workItem from="1539626335086" duration="11000" />
-      <workItem from="1539676859158" duration="3936000" />
+      <workItem from="1539676859158" duration="7049000" />
+      <workItem from="1539690991153" duration="3707000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="146233000" />
+    <option name="totallyTimeSpent" value="153053000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -523,6 +519,7 @@
     <layout>
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.32478634" />
       <window_info anchor="right" id="Palette&#9;" order="9" />
       <window_info id="Image Layers" order="9" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
@@ -534,35 +531,36 @@
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info id="Capture Tool" order="7" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.8405797" visible="true" weight="0.14026846" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.8405797" visible="true" weight="0.13825503" />
       <window_info anchor="right" id="Database" order="8" />
       <window_info id="Structure" order="1" sideWeight="0.1594203" side_tool="true" weight="0.25302014" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
       <window_info id="UI Designer" order="3" />
       <window_info anchor="right" id="Theme Preview" order="6" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4017094" />
-      <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.3295302" />
-      <window_info anchor="bottom" id="DB Execution Console" order="11" />
-      <window_info anchor="bottom" id="Messages" order="13" weight="0.32478634" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.21652421" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
+      <window_info anchor="bottom" id="Console" order="9" />
+      <window_info id="Job Explorer" order="8" />
       <window_info anchor="right" id="Commander" order="1" weight="0.4" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3048433" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info id="Project Explorer" order="4" />
+      <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.3295302" />
       <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info id="DB Browser" order="5" />
-      <window_info id="Job Explorer" order="8" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
-      <window_info anchor="bottom" id="Console" order="9" />
+      <window_info id="Project Explorer" order="4" />
+      <window_info anchor="bottom" id="DB Execution Console" order="11" />
     </layout>
     <layout-to-restore>
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
       <window_info anchor="bottom" id="DB Execution Console" order="11" />
       <window_info id="Designer" order="2" />
       <window_info anchor="right" id="Palette" order="4" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3062678" />
+      <window_info id="Image Layers" order="9" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3062678" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
+      <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.3295302" />
       <window_info id="DB Browser" order="5" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Project Explorer" order="4" />
@@ -573,24 +571,22 @@
       <window_info anchor="right" id="Commander" order="1" weight="0.4" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="13" weight="0.32478634" />
-      <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info id="Job Explorer" order="8" />
       <window_info anchor="right" id="Maven Projects" order="7" weight="0.3295302" />
       <window_info id="Structure" order="1" sideWeight="0.1594203" side_tool="true" weight="0.25302014" />
-      <window_info id="Job Explorer" order="8" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.8405797" visible="true" weight="0.13422818" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3048433" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8405797" visible="true" weight="0.13825503" />
       <window_info anchor="right" id="Database" order="8" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info id="Image Layers" order="9" />
+      <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="9" />
       <window_info anchor="right" id="Theme Preview" order="6" />
       <window_info anchor="bottom" id="Console" order="9" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.3295302" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3048433" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.4017094" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4017094" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -601,7 +597,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="80" />
+      <option name="time" value="87" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
@@ -619,23 +615,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$PROJECT_DIR$/lib/json-simple-1.1.1.jar!/org/json/simple/parser/Yylex.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="308" selection-start-line="308" selection-end-line="308" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/Program Files/Java/jdk-10.0.1/lib/src.zip!/java.desktop/java/awt/EventDispatchThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="183" selection-start-line="183" selection-end-line="183" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/UserFrane.java" />
-    <entry file="file://$PROJECT_DIR$/src/Test/MainPageTest1.java" />
-    <entry file="file://$PROJECT_DIR$/src/Web/JsonResponse.java" />
     <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/SelectFlightFrame.java" />
     <entry file="jar://$PROJECT_DIR$/lib/mysql-connector-java-8.0.11.jar!/com/mysql/cj/jdbc/result/ResultSetImpl.class">
       <provider selected="true" editor-type-id="text-editor">
@@ -651,24 +630,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Test/Client2Test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Test/Client2Test.java" />
     <entry file="jar://D:/Program Files/Java/jdk-10.0.1/lib/src.zip!/java.desktop/javax/swing/JComponent.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="131">
           <caret line="2767" selection-start-line="2767" selection-end-line="2767" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Test/Client1Test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -686,13 +652,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Payment/CreditCard.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Payment/PaymentType.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -704,13 +663,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
           <caret line="1966" selection-start-line="1966" selection-end-line="1966" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Web/Server.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -728,20 +680,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Web/Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="62" column="49" selection-start-line="62" selection-start-column="49" selection-end-line="62" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Web/ConnectedClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="50" selection-start-line="50" selection-end-line="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/AddPaymentMethodFrame.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -756,20 +694,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Web/JsonCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="103" lean-forward="true" selection-start-line="103" selection-end-line="103" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Web/CommandAnalizer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="85" column="42" selection-start-line="85" selection-start-column="42" selection-end-line="85" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/MainPageFrame.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -777,85 +701,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Database/Queries.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="235" column="49" selection-start-line="235" selection-start-column="49" selection-end-line="235" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/User/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="42" column="45" selection-start-line="42" selection-start-column="45" selection-end-line="42" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/LogInFrame.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="163">
           <caret line="81" column="80" selection-start-line="81" selection-start-column="80" selection-end-line="81" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/SignInFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="180" column="20" lean-forward="true" selection-start-line="180" selection-start-column="20" selection-end-line="180" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/UserFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="94" column="32" selection-start-line="94" selection-start-column="32" selection-end-line="94" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/YourTicketsFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="31" column="19" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/TicketFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1683">
-          <caret line="110" selection-start-line="110" selection-end-line="110" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/SelectFlightFrame1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="39" column="25" selection-start-line="39" selection-start-column="25" selection-end-line="77" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/BookSuccessFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="52" column="21" selection-start-line="52" selection-start-column="21" selection-end-line="52" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/CalendarFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="21" column="53" selection-start-line="21" selection-start-column="53" selection-end-line="21" selection-end-column="53" />
         </state>
       </provider>
     </entry>
@@ -875,40 +724,6 @@
           <caret line="75" column="21" selection-start-line="70" selection-start-column="5" selection-end-line="75" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/SelectFlightFrame2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" selection-start-line="7" selection-end-line="74" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Test/ServerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Test/MainClass1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" selection-start-line="10" selection-end-line="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Core/Airplane.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="27" lean-forward="true" selection-start-line="29" selection-start-column="27" selection-end-line="29" selection-end-column="27" />
-          <folding>
-            <element signature="e#692#693#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -963,36 +778,242 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Core/TempTicket.java">
+    <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/BookSuccessFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="643">
+          <caret line="52" column="21" selection-start-line="52" selection-start-column="21" selection-end-line="52" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/SignInFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="180" column="20" lean-forward="true" selection-start-line="180" selection-start-column="20" selection-end-line="180" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/SelectFlightFrame2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-51">
+          <caret line="25" column="42" lean-forward="true" selection-start-line="25" selection-start-column="42" selection-end-line="25" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/SelectFlightFrame1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="87" selection-start-line="87" selection-end-line="88" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Eccezioni/DifferentPasswordException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Eccezioni/AllFieldsAreMandatoryException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Eccezioni/CommandNotFoundException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Test/Client1Test.java" />
+    <entry file="file://$PROJECT_DIR$/src/Eccezioni/NotYetBookedException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Payment/CreditCard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Web/Server.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Core/Ticket.java">
+    <entry file="file://$PROJECT_DIR$/src/Web/Client.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="507">
-          <caret line="73" column="65" selection-start-line="73" selection-start-column="65" selection-end-line="73" selection-end-column="65" />
+        <state relative-caret-position="405">
+          <caret line="62" column="49" selection-start-line="62" selection-start-column="49" selection-end-line="62" selection-end-column="49" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Core/Flight.java">
+    <entry file="file://$PROJECT_DIR$/src/Core/Airplane.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="38" column="13" lean-forward="true" selection-start-line="29" selection-start-column="18" selection-end-line="38" selection-end-column="13" />
+        <state relative-caret-position="620">
+          <caret line="38" column="8" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="24" />
+          <folding>
+            <element signature="e#706#707#0" expanded="true" />
+            <element signature="e#731#732#0" expanded="true" />
+            <element signature="e#762#763#0" expanded="true" />
+            <element signature="e#792#793#0" expanded="true" />
+            <element signature="e#824#825#0" expanded="true" />
+            <element signature="e#855#856#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Core/Seat.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
+        <state relative-caret-position="467">
           <caret line="30" column="37" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Core/Flight.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="34" column="19" selection-start-line="27" selection-end-line="34" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Database/Queries.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="245" lean-forward="true" selection-start-line="245" selection-end-line="245" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Test/ServerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="9" selection-start-line="8" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Web/ConnectedClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="50" selection-start-line="50" selection-end-line="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/TicketFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="101" lean-forward="true" selection-start-line="90" selection-start-column="25" selection-end-line="101" />
           <folding>
-            <element signature="e#386#387#0" expanded="true" />
-            <element signature="e#417#418#0" expanded="true" />
-            <element signature="e#489#490#0" expanded="true" />
-            <element signature="e#518#519#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/UserFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="94" column="32" selection-start-line="94" selection-start-column="32" selection-end-line="94" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Web/CommandAnalizer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="82" column="40" lean-forward="true" selection-start-line="82" selection-start-column="40" selection-end-line="82" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Test/MainClass1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Core/TempTicket.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="35" column="24" lean-forward="true" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/YourTicketsFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="69" lean-forward="true" selection-start-line="69" selection-end-line="69" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Core/Ticket.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="57" column="28" lean-forward="true" selection-start-line="57" selection-start-column="28" selection-end-line="57" selection-end-column="28" />
+          <folding>
+            <element signature="e#1343#1344#0" expanded="true" />
+            <element signature="e#1373#1374#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/User/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="29" column="29" lean-forward="true" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="29" />
+          <folding>
+            <element signature="e#4777#4785#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/CalendarFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/ExceptionFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Web/JsonCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret lean-forward="true" />
+          <folding>
+            <element signature="e#3435#3436#0" expanded="true" />
+            <element signature="e#3484#3485#0" expanded="true" />
+            <element signature="e#3515#3516#0" expanded="true" />
+            <element signature="e#3577#3578#0" expanded="true" />
+            <element signature="e#3621#3622#0" expanded="true" />
+            <element signature="e#3674#3675#0" expanded="true" />
+            <element signature="e#3720#3721#0" expanded="true" />
+            <element signature="e#3759#3760#0" expanded="true" />
           </folding>
         </state>
       </provider>

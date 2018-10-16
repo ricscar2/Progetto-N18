@@ -28,6 +28,7 @@ public class User {
     private JSONParser jsonParser = new JSONParser();
     private ArrayList<Payment> paymentMethods;
     private List<Ticket> tickets;
+    private ArrayList<Ticket> unTickets;
     private Company airlineCompany;
 
     public User(Client client, String username, String password, String name, String surname, Date birthdate, String nation, String email, Company airlineCompany) throws ParseException, java.text.ParseException {
@@ -42,6 +43,7 @@ public class User {
         this.paymentMethods = setPaymentMethods(client);
         this.airlineCompany = airlineCompany;
         this.tickets = setTickets(client);
+        this.unTickets = setUncheckedTickets();
     }
 
     public String getUsername() {
@@ -54,10 +56,6 @@ public class User {
 
     public String getSurname() {
         return surname;
-    }
-
-    public Date getBirthdate() {
-        return birthdate;
     }
 
     public void setAirlineCompany(Company airlineCompany) {
@@ -127,8 +125,20 @@ public class User {
         return strings;
     }
 
+    private ArrayList<Ticket> setUncheckedTickets(){
+        ArrayList<Ticket> uTickets = new ArrayList<Ticket>();
+        for (Ticket t:tickets) {
+            if (t.isChecked() == false){
+                uTickets.add(t);
+            }
+        }
+        return uTickets;
+    }
+
     public void addTicket(Ticket ticket){
         tickets.add(ticket);
+        if (ticket.isChecked() == false)
+            this.unTickets.add(ticket);
     }
 
     public void setPaymentMethod (Payment paymentMethod){

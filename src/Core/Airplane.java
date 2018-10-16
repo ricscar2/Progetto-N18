@@ -31,4 +31,11 @@ public class Airplane {
         return id;
     }
 
+    public int getEconomy() {
+        return economy;
+    }
+
+    public int getBusiness() {
+        return business;
+    }
 }

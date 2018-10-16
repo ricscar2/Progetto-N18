@@ -57,6 +57,16 @@ public class JsonCommand{
         }
     }
 
+    public JsonCommand(String code, String first, String second, String third, String fourth){
+        jsonCommand = new JSONObject();
+        jsonCommand.put("code", code);
+        jsonCommand.put("id", first);
+        jsonCommand.put("date", second);
+        jsonCommand.put("eseat", third);
+        jsonCommand.put("bseat", fourth);
+    }
+
+
     public JsonCommand(String code, String first, String second, String third, String fourth,
                        String fifth, String sixth, String seventh) {
         jsonCommand = new JSONObject();
