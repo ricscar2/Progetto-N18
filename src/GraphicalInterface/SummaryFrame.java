@@ -2,6 +2,7 @@ package GraphicalInterface;
 
 import Core.Company;
 import Core.TempTicket;
+import Eccezioni.NoPaymentsMethodException;
 import User.User;
 import Web.Client;
 
@@ -25,6 +26,7 @@ public class SummaryFrame extends JFrame {
     private JLabel lblDeparture;
     private JLabel lblArrive;
     private JList jList;
+
     private JButton btnPayment;
     private JButton btnBack;
     private JScrollPane scrollPane = new JScrollPane();
@@ -58,6 +60,7 @@ public class SummaryFrame extends JFrame {
         lblArrive = new JLabel(tempTicket.getFlight().getArriveString());
         lblTitle = new JLabel("Tickets Preview");
         jList = new JList(tempTicket.getTicketsPreview().toArray());
+
         btnBack = new JButton("Back");
         btnPayment = new JButton("Go to Payment");
         pTitle.add(lblTitle);
@@ -75,8 +78,11 @@ public class SummaryFrame extends JFrame {
         btnPayment.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                PurchaseFrame purchaseFrame = new PurchaseFrame(client, user, airlineCompany, tempTicket);
-                setVisible(false);
+
+                        PurchaseFrame purchaseFrame = new PurchaseFrame(client, user, airlineCompany, tempTicket);
+                        setVisible(false);
+
+
             }
         });
 

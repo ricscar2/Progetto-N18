@@ -77,6 +77,10 @@ public class User {
         return email;
     }
 
+    public ArrayList<Payment> getPaymentMethods() {
+        return paymentMethods;
+    }
+
     public ArrayList<Payment> setPaymentMethods(Client client) throws ParseException {
         ArrayList<Payment> paymentMethods = new ArrayList<Payment>();
         client.sendMessage(new JsonCommand("05", this.username).getJsonString());

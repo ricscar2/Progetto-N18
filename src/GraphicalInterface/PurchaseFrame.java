@@ -86,7 +86,7 @@ public class PurchaseFrame extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    if(cmbPayment.getSelectedItem().equals("")) {
+                    if(!(user.getPaymentMethods().size()==0)) {
                         tempTicketDep.bookTickets();
                         BookSuccessFrame bookSuccessFrame = new BookSuccessFrame(client, user, airlineCompany);
                         setVisible(false);
@@ -99,7 +99,7 @@ public class PurchaseFrame extends JFrame {
                     ExceptionFrame eFrame = new ExceptionFrame();
                     eFrame.initComponents();
                     eFrame.Print(s);
-                    AddPaymentMethodFrame addPaymentMethodFrame = new AddPaymentMethodFrame(client,user,airlineCompany,tempTicketDep);
+                    
 
                 }
             }
