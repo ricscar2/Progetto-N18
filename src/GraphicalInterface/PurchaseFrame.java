@@ -99,7 +99,7 @@ public class PurchaseFrame extends JFrame {
                     ExceptionFrame eFrame = new ExceptionFrame();
                     eFrame.initComponents();
                     eFrame.Print(s);
-                    
+
 
                 }
             }
