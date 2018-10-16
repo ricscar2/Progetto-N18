@@ -23,7 +23,6 @@ public class MainPageFrame extends JFrame {
     private Company airlineCompany;
 
     private JPanel pTitle = new JPanel();
-    //private JPanel pUsername = new JPanel();
     private JPanel pButton = new JPanel();
     private JLabel lblDisconnect = new JLabel("Disconnect");
     private JLabel lblUsername;

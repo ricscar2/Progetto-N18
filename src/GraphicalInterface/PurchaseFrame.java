@@ -35,7 +35,7 @@ public class PurchaseFrame extends JFrame {
         this.user = user;
         this.airlineCompany = airlineCompany;
         this.tempTicketDep = tempTicketDep;
-        setSize(300,300);
+        setSize(500,500);
         setLocationRelativeTo(null);
         setResizable(true);
         setVisible(true);

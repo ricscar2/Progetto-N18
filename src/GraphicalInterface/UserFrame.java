@@ -69,7 +69,7 @@ public class UserFrame extends JFrame {
         lblEmail1 = new JLabel(user.getEmail());
         lblEmail1.setFont(new Font("SansSerif",Font.PLAIN,10));
         lblName = new JLabel("Name: ");
-        lblName1 = new JLabel(user.getEmail());
+        lblName1 = new JLabel(user.getName());
         lblName1.setFont(new Font("SansSerif",Font.PLAIN,10));
         lblSurname = new JLabel("Surname: ");
         lblSurname1 = new JLabel(user.getSurname());
