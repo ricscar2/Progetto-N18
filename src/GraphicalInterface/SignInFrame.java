@@ -72,7 +72,7 @@ public class SignInFrame extends JFrame {
         String[] lineArray = nations.toArray(new String[]{});
         cmbNation = new JComboBox<>(lineArray);
         setSize(600,400);
-        setResizable(true);
+        setResizable(false);
         setLocationRelativeTo(null);
         initComponents();
         addListeners();

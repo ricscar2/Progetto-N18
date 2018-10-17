@@ -93,16 +93,18 @@ public class SelectFlightFrame2 extends JFrame {
         btnCalendar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                CalendarFrame calendarFrame=null;
+
+                FlyCalendarFrame flyCalendarFrame=null;
                 try {
-                    calendarFrame = new CalendarFrame(client, "Select2");
-                    //setVisible(false);
+                    flyCalendarFrame = new FlyCalendarFrame(client,"Select2");
+
+
 
                 } catch (IOException e1) {
                     e1.printStackTrace();
                 }
+                flyCalendarFrame.setSelectFlightFrame2(SelectFlightFrame2.this);
 
-                calendarFrame.setSelectFlightFrame2(SelectFlightFrame2.this);
             }
         });
 

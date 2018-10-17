@@ -40,7 +40,7 @@ public class SummaryFrame extends JFrame {
         this.tempTicket = tempTicket;
         setSize(300,300);
         setLocationRelativeTo(null);
-        setResizable(true);
+        setResizable(false);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         initComponents();
