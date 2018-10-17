@@ -5,6 +5,9 @@ import Web.Client;
 import java.io.IOException;
 
 public class FlyCalendarFrame extends CalendarFrame {
+    
+
+
     public FlyCalendarFrame(Client client, String who) throws IOException {
         super(client, who);
     }
