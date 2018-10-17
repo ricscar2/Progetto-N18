@@ -29,7 +29,7 @@ public class BookSuccessFrame extends JFrame {
         this.airlineCompany = airlineCompany;
         setSize(300,300);
         setLocationRelativeTo(null);
-        setResizable(true);
+        setResizable(false);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         initComponents();
