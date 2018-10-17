@@ -2,29 +2,22 @@ package GraphicalInterface;
 
 import Core.Company;
 import Core.TempTicket;
-import Payment.Payment;
+import Eccezioni.IDException;
+import Payment.CreditCard;
 import User.User;
 import Web.Client;
 import Web.JsonCommand;
-import Payment.CreditCard;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 
 public class AddPaymentMethodFrame extends JFrame {
-
     private User user;
     private Client client;
     private Company airlineCompany;
+    private TempTicket tempTicketDep;
     private JPanel pTitle;
     private JPanel pInfo;
     private JPanel pButton;
@@ -35,14 +28,13 @@ public class AddPaymentMethodFrame extends JFrame {
     private JComboBox cmbMethod;
     private JButton btnAdd;
     private JButton btnBack;
-    private TempTicket tempTicketDep;
 
-    public AddPaymentMethodFrame(Client client, User user, Company airlineCompany, TempTicket tempTicketDep){
+    public AddPaymentMethodFrame(Client client, User user,Company airlineCompany,TempTicket tempTicketDep){
         super("Airline Company - Add Payment Method");
         this.user = user;
         this.client = client;
-        this.airlineCompany = airlineCompany;
-        this.tempTicketDep = tempTicketDep;
+        this.airlineCompany=airlineCompany;
+        this.tempTicketDep=tempTicketDep;
         setSize(400,250);
         setVisible(true);
         setLocationRelativeTo(null);
@@ -81,33 +73,49 @@ public class AddPaymentMethodFrame extends JFrame {
         btnBack.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (tempTicketDep.equals(null)){
-                    PaymentMethodsFrame paymentMethodsFrame = new PaymentMethodsFrame(client, user, airlineCompany);
-                    setVisible(false);
-                } else {
-                    PurchaseFrame purchaseFrame = new PurchaseFrame(client, user, airlineCompany, tempTicketDep);
-                    setVisible(false);
-                }
+                PaymentMethodsFrame paymentMethodsFrame = new PaymentMethodsFrame(client, user,airlineCompany);
+                setVisible(false);
             }
         });
 
         btnAdd.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JsonCommand jsonCommand = new JsonCommand("06", txtID.getText(), cmbMethod.getSelectedItem().toString(), user.getUsername());
-                client.sendMessage(jsonCommand.getJsonString());
-                if (client.getResponse().equals("true")){
-                    System.out.println("Metodo aggiunto con successo!");
-                    switch (cmbMethod.getSelectedItem().toString()){
-                        case "CREDITCARD":
-                            user.setPaymentMethod(new CreditCard(txtID.getText(), user.getUsername()));
+                try {
+                    if (txtID.getText().length() == 16) {
+                        int i;
+                        boolean check=true;
+                        for(i=0;i<=txtID.getText().length()-1;i++) {
+                            if (txtID.getText().charAt(i) >= 'a' && txtID.getText().charAt(i) <= 'z') {
+                                check=false;
+                                throw new IDException("Sono ammessi solo caratteri numerici");
+                            }
+                        }
+                        if(check==true) {
+                            JsonCommand jsonCommand = new JsonCommand("06", txtID.getText(), cmbMethod.getSelectedItem().toString(), user.getUsername());
+                            client.sendMessage(jsonCommand.getJsonString());
+                            if (client.getResponse().equals("true")) {
+                                System.out.println("Metodo aggiunto con successo!");
+                                switch (cmbMethod.getSelectedItem().toString()) {
+                                    case "CREDITCARD":
+                                        user.setPaymentMethod(new CreditCard(txtID.getText(), user.getUsername()));
+                                }
+                                PaymentMethodsFrame paymentMethodsFrame = new PaymentMethodsFrame(client, user,airlineCompany);
+                                setVisible(false);
+                            }
+                        }else
+                            System.out.println("Failed");
+                    }else {
+                        throw new IDException("L'id deve essere composto da 16 caratteri");
                     }
-                    PaymentMethodsFrame paymentMethodsFrame = new PaymentMethodsFrame(client, user, airlineCompany);
-                    setVisible(false);
+                }catch (IDException e1){
+                    String s = e1.getMessage();
+                    ExceptionFrame eFrame = new ExceptionFrame();
+                    eFrame.initComponents();
+                    eFrame.Print(s);
                 }
-                else
-                    System.out.println("Failed");
             }
+
         });
 
     }
