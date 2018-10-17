@@ -3,8 +3,12 @@ package GraphicalInterface;
 import Web.Client;
 
 import java.io.IOException;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 public class FlyCalendarFrame extends CalendarFrame {
+
+    private GregorianCalendar gregorianCalendar;
     
 
 
@@ -42,11 +46,12 @@ public class FlyCalendarFrame extends CalendarFrame {
     public String[] CalcoloAnni(){
         int d=10;
         int i;
+        gregorianCalendar=new GregorianCalendar(2018,10,30);
         String[] anni=new String[d];
-        anni[0]="2018";
+        anni[0]= Integer.toString(gregorianCalendar.get(Calendar.YEAR));
 
         for(i=0 ; i<10 ; i++){
-            String k = new String(Integer.toString(i+2018));
+            String k = new String(Integer.toString(i+(gregorianCalendar.get(Calendar.YEAR))));
             anni[i]=k;
         }
         return anni;
