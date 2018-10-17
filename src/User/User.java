@@ -46,6 +46,10 @@ public class User {
         this.unTickets = setUncheckedTickets();
     }
 
+    public ArrayList<Payment> getPaymentMethods() {
+        return paymentMethods;
+    }
+
     public String getUsername() {
         return username;
     }
