@@ -38,7 +38,7 @@ public class PurchaseFrame extends JFrame {
         this.tempTicketDep = tempTicketDep;
         setSize(500,500);
         setLocationRelativeTo(null);
-        setResizable(true);
+        setResizable(false);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         initComponents();

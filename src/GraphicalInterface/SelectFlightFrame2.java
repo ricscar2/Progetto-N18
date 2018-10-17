@@ -45,9 +45,9 @@ public class SelectFlightFrame2 extends JFrame {
         this.tempTicket = tempTicket;
         this.client = client;
         this.user = user;
-        setSize(300,300);
+        setSize(650,300);
         setLocationRelativeTo(null);
-        setResizable(true);
+        setResizable(false);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         initComponents();

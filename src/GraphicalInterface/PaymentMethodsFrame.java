@@ -31,6 +31,7 @@ public class PaymentMethodsFrame extends JFrame {
         this.airlineCompany = airlineCompany;
         setSize(400,250);
         setVisible(true);
+        setResizable(false);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         initComponents();

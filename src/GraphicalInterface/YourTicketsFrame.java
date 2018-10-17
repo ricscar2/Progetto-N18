@@ -32,6 +32,7 @@ public class YourTicketsFrame extends JFrame {
         this.airlineCompany = airlineCompany;
         setSize(800,250);
         setVisible(true);
+        setResizable(false);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         initComponents();

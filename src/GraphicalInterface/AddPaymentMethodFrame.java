@@ -37,6 +37,7 @@ public class AddPaymentMethodFrame extends JFrame {
         this.tempTicketDep=tempTicketDep;
         setSize(400,250);
         setVisible(true);
+        setResizable(false);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         initComponents();
