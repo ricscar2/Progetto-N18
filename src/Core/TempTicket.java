@@ -39,6 +39,14 @@ public class TempTicket {
         this.tickets = new ArrayList<Ticket>();
     }
 
+    public Airport getDeparture() {
+        return departure;
+    }
+
+    public Airport getArrive() {
+        return arrive;
+    }
+
     public boolean isRoundtrip() {
         return roundtrip;
     }
