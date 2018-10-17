@@ -30,7 +30,7 @@ public class YourTicketsFrame extends JFrame {
         this.client = client;
         this.user = user;
         this.airlineCompany = airlineCompany;
-        setSize(700,250);
+        setSize(800,250);
         setVisible(true);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -48,7 +48,7 @@ public class YourTicketsFrame extends JFrame {
         add(pButton, BorderLayout.SOUTH);
         lblTitle = new JLabel("Your Tickets");
         user.setAirlineCompany(airlineCompany);
-        jList = new JList(user.getTicketsStrng().toArray());
+        jList = new JList(user.getTicketsString().toArray());
         btnBack = new JButton("Back to Your Profile");
         btnCheckIn = new JButton("Check-In");
         pTitle.add(lblTitle);

@@ -121,7 +121,7 @@ public class User {
         return strings;
     }
 
-    public ArrayList<String> getTicketsStrng(){
+    public ArrayList<String> getTicketsString(){
         ArrayList<String> strings = new ArrayList<String>();
         for (Ticket t: this.tickets) {
             strings.add(t.toString());
