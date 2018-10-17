@@ -119,7 +119,7 @@ public class MainPageFrame extends JFrame {
         btnSelectFlight.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SelectFlightFrame selectFlightFrame = new SelectFlightFrame(client, user, airlineCompany);
+                SelectFlightFrame1 selectFlightFrame1 = new SelectFlightFrame1(client, user, airlineCompany);
                 setVisible(false);
             }
         });
