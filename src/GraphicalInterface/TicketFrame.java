@@ -102,7 +102,7 @@ public class TicketFrame extends JFrame {
                             setVisible(false);
                         }
                 }else {
-                        throw new AllFieldsAreMandatoryException("Tutti i campi devono essere obbligatori");
+                        throw new AllFieldsAreMandatoryException("Tutti i campi devono essere riempiti");
                     }
                 }catch (AllFieldsAreMandatoryException e1){
                     String s = e1.getMessage();

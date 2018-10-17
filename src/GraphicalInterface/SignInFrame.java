@@ -165,7 +165,7 @@ public class SignInFrame extends JFrame {
                     } else {
                         throw new DifferentPasswordException("Le password devono concidere");
                     }}else {
-                        throw new AllFieldsAreMandatoryException("Tutti i campi devono essere obbligatori");
+                        throw new AllFieldsAreMandatoryException("Tutti i campi devono essere riempiti");
                     }
 
                 } catch (DifferentPasswordException e1) {
