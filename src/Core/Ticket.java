@@ -2,6 +2,7 @@ package Core;
 
 import User.User;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Ticket {
@@ -54,6 +55,11 @@ public class Ticket {
         return seat.getNumber();
     }
 
+    public String getDateString(){
+        String sDate = new SimpleDateFormat("yyyy-MM-dd").format(this.date);
+        return sDate;
+    }
+
     public boolean checkIn(){
         this.checked = true;
         return true;
@@ -68,14 +74,14 @@ public class Ticket {
     }
 
     public String previewString(){
-        String str = "Holder: " + holder + "Seat: " + seat.getNumber() + "Baggage: " + baggage.getType();
+        String str = "Holder: " + holder + "    || Seat: " + seat.getNumber() + "   || Baggage: " + baggage.getType();
         return str;
     }
 
     @Override
     public String toString() {
-        String s = "Flight: " + flight.getId() + " Date: " + date + " Airplane: " + flight.getAirplaneString() +
-                "Seat: " + seat.getNumber() + " Holder: " + holder + " Baggage: " + baggage.getType();
+        String s = "Flight: " + flight.getId() + "  || Date: " + getDateString() + "   || Airplane: " + flight.getAirplaneString() +
+                "   || Seat: " + seat.getNumber() + "   || Holder: " + holder + "   || Baggage: " + baggage.getType();
         return s;
     }
 }

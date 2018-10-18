@@ -115,20 +115,13 @@ public class SelectFlightFrame1 extends JFrame {
                     setVisible(false);
                 } catch (SameAirportException e1) {
                     String s = e1.getMessage();
-                    ExceptionFrame eFrame = new ExceptionFrame();
-                    eFrame.initComponents();
-                    eFrame.Print(s);
+                    ExceptionFrame eFrame = new ExceptionFrame(s);
                 } catch (FlightNotAvailableException e2) {
                     String s = e2.getMessage();
-                    ExceptionFrame eFrame = new ExceptionFrame();
-                    eFrame.initComponents();
-                    eFrame.Print(s);
+                    ExceptionFrame eFrame = new ExceptionFrame(s);
                 } catch (SameCityException e3) {
-
                     String s = e3.getMessage();
-                    ExceptionFrame eFrame = new ExceptionFrame();
-                    eFrame.initComponents();
-                    eFrame.Print(s);
+                    ExceptionFrame eFrame = new ExceptionFrame(s);
                 }
 
 

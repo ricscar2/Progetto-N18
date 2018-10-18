@@ -106,9 +106,7 @@ public class TicketFrame extends JFrame {
                     }
                 }catch (AllFieldsAreMandatoryException e1){
                     String s = e1.getMessage();
-                    ExceptionFrame eFrame = new ExceptionFrame();
-                    eFrame.initComponents();
-                    eFrame.Print(s);
+                    ExceptionFrame eFrame = new ExceptionFrame(s);
                 }
             }
         });

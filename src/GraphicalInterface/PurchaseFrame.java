@@ -96,11 +96,7 @@ public class PurchaseFrame extends JFrame {
                     }
                 }catch (NoPaymentsMethodException e1){
                     String s = e1.getMessage();
-                    ExceptionFrame eFrame = new ExceptionFrame();
-                    eFrame.initComponents();
-                    eFrame.Print(s);
-
-
+                    ExceptionFrame eFrame = new ExceptionFrame(s);
                 }
             }
         });
