@@ -18,6 +18,18 @@ public class Flight {
         this.airplane = airplane;
     }
 
+    public String getDepartureName(){
+        return departure.getName();
+    }
+
+    public String getArriveName(){
+        return arrive.getName();
+    }
+
+    public String getAirplaneID() {
+        return airplane.getID();
+    }
+
     public String getDepartureIATA() {
         return departure.getIATA();
     }
@@ -41,7 +53,7 @@ public class Flight {
     }
 
     public String getAirplaneString(){
-        String str = "Airplane: " + airplane.getId();
+        String str = "Airplane: " + airplane.getID();
         return str;
     }
 
@@ -51,6 +63,14 @@ public class Flight {
 
     public String getBSeat(){
         return String.valueOf(airplane.getBusiness());
+    }
+
+    public String getDepartureTime() {
+        return departureTime;
+    }
+
+    public String getArriveTime() {
+        return arriveTime;
     }
 
     @Override

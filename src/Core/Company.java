@@ -163,7 +163,7 @@ public class Company {
      */
     public Airplane getAirplane(String id){
         for (Airplane a: this.airplanes) {
-            if (a.getId().equals(id))
+            if (a.getID().equals(id))
                 return a;
         }
         return null;

@@ -22,6 +22,7 @@ public class YourTicketsFrame extends JFrame {
     private JLabel lblTitle ;
     private JList jList;
     private JButton btnBack;
+    private JButton btnInfo;
     private JButton btnCheckIn;
     private JScrollPane scrollPane;
 
@@ -51,11 +52,13 @@ public class YourTicketsFrame extends JFrame {
         user.setAirlineCompany(airlineCompany);
         jList = new JList(user.getTicketsString().toArray());
         btnBack = new JButton("Back to Your Profile");
+        btnInfo = new JButton("Current Ticket's Info");
         btnCheckIn = new JButton("Check-In");
         pTitle.add(lblTitle);
         scrollPane.setViewportView(jList);
         pInfo.add(scrollPane);
         pButton.add(btnBack);
+        pButton.add(btnInfo);
         pButton.add(btnCheckIn);
     }
 
@@ -65,6 +68,14 @@ public class YourTicketsFrame extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 UserFrame userFrame = new UserFrame(client, user, airlineCompany);
+                setVisible(false);
+            }
+        });
+
+        btnInfo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                TicketInfoFrame ticketInfoFrame = new TicketInfoFrame(client, user, airlineCompany, user.getTicketByIndex(jList.getSelectedIndex()));
                 setVisible(false);
             }
         });

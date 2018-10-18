@@ -43,6 +43,18 @@ public class Ticket {
         return flight.getId();
     }
 
+    public String getDepartureName(){
+        return flight.getDepartureName();
+    }
+
+    public String getArriveName(){
+        return flight.getArriveName();
+    }
+
+    public String getAirplaneID() {
+        return flight.getAirplaneID();
+    }
+
     public String getBaggage() {
         return String.valueOf(baggage.getType());
     }
@@ -58,6 +70,14 @@ public class Ticket {
     public String getDateString(){
         String sDate = new SimpleDateFormat("yyyy-MM-dd").format(this.date);
         return sDate;
+    }
+
+    public String getDepartureTime(){
+        return flight.getDepartureTime();
+    }
+
+    public String getArriveTime(){
+        return flight.getArriveTime();
     }
 
     public boolean checkIn(){
