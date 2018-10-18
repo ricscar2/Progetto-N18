@@ -60,7 +60,7 @@ public class MainPageFrame extends JFrame {
         add(pButton,BorderLayout.SOUTH);
 
         try {
-            img= ImageIO.read(new FileImageInputStream(new File("C:\\Users\\matti\\Desktop\\aereo1.jpg")));
+            img= ImageIO.read(new FileImageInputStream(new File("C:\\Users\\matti\\Documents\\Progetto N\\Image\\aereo1.jpg")));
         } catch (IOException e) {
             JOptionPane.showMessageDialog(this, "Image loading error!");
         }

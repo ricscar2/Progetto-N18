@@ -12,32 +12,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="SignInFrame.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/SignInFrame.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="192" column="36" lean-forward="false" selection-start-line="192" selection-start-column="36" selection-end-line="192" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AddPaymentMethodFrame.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/AddPaymentMethodFrame.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="39" column="26" lean-forward="false" selection-start-line="39" selection-start-column="26" selection-end-line="39" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="SelectFlightFrame.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/SelectFlightFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-433">
-              <caret line="35" column="29" lean-forward="false" selection-start-line="35" selection-start-column="29" selection-end-line="35" selection-end-column="29" />
-              <folding />
+            <state relative-caret-position="504">
+              <caret line="26" column="29" lean-forward="false" selection-start-line="26" selection-start-column="29" selection-end-line="26" selection-end-column="29" />
+              <folding>
+                <marker date="1539851090207" expanded="true" signature="2072:2276" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -45,9 +27,18 @@
       <file leaf-file-name="SelectFlightFrame2.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/SelectFlightFrame2.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="484">
-              <caret line="64" column="46" lean-forward="true" selection-start-line="64" selection-start-column="46" selection-end-line="64" selection-end-column="46" />
-              <folding />
+            <state relative-caret-position="1302">
+              <caret line="62" column="46" lean-forward="false" selection-start-line="62" selection-start-column="46" selection-end-line="62" selection-end-column="46" />
+              <folding>
+                <marker date="1539851090221" expanded="true" signature="3636:3731" ph="{...}" />
+                <marker date="1539851090221" expanded="true" signature="3636:3741" ph="{...}" />
+                <marker date="1539851090221" expanded="true" signature="3636:4551" ph="{...}" />
+                <marker date="1539851090221" expanded="true" signature="3801:4542" ph="{...}" />
+                <marker date="1539851090221" expanded="true" signature="3880:4532" ph="{...}" />
+                <marker date="1539851090221" expanded="true" signature="4582:5319" ph="{...}" />
+                <marker date="1539851090221" expanded="false" signature="5354:5364" ph=" { " />
+                <marker date="1539851090221" expanded="false" signature="5383:5389" ph=" }" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -55,7 +46,7 @@
       <file leaf-file-name="SelectFlightFrame1.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/SelectFlightFrame1.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1281">
+            <state relative-caret-position="1806">
               <caret line="104" column="58" lean-forward="false" selection-start-line="104" selection-start-column="58" selection-end-line="104" selection-end-column="58" />
               <folding />
             </state>
@@ -65,9 +56,15 @@
       <file leaf-file-name="TicketFrame.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/TicketFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
+            <state relative-caret-position="756">
               <caret line="48" column="26" lean-forward="false" selection-start-line="48" selection-start-column="26" selection-end-line="48" selection-end-column="26" />
-              <folding />
+              <folding>
+                <marker date="1539851090243" expanded="true" signature="4296:4610" ph="{...}" />
+                <marker date="1539851090243" expanded="true" signature="4296:4620" ph="{...}" />
+                <marker date="1539851090243" expanded="true" signature="4296:4946" ph="{...}" />
+                <marker date="1539851090243" expanded="true" signature="4679:4937" ph="{...}" />
+                <marker date="1539851090243" expanded="true" signature="4758:4927" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -75,9 +72,18 @@
       <file leaf-file-name="PurchaseFrame.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/PurchaseFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="246">
-              <caret line="40" column="26" lean-forward="false" selection-start-line="40" selection-start-column="26" selection-end-line="40" selection-end-column="26" />
-              <folding />
+            <state relative-caret-position="651">
+              <caret line="40" column="27" lean-forward="false" selection-start-line="40" selection-start-column="27" selection-end-line="40" selection-end-column="27" />
+              <folding>
+                <marker date="1539851090200" expanded="true" signature="1570:2160" ph="{...}" />
+                <marker date="1539851090200" expanded="true" signature="2193:3716" ph="{...}" />
+                <marker date="1539851090200" expanded="true" signature="2251:2497" ph="{...}" />
+                <marker date="1539851090200" expanded="true" signature="2330:2487" ph="{...}" />
+                <marker date="1539851090200" expanded="true" signature="2562:2835" ph="{...}" />
+                <marker date="1539851090200" expanded="true" signature="2641:2825" ph="{...}" />
+                <marker date="1539851090200" expanded="true" signature="2894:3707" ph="{...}" />
+                <marker date="1539851090200" expanded="true" signature="2973:3697" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -85,18 +91,18 @@
       <file leaf-file-name="BookSuccessFrame.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/BookSuccessFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
+            <state relative-caret-position="462">
               <caret line="31" column="26" lean-forward="false" selection-start-line="31" selection-start-column="26" selection-end-line="31" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FlyCalendarFrame.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="FlyCalendarFrame.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/FlyCalendarFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="7" column="4" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
+            <state relative-caret-position="63">
+              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -104,10 +110,30 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="ExceptionFrame.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/ExceptionFrame.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="274">
+              <caret line="27" column="111" lean-forward="false" selection-start-line="27" selection-start-column="111" selection-end-line="27" selection-end-column="111" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainPageFrame.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/MainPageFrame.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="407">
+              <caret line="62" column="111" lean-forward="false" selection-start-line="62" selection-start-column="111" selection-end-line="62" selection-end-column="111" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="CalendarFrame.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/CalendarFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
+            <state relative-caret-position="588">
               <caret line="34" column="19" lean-forward="false" selection-start-line="34" selection-start-column="19" selection-end-line="34" selection-end-column="19" />
               <folding />
             </state>
@@ -169,7 +195,6 @@
         <option value="$PROJECT_DIR$/src/Core/TempTicket.java" />
         <option value="$PROJECT_DIR$/src/GraphicalInterface/SelectFlightFrame1.java" />
         <option value="$PROJECT_DIR$/src/Core/Airport.java" />
-        <option value="$PROJECT_DIR$/src/GraphicalInterface/MainPageFrame.java" />
         <option value="$PROJECT_DIR$/src/GraphicalInterface/LogInFrame.java" />
         <option value="$PROJECT_DIR$/src/GraphicalInterface/CalendarFrame.java" />
         <option value="$PROJECT_DIR$/src/User/User.java" />
@@ -177,13 +202,15 @@
         <option value="$PROJECT_DIR$/src/GraphicalInterface/YourTicketsFrame.java" />
         <option value="$PROJECT_DIR$/src/GraphicalInterface/SummaryFrame.java" />
         <option value="$PROJECT_DIR$/src/GraphicalInterface/UserFrame.java" />
-        <option value="$PROJECT_DIR$/src/GraphicalInterface/SignInFrame.java" />
         <option value="$PROJECT_DIR$/src/GraphicalInterface/AddPaymentMethodFrame.java" />
         <option value="$PROJECT_DIR$/src/GraphicalInterface/TicketFrame.java" />
         <option value="$PROJECT_DIR$/src/GraphicalInterface/PurchaseFrame.java" />
         <option value="$PROJECT_DIR$/src/GraphicalInterface/SelectFlightFrame2.java" />
         <option value="$PROJECT_DIR$/src/GraphicalInterface/BookSuccessFrame.java" />
         <option value="$PROJECT_DIR$/src/GraphicalInterface/FlyCalendarFrame.java" />
+        <option value="$PROJECT_DIR$/src/GraphicalInterface/SignInFrame.java" />
+        <option value="$PROJECT_DIR$/src/GraphicalInterface/ExceptionFrame.java" />
+        <option value="$PROJECT_DIR$/src/GraphicalInterface/MainPageFrame.java" />
       </list>
     </option>
   </component>
@@ -219,10 +246,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
-      <pane id="AndroidView" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -298,6 +322,9 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -935,37 +962,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/MainPageFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2163">
-          <caret line="121" column="79" lean-forward="false" selection-start-line="121" selection-start-column="79" selection-end-line="121" selection-end-column="79" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/LogInFrame.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1743">
           <caret line="101" column="102" lean-forward="false" selection-start-line="101" selection-start-column="102" selection-end-line="101" selection-end-column="102" />
-          <folding>
-            <marker date="1539786786090" expanded="true" signature="4498:4837" ph="{...}" />
-            <marker date="1539786786090" expanded="true" signature="4577:4827" ph="{...}" />
-            <marker date="1539786786090" expanded="true" signature="4894:5279" ph="{...}" />
-            <marker date="1539786786090" expanded="true" signature="4963:4979" ph="{}" />
-            <marker date="1539786786090" expanded="true" signature="5050:5181" ph="{...}" />
-            <marker date="1539786786090" expanded="true" signature="5253:5269" ph="{}" />
-            <marker date="1539786786090" expanded="true" signature="5336:5721" ph="{...}" />
-            <marker date="1539786786090" expanded="true" signature="5405:5421" ph="{}" />
-            <marker date="1539786786090" expanded="true" signature="5492:5623" ph="{...}" />
-            <marker date="1539786786090" expanded="true" signature="5695:5711" ph="{}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/ExceptionFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="27" column="23" lean-forward="false" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
           <folding />
         </state>
       </provider>
@@ -1016,31 +1016,44 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/SignInFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="192" column="36" lean-forward="false" selection-start-line="192" selection-start-column="36" selection-end-line="192" selection-end-column="36" />
-          <folding />
+        <state relative-caret-position="3738">
+          <caret line="197" column="0" lean-forward="true" selection-start-line="197" selection-start-column="0" selection-end-line="197" selection-end-column="0" />
+          <folding>
+            <marker date="1539851090228" expanded="true" signature="8067:8081" ph="{...}" />
+            <marker date="1539851090228" expanded="true" signature="8067:8092" ph="{...}" />
+            <marker date="1539851090228" expanded="true" signature="8067:8101" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/AddPaymentMethodFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="39" column="26" lean-forward="false" selection-start-line="39" selection-start-column="26" selection-end-line="39" selection-end-column="26" />
-          <folding />
+        <state relative-caret-position="588">
+          <caret line="40" column="26" lean-forward="false" selection-start-line="40" selection-start-column="26" selection-end-line="40" selection-end-column="26" />
+          <folding>
+            <marker date="1539851090139" expanded="true" signature="1330:2138" ph="{...}" />
+            <marker date="1539851090139" expanded="true" signature="2171:4586" ph="{...}" />
+            <marker date="1539851090139" expanded="true" signature="2229:2480" ph="{...}" />
+            <marker date="1539851090139" expanded="true" signature="2308:2470" ph="{...}" />
+            <marker date="1539851090139" expanded="true" signature="2538:4577" ph="{...}" />
+            <marker date="1539851090139" expanded="true" signature="2617:4566" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/SelectFlightFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-433">
-          <caret line="35" column="29" lean-forward="false" selection-start-line="35" selection-start-column="29" selection-end-line="35" selection-end-column="29" />
-          <folding />
+        <state relative-caret-position="504">
+          <caret line="26" column="29" lean-forward="false" selection-start-line="26" selection-start-column="29" selection-end-line="26" selection-end-column="29" />
+          <folding>
+            <marker date="1539851090207" expanded="true" signature="2072:2276" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/SelectFlightFrame1.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1281">
+        <state relative-caret-position="1806">
           <caret line="104" column="58" lean-forward="false" selection-start-line="104" selection-start-column="58" selection-end-line="104" selection-end-column="58" />
           <folding />
         </state>
@@ -1048,31 +1061,55 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/TicketFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
+        <state relative-caret-position="756">
           <caret line="48" column="26" lean-forward="false" selection-start-line="48" selection-start-column="26" selection-end-line="48" selection-end-column="26" />
-          <folding />
+          <folding>
+            <marker date="1539851090243" expanded="true" signature="4296:4610" ph="{...}" />
+            <marker date="1539851090243" expanded="true" signature="4296:4620" ph="{...}" />
+            <marker date="1539851090243" expanded="true" signature="4296:4946" ph="{...}" />
+            <marker date="1539851090243" expanded="true" signature="4679:4937" ph="{...}" />
+            <marker date="1539851090243" expanded="true" signature="4758:4927" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/PurchaseFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="40" column="26" lean-forward="false" selection-start-line="40" selection-start-column="26" selection-end-line="40" selection-end-column="26" />
-          <folding />
+        <state relative-caret-position="651">
+          <caret line="40" column="27" lean-forward="false" selection-start-line="40" selection-start-column="27" selection-end-line="40" selection-end-column="27" />
+          <folding>
+            <marker date="1539851090200" expanded="true" signature="1570:2160" ph="{...}" />
+            <marker date="1539851090200" expanded="true" signature="2193:3716" ph="{...}" />
+            <marker date="1539851090200" expanded="true" signature="2251:2497" ph="{...}" />
+            <marker date="1539851090200" expanded="true" signature="2330:2487" ph="{...}" />
+            <marker date="1539851090200" expanded="true" signature="2562:2835" ph="{...}" />
+            <marker date="1539851090200" expanded="true" signature="2641:2825" ph="{...}" />
+            <marker date="1539851090200" expanded="true" signature="2894:3707" ph="{...}" />
+            <marker date="1539851090200" expanded="true" signature="2973:3697" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/SelectFlightFrame2.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="64" column="46" lean-forward="true" selection-start-line="64" selection-start-column="46" selection-end-line="64" selection-end-column="46" />
-          <folding />
+        <state relative-caret-position="1302">
+          <caret line="62" column="46" lean-forward="false" selection-start-line="62" selection-start-column="46" selection-end-line="62" selection-end-column="46" />
+          <folding>
+            <marker date="1539851090221" expanded="true" signature="3636:3731" ph="{...}" />
+            <marker date="1539851090221" expanded="true" signature="3636:3741" ph="{...}" />
+            <marker date="1539851090221" expanded="true" signature="3636:4551" ph="{...}" />
+            <marker date="1539851090221" expanded="true" signature="3801:4542" ph="{...}" />
+            <marker date="1539851090221" expanded="true" signature="3880:4532" ph="{...}" />
+            <marker date="1539851090221" expanded="true" signature="4582:5319" ph="{...}" />
+            <marker date="1539851090221" expanded="false" signature="5354:5364" ph=" { " />
+            <marker date="1539851090221" expanded="false" signature="5383:5389" ph=" }" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/BookSuccessFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
+        <state relative-caret-position="462">
           <caret line="31" column="26" lean-forward="false" selection-start-line="31" selection-start-column="26" selection-end-line="31" selection-end-column="26" />
           <folding />
         </state>
@@ -1080,7 +1117,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/CalendarFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
+        <state relative-caret-position="588">
           <caret line="34" column="19" lean-forward="false" selection-start-line="34" selection-start-column="19" selection-end-line="34" selection-end-column="19" />
           <folding />
         </state>
@@ -1088,11 +1125,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/FlyCalendarFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="7" column="4" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
+        <state relative-caret-position="63">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/ExceptionFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="27" column="111" lean-forward="false" selection-start-line="27" selection-start-column="111" selection-end-line="27" selection-end-column="111" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GraphicalInterface/MainPageFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="62" column="111" lean-forward="false" selection-start-line="62" selection-start-column="111" selection-end-line="62" selection-end-column="111" />
+          <folding />
         </state>
       </provider>
     </entry>
