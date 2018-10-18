@@ -42,6 +42,8 @@ public class BookSuccessFrame extends JFrame {
         add(pButton, BorderLayout.CENTER);
         pTitle.add(lblTitle);
         pButton.add(btnMain);
+
+
     }
 
 
