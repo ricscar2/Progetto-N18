@@ -22,11 +22,7 @@ public class CommandAnalizer {
         this.response = "";
     }
 
-    /*
-    00: LogIn
-    01: Informazioni utente dato l'username
-    02: Elenco aeroporti nel database
-     */
+
     public String analize(JsonCommand jsonCommand) throws SQLException, CommandNotFoundException, ParseException {
         switch (jsonCommand.getCode()){
             case "00":
@@ -88,6 +84,9 @@ public class CommandAnalizer {
                 if(Queries.addBookedFlight(dbConnection, jsonCommand.getParameter("id"), jsonCommand.getParameter("date"),
                         jsonCommand.getParameter("eseat"), jsonCommand.getParameter("bseat")));
                 return "FLIGHT ADDED TO DATABASE";
+            case "14":
+                Queries.checkIn(dbConnection, jsonCommand.getParameter("id"));
+                return "CHECKED";
         }
         throw new CommandNotFoundException();
 

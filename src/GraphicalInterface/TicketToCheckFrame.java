@@ -4,14 +4,13 @@ import Core.Company;
 import Eccezioni.NoTicketSelectedException;
 import User.User;
 import Web.Client;
-import Web.CommandAnalizer;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class YourTicketsFrame extends JFrame {
+public class TicketToCheckFrame extends JFrame {
 
     private Client client;
     private User user;
@@ -23,12 +22,11 @@ public class YourTicketsFrame extends JFrame {
     private JLabel lblTitle ;
     private JList jList;
     private JButton btnBack;
-    private JButton btnInfo;
     private JButton btnCheckIn;
     private JScrollPane scrollPane;
 
-    public YourTicketsFrame(Client client, User user, Company airlineCompany){
-        super("Airline Company - Your Tickets");
+    public TicketToCheckFrame(Client client, User user, Company airlineCompany){
+        super("Airline Company - Check-In");
         this.client = client;
         this.user = user;
         this.airlineCompany = airlineCompany;
@@ -49,48 +47,38 @@ public class YourTicketsFrame extends JFrame {
         add(pTitle, BorderLayout.NORTH);
         add(pInfo, BorderLayout.CENTER);
         add(pButton, BorderLayout.SOUTH);
-        lblTitle = new JLabel("Your Tickets");
-        jList = new JList(user.getTicketsString().toArray());
-        btnBack = new JButton("Back to Your Profile");
-        btnInfo = new JButton("Current Ticket's Info");
-        btnCheckIn = new JButton("Go to Check-In Page");
+        lblTitle = new JLabel("Your Tickets to Check-In");
+        jList = new JList(user.getTicketsToCheckString().toArray());
+        btnBack = new JButton("Back");
+        btnCheckIn = new JButton("Check-In");
         pTitle.add(lblTitle);
         scrollPane.setViewportView(jList);
         pInfo.add(scrollPane);
         pButton.add(btnBack);
-        pButton.add(btnInfo);
         pButton.add(btnCheckIn);
     }
 
-    private void addListeners(){
+    public void addListeners(){
 
         btnBack.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                UserFrame userFrame = new UserFrame(client, user, airlineCompany);
+                YourTicketsFrame yourTicketsFrame = new YourTicketsFrame(client, user, airlineCompany);
                 setVisible(false);
-            }
-        });
-
-        btnInfo.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    if(!(jList.getSelectedIndex()==-1)) {
-                        TicketInfoFrame ticketInfoFrame = new TicketInfoFrame(client, user, airlineCompany, user.getTicketByIndex(jList.getSelectedIndex()));
-                        setVisible(false);
-                    } else throw new NoTicketSelectedException();
-                } catch (NoTicketSelectedException ex){
-                    ExceptionFrame eFrame = new ExceptionFrame(ex.getMessage());
-                }
             }
         });
 
         btnCheckIn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                TicketToCheckFrame ticketToCheckFrame = new TicketToCheckFrame(client, user, airlineCompany);
-                setVisible(false);
+                try {
+                    if(!(jList.getSelectedIndex()==-1)) {
+                        CheckInFrame checkInFrame = new CheckInFrame(client, user, airlineCompany, user.getCheckTicketByIndex(jList.getSelectedIndex()));
+                        setVisible(false);
+                    } else throw new NoTicketSelectedException();
+                } catch (NoTicketSelectedException ex){
+                    ExceptionFrame eFrame = new ExceptionFrame(ex.getMessage());
+                }
             }
         });
 

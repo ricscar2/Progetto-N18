@@ -256,4 +256,11 @@ public class Queries {
         return true;
     }
 
+    public static void checkIn(Connection dbConnection, String id) throws SQLException {
+        String query = "UPDATE TICKETS SET CHECKED = 1 WHERE ID = ?";
+        PreparedStatement preparedStatement = dbConnection.prepareStatement(query);
+        preparedStatement.setString(1, id);
+        preparedStatement.executeUpdate();
+    }
+
 }

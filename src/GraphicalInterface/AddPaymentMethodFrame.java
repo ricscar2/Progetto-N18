@@ -24,10 +24,10 @@ public class AddPaymentMethodFrame extends JFrame {
     private JLabel lblTitle;
     private JLabel lblID;
     private JLabel lblType;
-    private JTextField txtID;
-    private JComboBox cmbMethod;
-    private JButton btnAdd;
-    private JButton btnBack;
+    protected JTextField txtID;
+    protected JComboBox cmbMethod;
+    protected JButton btnAdd;
+    protected JButton btnBack;
 
     public AddPaymentMethodFrame(Client client, User user,Company airlineCompany,TempTicket tempTicketDep){
         super("Airline Company - Add Payment Method");
@@ -44,7 +44,7 @@ public class AddPaymentMethodFrame extends JFrame {
         addListeners();
     }
 
-    public void initComponents(){
+    protected void initComponents(){
         String[] methods = {"CREDITCARD"};
         txtID = new JTextField();
         cmbMethod = new JComboBox(methods);
@@ -69,7 +69,7 @@ public class AddPaymentMethodFrame extends JFrame {
         pButton.add(btnAdd);
     }
 
-    public void addListeners() {
+    protected void addListeners() {
 
         btnBack.addActionListener(new ActionListener() {
             @Override
@@ -84,9 +84,8 @@ public class AddPaymentMethodFrame extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 try {
                     if (txtID.getText().length() == 16) {
-                        int i;
                         boolean check=true;
-                        for(i=0;i<=txtID.getText().length()-1;i++) {
+                        for(int i=0;i<=txtID.getText().length()-1;i++) {
                             if (txtID.getText().charAt(i) >= 'a' && txtID.getText().charAt(i) <= 'z') {
                                 check=false;
                                 throw new IDException("Sono ammessi solo caratteri numerici");
@@ -101,8 +100,8 @@ public class AddPaymentMethodFrame extends JFrame {
                                     case "CREDITCARD":
                                         user.setPaymentMethod(new CreditCard(txtID.getText(), user.getUsername()));
                                 }
-                                PaymentMethodsFrame paymentMethodsFrame = new PaymentMethodsFrame(client, user,airlineCompany);
-                                setVisible(false);
+                                    PaymentMethodsFrame paymentMethodsFrame = new PaymentMethodsFrame(client, user,airlineCompany);
+                                    setVisible(false);
                             }
                         }else
                             System.out.println("Failed");

@@ -62,10 +62,6 @@ public class User {
         return surname;
     }
 
-    public void setAirlineCompany(Company airlineCompany) {
-        this.airlineCompany = airlineCompany;
-    }
-
     public String getBirthdateString(){
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
         return simpleDateFormat.format(birthdate);
@@ -103,10 +99,13 @@ public class User {
         for (int i = 0; i < jsonTickets.size(); i++){
             JSONObject currentTicket = (JSONObject) jsonTickets.get(i);
             Date date =new SimpleDateFormat("yyyy-MM-dd").parse((String) currentTicket.get("date"));
+            boolean check = false;
+            if (currentTicket.get("checked").equals("1"))
+                check = true;
             Ticket ticket = new Ticket((String) currentTicket.get("id"), User.this, (String) currentTicket.get("holder"),
                     airlineCompany.getFlightById((String) currentTicket.get("flight")), date, new Baggage(BaggageType.valueOf((String) currentTicket.get("baggage"))),
                     new Seat(SeatType.valueOf((String) currentTicket.get("seat")),(String) currentTicket.get("nseat")));
-            ticket.setChecked(Boolean.parseBoolean((String) currentTicket.get("checked")));
+            ticket.setChecked(check);
             tickets.add(ticket);
             }
         return tickets;
@@ -129,9 +128,17 @@ public class User {
         return strings;
     }
 
+    public ArrayList<String> getTicketsToCheckString(){
+        ArrayList<String> strings = new ArrayList<String>();
+        for (Ticket t: this.unTickets) {
+            strings.add(t.toString());
+        }
+        return strings;
+    }
+
     private ArrayList<Ticket> setUncheckedTickets(){
         ArrayList<Ticket> uTickets = new ArrayList<Ticket>();
-        for (Ticket t:tickets) {
+        for (Ticket t: this.tickets) {
             if (t.isChecked() == false){
                 uTickets.add(t);
             }
@@ -145,8 +152,21 @@ public class User {
             this.unTickets.add(ticket);
     }
 
+    public void checkIn(Ticket ticket) throws ParseException, java.text.ParseException {
+        for (Ticket t: this.tickets) {
+            if (t.equals(ticket)) t.checkIn();
+            break;
+        }
+        this.tickets = setTickets(client);
+        this.unTickets = setUncheckedTickets();
+    }
+
     public Ticket getTicketByIndex(int i){
         return this.tickets.get(i);
+    }
+
+    public Ticket getCheckTicketByIndex(int i){
+        return this.unTickets.get(i);
     }
 
     public void setPaymentMethod (Payment paymentMethod){

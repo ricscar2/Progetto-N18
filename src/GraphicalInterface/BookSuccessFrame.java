@@ -20,7 +20,7 @@ public class BookSuccessFrame extends JFrame {
     private JPanel pTitle = new JPanel();
     private JPanel pButton = new JPanel();
     private JLabel lblTitle = new JLabel("Booking completed successfully!");
-    private JButton btnMain = new JButton("Go to Main Page");
+    protected JButton btnReturn = new JButton("Go to Main Page");
 
     public BookSuccessFrame(Client client, User user, Company airlineCompany){
         super("Airline Company - Booking Completed Succesfully!!");
@@ -41,15 +41,18 @@ public class BookSuccessFrame extends JFrame {
         add(pTitle, BorderLayout.NORTH);
         add(pButton, BorderLayout.CENTER);
         pTitle.add(lblTitle);
-        pButton.add(btnMain);
+        pButton.add(btnReturn);
 
 
     }
 
+    protected void setlblText(String s){
+        lblTitle.setText(s);
+    }
 
-    public void addListeners(){
+    protected void addListeners(){
 
-        btnMain.addActionListener(new ActionListener() {
+        btnReturn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {

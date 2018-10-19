@@ -15,10 +15,20 @@ public class JsonCommand{
         jsonCommand.put("code", code);
     }
 
-    public JsonCommand(String code, String username){
+    public JsonCommand(String code, String first){
         jsonCommand = new JSONObject();
-        jsonCommand.put("code", code);
-        jsonCommand.put("username", username);
+        switch (code){
+            case "05":
+            case "12":
+                jsonCommand.put("code", code);
+                jsonCommand.put("username", first);
+                break;
+            case "14":
+                jsonCommand.put("code", code);
+                jsonCommand.put("id", first);
+                break;
+        }
+
     }
 
     public JsonCommand(String code, String first, String second) {

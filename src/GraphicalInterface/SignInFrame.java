@@ -142,7 +142,7 @@ public class SignInFrame extends JFrame {
                     e1.printStackTrace();
                 }
                 try{
-                    if(!txtUsername.getText().equals("") && !txtSurname.getText().equals("") && !lblDate.getText().equals("") && !txtEmail.getText().equals("") && !txtName.getText().equals("") && !txtPassword.equals("") && !txtConfermedPassword.getText().equals("") ){
+                    if(!txtUsername.getText().equals("") && !txtSurname.getText().equals("") && !lblDate.getText().equals("'Select a Date'") && !txtEmail.getText().equals("") && !txtName.getText().equals("") && !txtPassword.equals("") && !txtConfermedPassword.getText().equals("") ){
                     if(txtPassword.getText().equals(txtConfermedPassword.getText())) {
                         JsonCommand jsonCommand = new JsonCommand("01", txtUsername.getText(), txtPassword.getText(),
                                 txtName.getText(), txtSurname.getText(), lblDate.getText(), cmbNation.getSelectedItem().toString(),
