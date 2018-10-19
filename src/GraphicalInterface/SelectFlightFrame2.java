@@ -92,10 +92,8 @@ public class SelectFlightFrame2 extends JFrame {
 
                     FlyCalendarFrame flyCalendarFrame=null;
                     try {
-
                         flyCalendarFrame = new FlyCalendarFrame(client,"Select2");
                         setVisible(false);
-
                     } catch (IOException e1) {
                         e1.printStackTrace();
                     }

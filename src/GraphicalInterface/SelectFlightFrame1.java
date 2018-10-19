@@ -33,7 +33,6 @@ public class SelectFlightFrame1 extends JFrame {
     private JComboBox cmbDeparture;
     private JComboBox cmbArrive;
     private JLabel lblArrive = new JLabel("Arrive :");
-    private JCheckBox chkDepArr = new JCheckBox("Roundtrip");
     private JButton btnBack = new JButton("Back To Home Page");
     private JButton btnNext = new JButton("Next");
 
@@ -65,7 +64,6 @@ public class SelectFlightFrame1 extends JFrame {
         pDepArr.add(cmbDeparture);
         pDepArr.add(lblArrive);
         pDepArr.add(cmbArrive);
-        pDepArr.add(chkDepArr);
         pButton.add(btnBack);
         pButton.add(btnNext);
         add(pTitle, BorderLayout.NORTH);
@@ -96,8 +94,6 @@ public class SelectFlightFrame1 extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 boolean roundtrip = false;
-                if(chkDepArr.isSelected())
-                    roundtrip = true;
                 TempTicket tempTicket = new TempTicket(client,user, airlineCompany.getAirportByName(cmbDeparture.getSelectedItem().toString()),
                         airlineCompany.getAirportByName(cmbArrive.getSelectedItem().toString()));
                 ArrayList<Flight> goingFlights = airlineCompany.getSelectedFlights(tempTicket.getDepartureIATA(), tempTicket.getArriveIATA());
@@ -128,16 +124,7 @@ public class SelectFlightFrame1 extends JFrame {
             }
         });
 
-
-
     }
-
-
-
-
-
-
-
 
     private void getAirports(){
         String[] lineArray = airlineCompany.getAirportsNames().toArray(new String[]{});

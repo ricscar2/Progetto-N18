@@ -80,9 +80,8 @@ public class Ticket {
         return flight.getArriveTime();
     }
 
-    public boolean checkIn(){
+    public void checkIn(){
         this.checked = true;
-        return true;
     }
 
     public void setChecked(boolean checked) {
