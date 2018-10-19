@@ -2,6 +2,7 @@ package Core;
 
 import User.User;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Ticket {
@@ -42,6 +43,18 @@ public class Ticket {
         return flight.getId();
     }
 
+    public String getDepartureName(){
+        return flight.getDepartureName();
+    }
+
+    public String getArriveName(){
+        return flight.getArriveName();
+    }
+
+    public String getAirplaneID() {
+        return flight.getAirplaneID();
+    }
+
     public String getBaggage() {
         return String.valueOf(baggage.getType());
     }
@@ -52,6 +65,19 @@ public class Ticket {
 
     public String geNSeat(){
         return seat.getNumber();
+    }
+
+    public String getDateString(){
+        String sDate = new SimpleDateFormat("yyyy-MM-dd").format(this.date);
+        return sDate;
+    }
+
+    public String getDepartureTime(){
+        return flight.getDepartureTime();
+    }
+
+    public String getArriveTime(){
+        return flight.getArriveTime();
     }
 
     public boolean checkIn(){
@@ -68,14 +94,14 @@ public class Ticket {
     }
 
     public String previewString(){
-        String str = "Holder: " + holder + "Seat: " + seat.getNumber() + "Baggage: " + baggage.getType();
+        String str = "Holder: " + holder + "    || Seat: " + seat.getNumber() + "   || Baggage: " + baggage.getType();
         return str;
     }
 
     @Override
     public String toString() {
-        String s = "Flight: " + flight.getId() + " Date: " + date + " Airplane: " + flight.getAirplaneString() +
-                "Seat: " + seat.getNumber() + " Holder: " + holder + " Baggage: " + baggage.getType();
+        String s = "Flight: " + flight.getId() + "  || Date: " + getDateString() + "   || Airplane: " + flight.getAirplaneString() +
+                "   || Seat: " + seat.getNumber() + "   || Holder: " + holder + "   || Baggage: " + baggage.getType();
         return s;
     }
 }

@@ -107,13 +107,11 @@ public class AddPaymentMethodFrame extends JFrame {
                         }else
                             System.out.println("Failed");
                     }else {
-                        throw new IDException("L'id deve essere composto da 16 caratteri");
+                        throw new IDException("Method's ID must be composed by 16 numbers!");
                     }
                 }catch (IDException e1){
                     String s = e1.getMessage();
-                    ExceptionFrame eFrame = new ExceptionFrame();
-                    eFrame.initComponents();
-                    eFrame.Print(s);
+                    ExceptionFrame eFrame = new ExceptionFrame(s);
                 }
             }
 

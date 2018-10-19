@@ -27,7 +27,7 @@ public class Airplane {
      *
      * @return The Identification Code of the Airplane
      */
-    public String getId() {
+    public String getID() {
         return id;
     }
 

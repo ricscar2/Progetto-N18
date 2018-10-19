@@ -145,6 +145,10 @@ public class User {
             this.unTickets.add(ticket);
     }
 
+    public Ticket getTicketByIndex(int i){
+        return this.tickets.get(i);
+    }
+
     public void setPaymentMethod (Payment paymentMethod){
         this.paymentMethods.add(paymentMethod);
     }

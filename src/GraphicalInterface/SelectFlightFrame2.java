@@ -25,10 +25,8 @@ public class SelectFlightFrame2 extends JFrame {
     private JPanel pInfo = new JPanel();
     private JPanel pFields = new JPanel();
     private JLabel lblSelectFlight;
-    private JLabel lblGoing = new JLabel("Select Going's Flight:");
+    private JLabel lblGoing = new JLabel("Select Flight:");
     private JComboBox cmbGoing;
-    private JLabel lblReturn = new JLabel("Select Return's Flight:");
-    private JComboBox cmbReturn;
     private JLabel lblInfoDate = new JLabel("Select the date:");
     private JLabel lblDate = new JLabel("30-10-2018");
     private JButton btnBack = new JButton("Back");
@@ -131,13 +129,6 @@ public class SelectFlightFrame2 extends JFrame {
         this.cmbGoing = new JComboBox<>(goingArray);
         pInfo.add(lblGoing);
         pFields.add(cmbGoing);
-        if (tempTicket.isRoundtrip() == true){
-            ArrayList <String> returnFlights = airlineCompany.getSelectedFlightsString(tempTicket.getArriveIATA(), tempTicket.getDepartureIATA());
-            String[] returnArray = returnFlights.toArray(new String[]{});
-            this.cmbReturn = new JComboBox<>(returnArray);
-            pInfo.add(lblReturn);
-            pFields.add(cmbReturn);
-        }
     }
 
     public void addData(String s){

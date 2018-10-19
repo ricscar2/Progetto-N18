@@ -2,6 +2,7 @@ package GraphicalInterface;
 
 import Core.Company;
 import Eccezioni.AllFieldsAreMandatoryException;
+import Eccezioni.InvalidLogInException;
 import User.User;
 import Web.Client;
 import Web.JsonCommand;
@@ -79,7 +80,7 @@ public class LogInFrame extends JFrame {
                 try {
                     if(!txtUsername.getText().equals("") && !txtPassword.getText().equals("")){
                         if (client.getResponse().equals("false")) {
-                        System.out.println("Connection Attempt failed! Response: " + client.getResponse());
+                            throw new InvalidLogInException("Invalid Username or Password!");
                         } else {
                         try {
                             JSONParser jsonParser = new JSONParser();
@@ -103,9 +104,10 @@ public class LogInFrame extends JFrame {
                     }
                 }catch (AllFieldsAreMandatoryException e1){
                     String s = e1.getMessage();
-                    ExceptionFrame eFrame = new ExceptionFrame();
-                    eFrame.initComponents();
-                    eFrame.Print(s);
+                    ExceptionFrame eFrame = new ExceptionFrame(s);
+                } catch (InvalidLogInException e1) {
+                    String s = e1.getMessage();
+                    ExceptionFrame eFrame = new ExceptionFrame(s);
                 }
             }
         });

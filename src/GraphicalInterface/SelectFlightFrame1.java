@@ -99,7 +99,7 @@ public class SelectFlightFrame1 extends JFrame {
                 if(chkDepArr.isSelected())
                     roundtrip = true;
                 TempTicket tempTicket = new TempTicket(client,user, airlineCompany.getAirportByName(cmbDeparture.getSelectedItem().toString()),
-                        airlineCompany.getAirportByName(cmbArrive.getSelectedItem().toString()), roundtrip);
+                        airlineCompany.getAirportByName(cmbArrive.getSelectedItem().toString()));
                 ArrayList<Flight> goingFlights = airlineCompany.getSelectedFlights(tempTicket.getDepartureIATA(), tempTicket.getArriveIATA());
                 try {
                     if (tempTicket.getDeparture().getCity().equals(tempTicket.getArrive().getCity()) && tempTicket.getDepartureIATA() != tempTicket.getArriveIATA()) {
@@ -115,20 +115,13 @@ public class SelectFlightFrame1 extends JFrame {
                     setVisible(false);
                 } catch (SameAirportException e1) {
                     String s = e1.getMessage();
-                    ExceptionFrame eFrame = new ExceptionFrame();
-                    eFrame.initComponents();
-                    eFrame.Print(s);
+                    ExceptionFrame eFrame = new ExceptionFrame(s);
                 } catch (FlightNotAvailableException e2) {
                     String s = e2.getMessage();
-                    ExceptionFrame eFrame = new ExceptionFrame();
-                    eFrame.initComponents();
-                    eFrame.Print(s);
+                    ExceptionFrame eFrame = new ExceptionFrame(s);
                 } catch (SameCityException e3) {
-
                     String s = e3.getMessage();
-                    ExceptionFrame eFrame = new ExceptionFrame();
-                    eFrame.initComponents();
-                    eFrame.Print(s);
+                    ExceptionFrame eFrame = new ExceptionFrame(s);
                 }
 
 

@@ -20,19 +20,17 @@ public class TempTicket {
     private Flight flight;
     private Airport departure;
     private Airport arrive;
-    private boolean roundtrip;
     private int number;
     private int nEconomy;
     private int nBusiness;
     private String nSeat;
     private ArrayList<Ticket> tickets;
 
-    public TempTicket(Client client, User user, Airport departure, Airport arrive, boolean roundtrip){
+    public TempTicket(Client client, User user, Airport departure, Airport arrive){
         this.client = client;
         this.user = user;
         this.departure = departure;
         this.arrive = arrive;
-        this.roundtrip = roundtrip;
         this.number = 0;
         this.nEconomy = 0;
         this.nBusiness = 0;
@@ -45,10 +43,6 @@ public class TempTicket {
 
     public Airport getArrive() {
         return arrive;
-    }
-
-    public boolean isRoundtrip() {
-        return roundtrip;
     }
 
     public void setNumber(int number) {
