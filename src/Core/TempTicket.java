@@ -12,6 +12,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+/**
+ * @author Gruppo N
+ */
 public class TempTicket {
 
     private Client client;
@@ -26,6 +29,13 @@ public class TempTicket {
     private String nSeat;
     private ArrayList<Ticket> tickets;
 
+    /**
+     *
+     * @param client An instance of <code>Client</code> class
+     * @param user An instance of current <code>User</code>
+     * @param departure The Departure's Airport
+     * @param arrive The Arrive's Airport
+     */
     public TempTicket(Client client, User user, Airport departure, Airport arrive){
         this.client = client;
         this.user = user;
@@ -37,18 +47,34 @@ public class TempTicket {
         this.tickets = new ArrayList<Ticket>();
     }
 
+    /**
+     *
+     * @return Departure's Airport
+     */
     public Airport getDeparture() {
         return departure;
     }
 
+    /**
+     *
+     * @return Arrive's Airport
+     */
     public Airport getArrive() {
         return arrive;
     }
 
+    /**
+     *
+     * @param number The number of desidered Tickets
+     */
     public void setNumber(int number) {
         this.number = number;
     }
 
+    /**
+     *
+     * @return The number of desidered Tickets
+     */
     public int getNumber() {
         return number;
     }

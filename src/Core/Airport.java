@@ -40,6 +40,10 @@ public class Airport {
         return name;
     }
 
+    /**
+     *
+     * @return The city where the Airport is situated in
+     */
     public String getCity() {
         return city;
     }

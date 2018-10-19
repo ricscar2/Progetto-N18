@@ -98,9 +98,9 @@ public class UserFrame extends JFrame {
         pLabels.add(lblBirthday1);
         pLabels.add(lblNation);
         pLabels.add(lblNation1);
+        pButton.add(btnBack);
         pButton.add(btnPayments);
         pButton.add(btnTickets);
-        pButton.add(btnBack);
     }
 
     public void addListeners(){

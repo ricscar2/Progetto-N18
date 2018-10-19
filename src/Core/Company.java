@@ -108,6 +108,12 @@ public class Company {
         return airportsNames;
     }
 
+    /**
+     *
+     * @param departure The departure Airport
+     * @param arrive The arrive Airport
+     * @return A list with info about the selected Flight
+     */
     public ArrayList<String> getSelectedFlightsString(String departure, String arrive){
         ArrayList<String> fligthsString = new ArrayList<String>();
         for (Flight f: flights) {
@@ -117,6 +123,12 @@ public class Company {
         return fligthsString;
     }
 
+    /**
+     *
+     * @param departure The departure Airport
+     * @param arrive The arrive Airport
+     * @return The list of selected Flights
+     */
     public ArrayList<Flight> getSelectedFlights(String departure, String arrive){
         ArrayList<Flight> fligths = new ArrayList<Flight>();
         for (Flight f: flights) {
@@ -126,6 +138,11 @@ public class Company {
         return fligths;
     }
 
+    /**
+     *
+     * @param id The position of the Flight in Company's Flight's List
+     * @return The i-th Flight in Company's Flight's List
+     */
     public Flight getFlightById(String id){
         for (Flight f: this.flights) {
             if (f.getId().equals(id))
@@ -135,6 +152,11 @@ public class Company {
     }
 
 
+    /**
+     *
+     * @param name The name of selected Airport
+     * @return The wanted Airport
+     */
     public Airport getAirport(String name){
         for (Airport a: this.airports) {
             if (a.getIATA().equals(name))

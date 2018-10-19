@@ -25,7 +25,6 @@ public class AddPaymentMethodPurchaseFrame extends AddPaymentMethodFrame {
         this.user = user;
         this.airlineCompany = airlineCompany;
         this.tempTicket = tempTicket;
-        btnBack.setVisible(false);
     }
 
     @Override
@@ -66,6 +65,14 @@ public class AddPaymentMethodPurchaseFrame extends AddPaymentMethodFrame {
                     ExceptionFrame eFrame = new ExceptionFrame(s);
                 }
 
+            }
+        });
+
+        btnBack.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                PurchaseFrame purchaseFrame = new PurchaseFrame(client, user, airlineCompany, tempTicket);
+                setVisible(false);
             }
         });
 
