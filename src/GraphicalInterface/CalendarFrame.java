@@ -1,5 +1,6 @@
 package GraphicalInterface;
 
+import Eccezioni.NotValidDayException;
 import Web.Client;
 
 import javax.swing.*;
@@ -245,10 +246,18 @@ public class CalendarFrame extends JFrame {
                             initFrame.setVisible(true);
                             break;
                         case "Select2":
-                            selectFlightFrame2.addData(date);
-                            setVisible(false);
-                            selectFlightFrame2.setVisible(true);
-                            break;
+                            try {
+                                if (check == true) {
+                                    selectFlightFrame2.addData(date);
+                                    setVisible(false);
+                                    selectFlightFrame2.setVisible(true);
+                                    break;
+                                } else {
+                                    throw new NotValidDayException("Selected Day Not Valid");
+                                }
+                            }catch (NotValidDayException e1){
+                                ExceptionFrame exceptionFrame = new ExceptionFrame(e1.getMessage());
+                            }
                     }
                 }
 
