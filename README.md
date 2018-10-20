@@ -6,6 +6,6 @@ Al seguente link sono, invece, presenti le istruzioni per il primo avvio: https:
 
 # PROTOTIPO
 Non sono stati commentati tutti i metodi. <br>
-Non sono state gestite tutte le possibili eccezzioni. <br>
+Non sono state gestite tutte le possibili eccezioni. <br>
 Non è stato ancora tradotto tutto in inglese. <br>
 Il codice sarà soggetto a ulteriori modifiche prima della presentazione. <br>
