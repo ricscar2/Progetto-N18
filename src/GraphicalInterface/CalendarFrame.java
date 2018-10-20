@@ -7,6 +7,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 public class CalendarFrame extends JFrame {
 
@@ -28,6 +30,11 @@ public class CalendarFrame extends JFrame {
     private SignInFrame initFrame;
     private SelectFlightFrame2 selectFlightFrame2;
     private JLabel jLabel;
+
+    private GregorianCalendar gregorianCalendar;
+    private boolean check=true;
+
+
 
         public CalendarFrame(Client client, String who) throws IOException {
             super("Airline Company - Select Your Birthday");
@@ -53,6 +60,29 @@ public class CalendarFrame extends JFrame {
 
     public void setSelectFlightFrame2(SelectFlightFrame2 selectFlightFrame2){
             this.selectFlightFrame2 = selectFlightFrame2;
+    }
+
+
+    public boolean Check(){
+        gregorianCalendar=new GregorianCalendar();
+        if(cmbYear.getSelectedIndex()+2018==(gregorianCalendar.get(Calendar.YEAR))){
+            if(cmbMonth.getSelectedIndex()+1>gregorianCalendar.get(Calendar.MONTH)+1){
+
+                check=true;
+            }else{
+                if(cmbMonth.getSelectedIndex()+1<gregorianCalendar.get(Calendar.MONTH)+1){
+                    check=false;
+                }else {
+                    if(giorno30.getSelectedIndex()<gregorianCalendar.get(Calendar.DAY_OF_MONTH)){
+
+                        check=false;
+                    }else {
+                        check=true;
+                    }
+                }
+            }
+        }
+        return check;
     }
 
         public void initComponents(){
