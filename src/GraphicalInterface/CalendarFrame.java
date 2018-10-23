@@ -189,6 +189,7 @@ public class CalendarFrame extends JFrame {
             btnSelect.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
+                    Check();
                     switch(cmbMonth.getSelectedItem().toString()) {
 
                         case "Gennaio":
