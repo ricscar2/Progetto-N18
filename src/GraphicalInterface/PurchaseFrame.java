@@ -36,7 +36,7 @@ public class PurchaseFrame extends JFrame {
         this.user = user;
         this.airlineCompany = airlineCompany;
         this.tempTicketDep = tempTicketDep;
-        setSize(500,500);
+        setSize(400,300);
         setLocationRelativeTo(null);
         setResizable(false);
         setVisible(true);
@@ -51,12 +51,13 @@ public class PurchaseFrame extends JFrame {
         add(pTitle, BorderLayout.NORTH);
         add(pData, BorderLayout.CENTER);
         add(pButtons, BorderLayout.SOUTH);
-        pData.setLayout(new BorderLayout());
+
         pTitle.add(lblTitle);
-        pData.setLayout(new GridLayout(2,2));
+
         pData.add(lblPrice);
         pData.add(lblTotal);
         pData.add(lblPayment);
+        pData.setLayout(new FlowLayout(FlowLayout.CENTER,100,10));
         pData.add(cmbPayment);
         pButtons.add(btnBack);
         pButtons.add(btnAddPayment);
