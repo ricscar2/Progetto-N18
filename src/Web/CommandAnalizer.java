@@ -14,78 +14,80 @@ public class CommandAnalizer {
     private Statement dbStatement;
     private Connection dbConnection;
     private String response;
+    private Queries query;
 
     public CommandAnalizer() throws SQLException {
         this.database = new Database("root", "toor");
         this.dbStatement = database.getStatement();
         this.dbConnection = database.getConnection();
         this.response = "";
+        this.query = Queries.getInstance();
     }
 
 
-    public String analize(JsonCommand jsonCommand) throws SQLException, CommandNotFoundException, ParseException {
-        switch (jsonCommand.getCode()){
+    public String analize(Command command) throws SQLException, CommandNotFoundException, ParseException {
+        switch (command.getCode()){
             case "00":
-                if (Queries.logIn(dbStatement, jsonCommand.getParameter("usr"), jsonCommand.getParameter("pwd"))){
-                    response = Queries.getUserInfo(dbStatement, jsonCommand.getParameter("usr"));
+                if (query.logIn(dbStatement, command.getParameter("usr"), command.getParameter("pwd"))){
+                    response = query.getUserInfo(dbStatement, command.getParameter("usr"));
                 }
                 else response = "false";
                 return response;
             case "01":
-                if(Queries.signIn(dbConnection, jsonCommand.getParameter("usr"), jsonCommand.getParameter("pwd"),
-                        jsonCommand.getParameter("name"),jsonCommand.getParameter("surname"), jsonCommand.getParameter("birthdate"),
-                        jsonCommand.getParameter("nation"), jsonCommand.getParameter("email")))
+                if(query.signIn(dbConnection, command.getParameter("usr"), command.getParameter("pwd"),
+                        command.getParameter("name"),command.getParameter("surname"), command.getParameter("birthdate"),
+                        command.getParameter("nation"), command.getParameter("email")))
                     response = "true";
                 else response = "false";
                 return response;
             case "02":
-                return Queries.getAirports(dbStatement);
+                return query.getAirports(dbStatement);
             case "03":
-                return Queries.getFlights(dbStatement);
+                return query.getFlights(dbStatement);
             case "04":
-                return Queries.getAirplanes(dbStatement);
+                return query.getAirplanes(dbStatement);
             case "05":
-                return Queries.getPaymentMethods(dbStatement, jsonCommand.getParameter("username"));
+                return query.getPaymentMethods(dbStatement, command.getParameter("username"));
             case "06":
-                if( Queries.addPaymentMethod(dbConnection, jsonCommand.getParameter("id"), jsonCommand.getParameter("method"),
-                        jsonCommand.getParameter("holder")))
+                if( query.addPaymentMethod(dbConnection, command.getParameter("id"), command.getParameter("method"),
+                        command.getParameter("holder")))
                     response = "true";
                 else
                     response = "false";
                 return response;
             case "07":
-                if(jsonCommand.getParameter("seatType").equals("ECONOMY"))
-                    return Queries.getRemainderEconomy(dbStatement, jsonCommand.getParameter("flight"), jsonCommand.getParameter("date"));
-                else if (jsonCommand.getParameter("seatType").equals("BUSINESS"))
-                    return Queries.getRemainderBusiness(dbStatement, jsonCommand.getParameter("flight"), jsonCommand.getParameter("date"));
+                if(command.getParameter("seatType").equals("ECONOMY"))
+                    return query.getRemainderEconomy(dbStatement, command.getParameter("flight"), command.getParameter("date"));
+                else if (command.getParameter("seatType").equals("BUSINESS"))
+                    return query.getRemainderBusiness(dbStatement, command.getParameter("flight"), command.getParameter("date"));
             case "08":
-                if(jsonCommand.getParameter("seatType").equals("ECONOMY")){
-                    Queries.decEconomy(dbConnection, dbStatement, jsonCommand.getParameter("flight"), jsonCommand.getParameter("date"));
+                if(command.getParameter("seatType").equals("ECONOMY")){
+                    query.decEconomy(dbConnection, dbStatement, command.getParameter("flight"), command.getParameter("date"));
                     return "AVAIABLE";
-                } else if (jsonCommand.getParameter("seatType").equals("BUSINESS")){
-                    Queries.decBusiness(dbConnection, dbStatement, jsonCommand.getParameter("flight"), jsonCommand.getParameter("date"));
+                } else if (command.getParameter("seatType").equals("BUSINESS")){
+                    query.decBusiness(dbConnection, dbStatement, command.getParameter("flight"), command.getParameter("date"));
                     return "AVAIABLE";
                 }
             case "09":
-                Queries.incrEconomy(dbConnection, dbStatement, jsonCommand.getParameter("flight"), jsonCommand.getParameter("date"));
+                query.incrEconomy(dbConnection, dbStatement, command.getParameter("flight"), command.getParameter("date"));
                 return "REINCREASED ECONOMY";
             case "10":
-                Queries.incrBusiness(dbConnection, dbStatement, jsonCommand.getParameter("flight"), jsonCommand.getParameter("date"));
+                query.incrBusiness(dbConnection, dbStatement, command.getParameter("flight"), command.getParameter("date"));
                 return "REINCREASED BUSINESS";
             case "11":
-                if (Queries.bookTicket(dbConnection, jsonCommand.getParameter("id"), jsonCommand.getParameter("user"), jsonCommand.getParameter("holder"),
-                        jsonCommand.getParameter("flight"), jsonCommand.getParameter("date"), jsonCommand.getParameter("baggage"), jsonCommand.getParameter("seat"), jsonCommand.getParameter("nSeat")))
+                if (query.bookTicket(dbConnection, command.getParameter("id"), command.getParameter("user"), command.getParameter("holder"),
+                        command.getParameter("flight"), command.getParameter("date"), command.getParameter("baggage"), command.getParameter("seat"), command.getParameter("nSeat")))
                     response = "true";
                 else response = "false";
                 return response;
             case "12":
-                return Queries.getTickets(dbStatement, jsonCommand.getParameter("username"));
+                return query.getTickets(dbStatement, command.getParameter("username"));
             case "13":
-                if(Queries.addBookedFlight(dbConnection, jsonCommand.getParameter("id"), jsonCommand.getParameter("date"),
-                        jsonCommand.getParameter("eseat"), jsonCommand.getParameter("bseat")));
+                if(query.addBookedFlight(dbConnection, command.getParameter("id"), command.getParameter("date"),
+                        command.getParameter("eseat"), command.getParameter("bseat")));
                 return "FLIGHT ADDED TO DATABASE";
             case "14":
-                Queries.checkIn(dbConnection, jsonCommand.getParameter("id"));
+                query.checkIn(dbConnection, command.getParameter("id"));
                 return "CHECKED";
         }
         throw new CommandNotFoundException();

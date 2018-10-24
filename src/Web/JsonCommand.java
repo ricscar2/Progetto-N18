@@ -2,7 +2,7 @@ package Web;
 
 import org.json.simple.JSONObject;
 
-public class JsonCommand{
+public class JsonCommand implements Command{
 
     private JSONObject jsonCommand;
 
@@ -108,10 +108,12 @@ public class JsonCommand{
         return jsonCommand.toJSONString();
     }
 
+    @Override
     public String getCode() {
         return this.jsonCommand.get("code").toString();
     }
 
+    @Override
     public String getParameter(String id){
         return jsonCommand.get(id).toString();
     }
