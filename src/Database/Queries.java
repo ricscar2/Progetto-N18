@@ -3,14 +3,23 @@ package Database;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-import javax.naming.PartialResultException;
 import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 public class Queries {
 
-    public static boolean logIn(Statement dbStatement, String username, String password) throws SQLException {
+    static Queries instance;
+
+    // private Queries(){}
+
+    public static synchronized Queries getInstance(){
+        if (instance == null)
+            instance = new Queries();
+        return instance;
+    }
+
+    public boolean logIn(Statement dbStatement, String username, String password) throws SQLException {
         ResultSet myRs = dbStatement.executeQuery("select username, pwd from users");
         while (myRs.next()){
             if(myRs.getString("username").equals(username) && myRs.getString("pwd").equals(password))
@@ -19,7 +28,7 @@ public class Queries {
         return false;
     }
 
-    public static boolean signIn(Connection dbConnection, String username, String password, String name, String surname, String sDate,
+    public boolean signIn(Connection dbConnection, String username, String password, String name, String surname, String sDate,
                                  String nation, String email) throws SQLException, ParseException {
         try {
             SimpleDateFormat sdf = new SimpleDateFormat("dd-mm-yyyy");
@@ -41,7 +50,7 @@ public class Queries {
         return true;
     }
 
-    public static String getUserInfo(Statement dbStatement, String username) throws SQLException {
+    public String getUserInfo(Statement dbStatement, String username) throws SQLException {
         JSONObject user = new JSONObject();
         ResultSet myRs = dbStatement.executeQuery("select * from users where username = '" + username + "'");
         while (myRs.next()) {
@@ -56,8 +65,7 @@ public class Queries {
         return user.toJSONString();
     }
 
-
-    public static String getAirports(Statement dbStatement) throws SQLException {
+    public String getAirports(Statement dbStatement) throws SQLException {
         JSONObject jsonRoot = new JSONObject();
         JSONArray airports = new JSONArray();
         ResultSet myRs = dbStatement.executeQuery("select * from airports");
@@ -73,7 +81,7 @@ public class Queries {
         return jsonRoot.toJSONString();
     }
 
-    public static String getFlights(Statement dbStatement) throws SQLException {
+    public String getFlights(Statement dbStatement) throws SQLException {
         JSONObject jsonRoot = new JSONObject();
         JSONArray flights = new JSONArray();
         ResultSet myRs = dbStatement.executeQuery("select * from flights");
@@ -91,7 +99,7 @@ public class Queries {
         return jsonRoot.toJSONString();
     }
 
-    public static String getAirplanes(Statement dbStatement) throws SQLException {
+    public String getAirplanes(Statement dbStatement) throws SQLException {
         JSONObject jsonRoot = new JSONObject();
         JSONArray airplanes = new JSONArray();
         ResultSet myRs = dbStatement.executeQuery("select * from airplanes");
@@ -106,7 +114,7 @@ public class Queries {
         return jsonRoot.toJSONString();
     }
 
-    public static String getPaymentMethods(Statement dbStatement, String username) throws SQLException {
+    public String getPaymentMethods(Statement dbStatement, String username) throws SQLException {
         JSONObject jsonRoot = new JSONObject();
         JSONArray paymentMethods = new JSONArray();
         ResultSet myRs = dbStatement.executeQuery("select * from payments where holder = '" + username + "'");
@@ -120,7 +128,7 @@ public class Queries {
         return jsonRoot.toJSONString();
     }
 
-    public static boolean addPaymentMethod(Connection dbConnection, String id, String method, String holder) throws SQLException, ParseException {
+    public boolean addPaymentMethod(Connection dbConnection, String id, String method, String holder) throws SQLException, ParseException {
             String query = "INSERT INTO PAYMENTS (ID, METHOD, HOLDER) VALUES(?,?,?)";
             PreparedStatement preparedStatement = dbConnection.prepareStatement(query);
             preparedStatement.setString(1, id);
@@ -130,7 +138,7 @@ public class Queries {
             return true;
     }
 
-    public static String getRemainderEconomy(Statement dbStatement, String flight, String ddate) throws SQLException {
+    public String getRemainderEconomy(Statement dbStatement, String flight, String ddate) throws SQLException {
         JSONObject economy = new JSONObject();
         ResultSet myRs = dbStatement.executeQuery("select eseat from bookedflights where ddate = '" + ddate + "' and id = '" + flight + "'");
         while (myRs.next()) {
@@ -139,7 +147,7 @@ public class Queries {
         return economy.toJSONString();
     }
 
-    public static String getRemainderBusiness(Statement dbStatement, String flight, String ddate) throws SQLException {
+    public String getRemainderBusiness(Statement dbStatement, String flight, String ddate) throws SQLException {
         JSONObject business = new JSONObject();
         ResultSet myRs = dbStatement.executeQuery("select bseat from bookedflights where ddate = '" + ddate + "' and id = '" + flight + "'");
         while (myRs.next()) {
@@ -148,7 +156,7 @@ public class Queries {
         return business.toJSONString();
     }
 
-    public static boolean decEconomy(Connection dbConnection, Statement dbStatement, String flight, String ddate) throws SQLException {
+    public boolean decEconomy(Connection dbConnection, Statement dbStatement, String flight, String ddate) throws SQLException {
         ResultSet myRs = dbStatement.executeQuery("select eseat from bookedflights where ddate = '" + ddate + "' and id = '" + flight + "'");
         int remainder = 0;
         while (myRs.next()) {
@@ -163,7 +171,7 @@ public class Queries {
         return true;
     }
 
-    public static boolean decBusiness(Connection dbConnection, Statement dbStatement, String flight, String ddate) throws SQLException {
+    public boolean decBusiness(Connection dbConnection, Statement dbStatement, String flight, String ddate) throws SQLException {
         ResultSet myRs = dbStatement.executeQuery("select bseat from bookedflights where ddate = '" + ddate + "' and id = '" + flight + "'");
         int remainder = 0;
         while (myRs.next()) {
@@ -178,7 +186,7 @@ public class Queries {
         return true;
     }
 
-    public static void incrEconomy(Connection dbConnection, Statement dbStatement, String flight, String ddate) throws SQLException {
+    public void incrEconomy(Connection dbConnection, Statement dbStatement, String flight, String ddate) throws SQLException {
         ResultSet myRs = dbStatement.executeQuery("select eseat from bookedflights where ddate = '" + ddate + "' and id = '" + flight + "'");
         int remainder = 0;
         while (myRs.next()) {
@@ -192,7 +200,7 @@ public class Queries {
         preparedStatement.executeUpdate();
     }
 
-    public static void incrBusiness(Connection dbConnection, Statement dbStatement, String flight, String ddate) throws SQLException {
+    public void incrBusiness(Connection dbConnection, Statement dbStatement, String flight, String ddate) throws SQLException {
         ResultSet myRs = dbStatement.executeQuery("select bseat from bookedflights where ddate = '" + ddate + "' and id = '" + flight + "'");
         int remainder = 0;
         while (myRs.next()) {
@@ -206,7 +214,7 @@ public class Queries {
         preparedStatement.executeUpdate();
     }
 
-    public static boolean bookTicket(Connection dbConnection, String id, String user, String holder, String flight,
+    public boolean bookTicket(Connection dbConnection, String id, String user, String holder, String flight,
                                      String date, String baggage, String seat, String nSeat) throws SQLException {
         String query = "INSERT INTO TICKETS (ID, FLIGHTUSER, HOLDER, FLIGHT, DDATE, BAGGAGE, SEAT, NSEAT, CHECKED) " +
                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?); ";
@@ -224,7 +232,7 @@ public class Queries {
         return true;
     }
 
-    public static String getTickets(Statement dbStatement, String username) throws SQLException {
+    public String getTickets(Statement dbStatement, String username) throws SQLException {
         JSONObject jsonRoot = new JSONObject();
         JSONArray tickets = new JSONArray();
         ResultSet myRs = dbStatement.executeQuery("select * from tickets where flightuser = '" + username + "'");
@@ -244,7 +252,7 @@ public class Queries {
         return jsonRoot.toJSONString();
     }
 
-    public static boolean addBookedFlight(Connection dbConnection, String id, String date, String eseat, String bseat) throws SQLException{
+    public boolean addBookedFlight(Connection dbConnection, String id, String date, String eseat, String bseat) throws SQLException{
         String query = "INSERT INTO BOOKEDFLIGHTS(ID, DDATE, ESEAT, BSEAT)" +
                 "VALUES (?, ?, ?, ?); ";
         PreparedStatement preparedStatement = dbConnection.prepareStatement(query);
@@ -256,7 +264,7 @@ public class Queries {
         return true;
     }
 
-    public static void checkIn(Connection dbConnection, String id) throws SQLException {
+    public void checkIn(Connection dbConnection, String id) throws SQLException {
         String query = "UPDATE TICKETS SET CHECKED = 1 WHERE ID = ?";
         PreparedStatement preparedStatement = dbConnection.prepareStatement(query);
         preparedStatement.setString(1, id);

@@ -9,10 +9,10 @@ public class Database {
 
     public Database(String admin, String password) throws SQLException {
         // Get a connection to database
-        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/" +
+        this.connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/" +
                 "progetton?autoReconnect=true&useSSL=false&serverTimezone=UTC", admin, password);
         // Create a statement
-        statement = connection.createStatement();
+        this.statement = connection.createStatement();
     }
 
     public Statement getStatement() {
