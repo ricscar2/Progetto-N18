@@ -1,10 +1,16 @@
 package Eccezioni;
 
+/**
+ * @author Gruppo N
+ */
 public class AllFieldsAreMandatoryException extends Exception {
 
+    /**
+     *
+     * @param mess The Exception Message
+     */
     public AllFieldsAreMandatoryException(String mess){
         super(mess);
     }
 
-    /*La classe AllFieldsAreMandatory è un'eccezione che viene lanciata quando,al momento del SignIn,non vengono compilati tutti i campi d'inserimento(nome,cognome,email,...). */
 }

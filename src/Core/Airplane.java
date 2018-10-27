@@ -31,11 +31,20 @@ public class Airplane {
         return id;
     }
 
+    /**
+     *
+     * @return The number of the Economy's Seats of the Airplane
+     */
     public int getEconomy() {
         return economy;
     }
 
+    /**
+     *
+     * @return The number of the Business's Seats of the Airplane
+     */
     public int getBusiness() {
         return business;
     }
+
 }

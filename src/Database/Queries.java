@@ -7,18 +7,33 @@ import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
+/**
+ * @author Gruppo N
+ */
 public class Queries {
 
     static Queries instance;
 
     // private Queries(){}
 
+    /**
+     *
+     * @return The instance of <code>Queries</code> class (Singleton)
+     */
     public static synchronized Queries getInstance(){
         if (instance == null)
             instance = new Queries();
         return instance;
     }
 
+    /**
+     *
+     * @param dbStatement A Statement of the Database
+     * @param username The username of the User
+     * @param password The password of the User
+     * @return True or False, depending on whether it went to a good end or not
+     * @throws SQLException
+     */
     public boolean logIn(Statement dbStatement, String username, String password) throws SQLException {
         ResultSet myRs = dbStatement.executeQuery("select username, pwd from users");
         while (myRs.next()){
@@ -28,6 +43,20 @@ public class Queries {
         return false;
     }
 
+    /**
+     *
+     * @param dbConnection A Connection to the Database
+     * @param username The username of the User
+     * @param password The password of the User
+     * @param name The name of the User
+     * @param surname The surname of the User
+     * @param sDate The birthdate of the User
+     * @param nation Tha nation of the User
+     * @param email The email of the User
+     * @return True if the User has been registered
+     * @throws SQLException
+     * @throws ParseException
+     */
     public boolean signIn(Connection dbConnection, String username, String password, String name, String surname, String sDate,
                                  String nation, String email) throws SQLException, ParseException {
         try {
@@ -50,6 +79,13 @@ public class Queries {
         return true;
     }
 
+    /**
+     *
+     * @param dbStatement A Statement of the Database
+     * @param username The username of the User
+     * @return A JSONString with the info of the User
+     * @throws SQLException
+     */
     public String getUserInfo(Statement dbStatement, String username) throws SQLException {
         JSONObject user = new JSONObject();
         ResultSet myRs = dbStatement.executeQuery("select * from users where username = '" + username + "'");
@@ -65,6 +101,12 @@ public class Queries {
         return user.toJSONString();
     }
 
+    /**
+     *
+     * @param dbStatement A Statement of the Database
+     * @return A JSONString with all the Airports present in the database
+     * @throws SQLException
+     */
     public String getAirports(Statement dbStatement) throws SQLException {
         JSONObject jsonRoot = new JSONObject();
         JSONArray airports = new JSONArray();
@@ -81,6 +123,12 @@ public class Queries {
         return jsonRoot.toJSONString();
     }
 
+    /**
+     *
+     * @param dbStatement A Statement of the Database
+     * @return A JSONString with all the Flights present in the database
+     * @throws SQLException
+     */
     public String getFlights(Statement dbStatement) throws SQLException {
         JSONObject jsonRoot = new JSONObject();
         JSONArray flights = new JSONArray();
@@ -99,6 +147,12 @@ public class Queries {
         return jsonRoot.toJSONString();
     }
 
+    /**
+     *
+     * @param dbStatement A Statement of the Database
+     * @return A JSONString with all the Airplanes present in the database
+     * @throws SQLException
+     */
     public String getAirplanes(Statement dbStatement) throws SQLException {
         JSONObject jsonRoot = new JSONObject();
         JSONArray airplanes = new JSONArray();
@@ -252,6 +306,16 @@ public class Queries {
         return jsonRoot.toJSONString();
     }
 
+    /**
+     *
+     * @param dbConnection A Connection to the Database
+     * @param id The id of the Booked Flight
+     * @param date The date of the Booked Flight
+     * @param eseat The remainders Economy Seats of the Booked Flight
+     * @param bseat The remainders Business Seats of the Booked Flight
+     * @return True if the procedure was successful
+     * @throws SQLException
+     */
     public boolean addBookedFlight(Connection dbConnection, String id, String date, String eseat, String bseat) throws SQLException{
         String query = "INSERT INTO BOOKEDFLIGHTS(ID, DDATE, ESEAT, BSEAT)" +
                 "VALUES (?, ?, ?, ?); ";
@@ -264,6 +328,12 @@ public class Queries {
         return true;
     }
 
+    /**
+     *
+     * @param dbConnection A Connection to the Database
+     * @param id The id of the Ticket that have done the checkin
+     * @throws SQLException
+     */
     public void checkIn(Connection dbConnection, String id) throws SQLException {
         String query = "UPDATE TICKETS SET CHECKED = 1 WHERE ID = ?";
         PreparedStatement preparedStatement = dbConnection.prepareStatement(query);

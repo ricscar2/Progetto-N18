@@ -5,9 +5,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
-import java.util.NoSuchElementException;
-import java.util.Scanner;
 
+/**
+ * @author Gruppo N
+ */
 public class Client {
 
     private String ip;
@@ -17,6 +18,12 @@ public class Client {
     private BufferedReader socketIn;
     private String response;
 
+    /**
+     *
+     * @param ip The IP Address of the Client
+     * @param port The Communication Port that Client uses for this application
+     * @throws IOException
+     */
     public Client(String ip, int port) throws IOException {
         this.ip = ip;
         this.port = port;
@@ -26,6 +33,10 @@ public class Client {
         this.response = "";
     }
 
+    /**
+     *
+     * @throws IOException
+     */
     public void startClient() throws IOException {
 
         System.out.println("Connection estabilished");
@@ -52,6 +63,10 @@ public class Client {
 */
     }
 
+    /**
+     *
+     * @param message The message that Client sends to the Server
+     */
     public void sendMessage(String message) {
         try {
             socketOut.println(message);
@@ -68,6 +83,10 @@ public class Client {
         }
     }
 
+    /**
+     *
+     * @return The response that Server sends to the Client
+     */
     public String getResponse() {
         return this.response;
     }

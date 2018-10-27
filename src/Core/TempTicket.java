@@ -6,7 +6,6 @@ import Web.JsonCommand;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
-import java.awt.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -79,36 +78,72 @@ public class TempTicket {
         return number;
     }
 
+    /**
+     *
+     * @param flight The Flight that User wants to book
+     */
     public void setFlight(Flight flight) {
         this.flight = flight;
     }
 
+    /**
+     *
+     * @return The IATA code of the Departure Airport
+     */
     public String getDepartureIATA(){
         return departure.getIATA();
     }
 
+    /**
+     *
+     * @return The IATA code of the Arrive Airport
+     */
     public String getArriveIATA(){
         return arrive.getIATA();
     }
 
+    /**
+     *
+     * @return The Flight that User wants to book
+     */
     public Flight getFlight() {
         return flight;
     }
 
+    /**
+     *
+     * @param sDate The date of the Flight that User wants to book
+     * @throws ParseException
+     */
     public void setDate(String sDate) throws ParseException {
         Date date =new SimpleDateFormat("dd-MM-yyyy").parse(sDate);
         this.date = date;
     }
 
+    /**
+     *
+     * @return The date of the Flight
+     */
     public Date getDate() {
         return date;
     }
 
+    /**
+     *
+     * @return A string that rapresents the date of the Flight
+     */
     public String getDateString(){
         String sDate = new SimpleDateFormat("yyyy-MM-dd").format(this.date);
         return sDate;
     }
 
+    /**
+     *
+     * @param holder The holder of the current Temporary Ticket
+     * @param seatType The Seat Type (Economy or Business) of the current Temporary Ticket
+     * @param baggageType The Baggage Type of the current Temporary Ticket
+     * @throws org.json.simple.parser.ParseException
+     */
     public void addTicket(String holder, String seatType, String baggageType) throws org.json.simple.parser.ParseException {
         String id = createID(seatType);
         Baggage baggage = new Baggage(BaggageType.valueOf(baggageType));
@@ -117,10 +152,20 @@ public class TempTicket {
         tickets.add(ticket);
     }
 
+    /**
+     *
+     * @return The List of Temporary Tickets
+     */
     public ArrayList<Ticket> getTickets() {
         return tickets;
     }
 
+    /**
+     *
+     * @param seatType The type of the Seat (Economy or Business)
+     * @return The ID code of the selected Flight
+     * @throws org.json.simple.parser.ParseException
+     */
     public String createID(String seatType) throws org.json.simple.parser.ParseException {
         nSeat = new String("");
         JSONParser jsonParser = new JSONParser();
@@ -154,6 +199,10 @@ public class TempTicket {
         return s;
     }
 
+    /**
+     *
+     * @return Previews of selected Tickets
+     */
     public ArrayList<String> getTicketsPreview(){
         ArrayList<String> strings = new ArrayList<String>();
         for (Ticket t: this.tickets) {
@@ -162,6 +211,9 @@ public class TempTicket {
         return strings;
     }
 
+    /**
+     * To book the selected tickets
+     */
     public void bookTickets(){
         for (Ticket t : tickets) {
             client.sendMessage(new JsonCommand("11", t.getId(), t.getUserName(), t.getHolder(), t.getFlightId(), getDateString(),
@@ -170,6 +222,9 @@ public class TempTicket {
         }
     }
 
+    /**
+     * If User cancels the selected preferences
+     */
     public void resetTickets(){
         this.tickets = new ArrayList<Ticket>();
         for (int i = 0; i < nEconomy; i++)

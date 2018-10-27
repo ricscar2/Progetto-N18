@@ -1,7 +1,6 @@
 package GraphicalInterface;
 
 import Core.Company;
-import Database.Queries;
 import Eccezioni.AllFieldsAreMandatoryException;
 import Eccezioni.DifferentPasswordException;
 import User.User;
@@ -19,7 +18,6 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class SignInFrame extends JFrame {
 

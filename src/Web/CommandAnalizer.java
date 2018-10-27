@@ -8,6 +8,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.ParseException;
 
+/**
+ * @author Gruppo N
+ */
 public class CommandAnalizer {
 
     private Database database;
@@ -16,6 +19,10 @@ public class CommandAnalizer {
     private String response;
     private Queries query;
 
+    /**
+     *
+     * @throws SQLException
+     */
     public CommandAnalizer() throws SQLException {
         this.database = new Database("root", "toor");
         this.dbStatement = database.getStatement();
@@ -24,7 +31,14 @@ public class CommandAnalizer {
         this.query = Queries.getInstance();
     }
 
-
+    /**
+     *
+     * @param command The Command to be analyzed
+     * @return The informations according to the elaboration of the Command
+     * @throws SQLException
+     * @throws CommandNotFoundException
+     * @throws ParseException
+     */
     public String analize(Command command) throws SQLException, CommandNotFoundException, ParseException {
         switch (command.getCode()){
             case "00":

@@ -2,19 +2,35 @@ package Web;
 
 import org.json.simple.JSONObject;
 
+/**
+ * @author Gruppo N
+ */
 public class JsonCommand implements Command{
 
     private JSONObject jsonCommand;
 
+    /**
+     *
+     * @param jsonObject The JSONObject which corresponds directly to the Command
+     */
     public JsonCommand(JSONObject jsonObject){
         this.jsonCommand = jsonObject;
     }
 
+    /**
+     *
+     * @param code The Code of the Command
+     */
     public JsonCommand(String code){
         jsonCommand = new JSONObject();
         jsonCommand.put("code", code);
     }
 
+    /**
+     *
+     * @param code The code of the Command (05, 12 or 14, depending on the case)
+     * @param first The first parameter (username or id, depending on the case)
+     */
     public JsonCommand(String code, String first){
         jsonCommand = new JSONObject();
         switch (code){
@@ -31,6 +47,12 @@ public class JsonCommand implements Command{
 
     }
 
+    /**
+     *
+     * @param code The code of the Command (00, 09 or 10, depending on the case)
+     * @param first The first parameter (username or flight, depending on the case)
+     * @param second The second parameter (password or date, depending on the case)
+     */
     public JsonCommand(String code, String first, String second) {
         jsonCommand = new JSONObject();
         switch (code){
@@ -48,6 +70,13 @@ public class JsonCommand implements Command{
         }
     }
 
+    /**
+     *
+     * @param code The code of the Command (06, 07 or 08, depending on the case)
+     * @param first The first parameter (id or flight, depending on the case)
+     * @param second The second parameter (payment method or date, depending on the case)
+     * @param third The third parameter (holder or seat type, depending on the case)
+     */
     public JsonCommand(String code, String first, String second, String third){
         jsonCommand = new JSONObject();
         switch (code) {
@@ -67,6 +96,14 @@ public class JsonCommand implements Command{
         }
     }
 
+    /**
+     *
+     * @param code The code of the Command
+     * @param first The id of the Flight
+     * @param second The date of the Flight
+     * @param third The number of Economy Seats in the current Flight
+     * @param fourth Tne number of Business Seats in the current Flight
+     */
     public JsonCommand(String code, String first, String second, String third, String fourth){
         jsonCommand = new JSONObject();
         jsonCommand.put("code", code);
@@ -77,6 +114,17 @@ public class JsonCommand implements Command{
     }
 
 
+    /**
+     *
+     * @param code The code of the Command
+     * @param first The username of the User
+     * @param second The password associated to the current username
+     * @param third The name of the User
+     * @param fourth The surname of the User
+     * @param fifth The birthdate of the User
+     * @param sixth The nation of the User
+     * @param seventh The email of the User
+     */
     public JsonCommand(String code, String first, String second, String third, String fourth,
                        String fifth, String sixth, String seventh) {
         jsonCommand = new JSONObject();
@@ -90,6 +138,18 @@ public class JsonCommand implements Command{
         jsonCommand.put("email", seventh);
     }
 
+    /**
+     *
+     * @param code The Code of the Command
+     * @param first The id of the Ticket
+     * @param second The username of the User
+     * @param third The name of the Holder
+     * @param fourth The id of the Flight
+     * @param fifth The date of the current Flight
+     * @param sixth The type of the current Baggage
+     * @param seventh The type of the current Seat
+     * @param eighth The number of the Seat
+     */
     public JsonCommand(String code, String first, String second, String third, String fourth,
                        String fifth, String sixth, String seventh, String eighth){
         jsonCommand = new JSONObject();
@@ -104,20 +164,37 @@ public class JsonCommand implements Command{
         jsonCommand.put("nSeat", eighth);
     }
 
+    /**
+     *
+     * @return A String corresponding to the JSONString of the current JsonCommand
+     */
     public String getJsonString() {
         return jsonCommand.toJSONString();
     }
 
+    /**
+     *
+     * @return The Code of the current JsonCommand
+     */
     @Override
     public String getCode() {
         return this.jsonCommand.get("code").toString();
     }
 
+    /**
+     *
+     * @param id The Identification Code of the required parameter
+     * @return The required parameter of the current JsonCommand
+     */
     @Override
     public String getParameter(String id){
         return jsonCommand.get(id).toString();
     }
 
+    /**
+     *
+     * @return The corresponding to the current JsonCommand
+     */
     @Override
     public String toString() {
         return super.toString();
