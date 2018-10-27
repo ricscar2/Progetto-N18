@@ -10,6 +10,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * @author Gruppo N
+ */
 public class SummaryFrame extends JFrame {
 
     private Client client;
@@ -29,7 +32,13 @@ public class SummaryFrame extends JFrame {
     private JButton btnBack;
     private JScrollPane scrollPane = new JScrollPane();
 
-
+    /**
+     *
+     * @param client The <code>Client</code> Class' instance of the current Session
+     * @param user The <code>User</code> Class's instance of the current Session
+     * @param airlineCompany The <code>Company</code> Class' instance of the current Session
+     * @param tempTicket The <code>TempTicket</code> Class' instance of the current Session
+     */
     public SummaryFrame(Client client, User user, Company airlineCompany, TempTicket tempTicket){
         super("Airline Company - Summary");
         this.client = client;
@@ -45,6 +54,9 @@ public class SummaryFrame extends JFrame {
         addListeners();
     }
 
+    /**
+     * To initialise Graphical Components
+     */
     public void initComponents(){
         pTitle = new JPanel();
         pInfo = new JPanel();
@@ -70,6 +82,9 @@ public class SummaryFrame extends JFrame {
         pButton.add(btnPayment);
     }
 
+    /**
+     * To add the Listeners
+     */
     public void addListeners(){
 
         btnPayment.addActionListener(new ActionListener() {

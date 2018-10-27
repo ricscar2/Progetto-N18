@@ -10,6 +10,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * @author Gruppo N
+ */
 public class PaymentMethodsFrame extends JFrame {
 
     private User user;
@@ -24,6 +27,12 @@ public class PaymentMethodsFrame extends JFrame {
     private JButton btnBack;
     private JScrollPane scrollPane;
 
+    /**
+     *
+     * @param client The <code>Client</code> Class' instance of the current Session
+     * @param user The <code>User</code> Class's instance of the current Session
+     * @param airlineCompany The <code>Company</code> Class' instance of the current Session
+     */
     public PaymentMethodsFrame(Client client, User user, Company airlineCompany){
         super("Airline Company - Your Payment Methods");
         this.user = user;
@@ -38,6 +47,9 @@ public class PaymentMethodsFrame extends JFrame {
         addListeners();
     }
 
+    /**
+     * To initialise Graphical Components
+     */
     public void initComponents(){
         pTitle = new JPanel();
         pInfo = new JPanel();
@@ -58,6 +70,9 @@ public class PaymentMethodsFrame extends JFrame {
         pButton.add(btnAddPayment);
     }
 
+    /**
+     * To add the Listeners
+     */
     public void addListeners(){
 
       btnBack.addActionListener(new ActionListener() {

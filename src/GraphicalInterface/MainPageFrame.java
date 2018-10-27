@@ -16,6 +16,9 @@ import java.awt.event.MouseListener;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * @author Gruppo N
+ */
 public class MainPageFrame extends JFrame {
 
     private Client client;
@@ -31,6 +34,13 @@ public class MainPageFrame extends JFrame {
 
     Image img = null;
 
+    /**
+     *
+     * @param client The <code>Client</code> Class' instance of the current Session
+     * @param user The <code>User</code> Class's instance of the current Session
+     * @param airlineCompany The <code>Company</code> Class' instance of the current Session
+     * @exception ParseException
+     */
     public MainPageFrame(Client client, User user,Company airlineCompany) throws ParseException {
         super("Airline Company");
         setSize(480,350);
@@ -47,6 +57,9 @@ public class MainPageFrame extends JFrame {
         addListeners();
     }
 
+    /**
+     * To initialise Graphical Components
+     */
     public void initComponents(){
         lblUsername = new JLabel("Welcome " + user.getName() + " " + user.getSurname() + "!");
         pTitle.setLayout(new FlowLayout(FlowLayout.CENTER,40,10));
@@ -106,6 +119,9 @@ public class MainPageFrame extends JFrame {
 
     }
 
+    /**
+     * To add the Listeners
+     */
     public void addListeners(){
 
         btnGoToProfile.addActionListener(new ActionListener() {

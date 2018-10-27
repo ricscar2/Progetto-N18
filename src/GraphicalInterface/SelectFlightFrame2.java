@@ -12,6 +12,9 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
 
+/**
+ * @author Gruppo N
+ */
 public class SelectFlightFrame2 extends JFrame {
 
     private Client client;
@@ -36,7 +39,13 @@ public class SelectFlightFrame2 extends JFrame {
     private String[] numbers = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
     private JComboBox cmbNumber = new JComboBox(numbers);
 
-
+    /**
+     *
+     * @param client The <code>Client</code> Class' instance of the current Session
+     * @param user The <code>User</code> Class's instance of the current Session
+     * @param airlineCompany The <code>Company</code> Class' instance of the current Session
+     * @param tempTicket The <code>TempTicket</code> Class' instance of the current Session
+     */
     public SelectFlightFrame2(Client client, User user, Company airlineCompany, TempTicket tempTicket) {
         super("Airline Company - Select Flight");
         this.airlineCompany = airlineCompany;
@@ -52,6 +61,9 @@ public class SelectFlightFrame2 extends JFrame {
         addListeners();
     }
 
+    /**
+     * To initialise Graphical Components
+     */
     private void initComponents() {
         this.lblSelectFlight = new JLabel("Hi " + user.getName() + "! Select Your Flight!");
         setLayout(new BorderLayout());
@@ -75,6 +87,9 @@ public class SelectFlightFrame2 extends JFrame {
         pButton.add(btnNext);
     }
 
+    /**
+     * To add the Listeners
+     */
     private void addListeners(){
 
         btnBack.addActionListener(new ActionListener() {
@@ -121,6 +136,9 @@ public class SelectFlightFrame2 extends JFrame {
 
     }
 
+    /**
+     * To get all the Flights of the AirlineCompany, according to the preferences of the User
+     */
     private void getFlights(){
         ArrayList <String> goingFlights = airlineCompany.getSelectedFlightsString(tempTicket.getDepartureIATA(), tempTicket.getArriveIATA());
         String[] goingArray = goingFlights.toArray(new String[]{});
@@ -129,6 +147,10 @@ public class SelectFlightFrame2 extends JFrame {
         pFields.add(cmbGoing);
     }
 
+    /**
+     *
+     * @param s The Date to set into the label for the required Date
+     */
     public void addData(String s){
         lblDate.setText(s);
     }

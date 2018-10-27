@@ -6,43 +6,53 @@ import java.io.IOException;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
+/**
+ * @author Gruppo N
+ */
 public class FlyCalendarFrame extends CalendarFrame {
 
     private GregorianCalendar gregorianCalendar;
-    
 
-
+    /**
+     *
+     * @param client The <code>Client</code> Class' instance of the current Session
+     * @param who The Frame that have called CalendarFrame
+     * @throws IOException
+     */
     public FlyCalendarFrame(Client client, String who) throws IOException {
         super(client, who);
     }
 
+    /**
+     *
+     * @param n The number of Days in the current Month
+     * @return The array of Days in the current Month
+     */
     @Override
     public String[] CalcoloGiorni(int n) {
         return super.CalcoloGiorni(n);
     }
 
-    @Override
-    public void addListeners() {
-        super.addListeners();
-    }
-
+    /**
+     * To initialise Graphical Components
+     */
     @Override
     public void initComponents() {
         super.initComponents();
     }
 
+    /**
+     * To add the Listeners
+     */
     @Override
-    public void setInitFrame(SignInFrame frame) {
-        super.setInitFrame(frame);
+    public void addListeners() {
+        super.addListeners();
     }
 
-    @Override
-    public void setSelectFlightFrame2(SelectFlightFrame2 selectFlightFrame2) {
-        super.setSelectFlightFrame2(selectFlightFrame2);
-    }
-
-
-
+    /**
+     *
+     * @return The computed Years
+     */
     public String[] CalcoloAnni(){
         int d=10;
         int i;

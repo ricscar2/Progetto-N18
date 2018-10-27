@@ -7,12 +7,19 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * @author Gruppo N
+ */
 public class ExceptionFrame extends JFrame {
     private JPanel panel;
     private JLabel lbl;
     private Image img = null;
     private String error;
 
+    /**
+     *
+     * @param error The Exception String to show
+     */
     public ExceptionFrame(String error) {
         super("Error!");
         this.error = error;
@@ -26,6 +33,9 @@ public class ExceptionFrame extends JFrame {
         lbl.setFont(f);
     }
 
+    /**
+     * To initialise Graphical Components
+     */
     public void initComponents(){
         panel = new JPanel();
         setLayout(new GridLayout(1,2));

@@ -1,7 +1,6 @@
 package GraphicalInterface;
 
 import Core.Company;
-import Core.TempTicket;
 import Web.Client;
 import User.User;
 import org.json.simple.parser.ParseException;
@@ -11,6 +10,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * @author Gruppo N
+ */
 public class BookSuccessFrame extends JFrame {
 
     private Client client;
@@ -22,6 +24,12 @@ public class BookSuccessFrame extends JFrame {
     private JLabel lblTitle = new JLabel("Booking completed successfully!");
     protected JButton btnReturn = new JButton("Go to Main Page");
 
+    /**
+     *
+     * @param client The <code>Client</code> Class' instance of the current Session
+     * @param user The <code>User</code> Class's instance of the current Session
+     * @param airlineCompany The <code>Company</code> Class' instance of the current Session
+     */
     public BookSuccessFrame(Client client, User user, Company airlineCompany){
         super("Airline Company - Booking Completed Succesfully!!");
         this.client = client;
@@ -36,6 +44,9 @@ public class BookSuccessFrame extends JFrame {
         addListeners();
     }
 
+    /**
+     * To initialize Graphical Components
+     */
     public void initComponents(){
         setLayout(new BorderLayout());
         add(pTitle, BorderLayout.NORTH);
@@ -50,6 +61,9 @@ public class BookSuccessFrame extends JFrame {
         lblTitle.setText(s);
     }
 
+    /**
+     * To add the Listeners
+     */
     protected void addListeners(){
 
         btnReturn.addActionListener(new ActionListener() {

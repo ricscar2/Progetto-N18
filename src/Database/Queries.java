@@ -168,6 +168,13 @@ public class Queries {
         return jsonRoot.toJSONString();
     }
 
+    /**
+     *
+     * @param dbStatement A Statement of the Database
+     * @param username The username of the User
+     * @return A JSONString with Payment Methods associated to the User
+     * @throws SQLException
+     */
     public String getPaymentMethods(Statement dbStatement, String username) throws SQLException {
         JSONObject jsonRoot = new JSONObject();
         JSONArray paymentMethods = new JSONArray();
@@ -182,6 +189,16 @@ public class Queries {
         return jsonRoot.toJSONString();
     }
 
+    /**
+     *
+     * @param dbConnection A Connection to the Database
+     * @param id The ID of the Payment Method that User wants to register
+     * @param method The Payment Method's Type that User wants to register
+     * @param holder The holder of the Payment Method that User wants to register
+     * @return True if registration is happened successfully
+     * @throws SQLException
+     * @throws ParseException
+     */
     public boolean addPaymentMethod(Connection dbConnection, String id, String method, String holder) throws SQLException, ParseException {
             String query = "INSERT INTO PAYMENTS (ID, METHOD, HOLDER) VALUES(?,?,?)";
             PreparedStatement preparedStatement = dbConnection.prepareStatement(query);
@@ -192,6 +209,14 @@ public class Queries {
             return true;
     }
 
+    /**
+     *
+     * @param dbStatement A Statement of the Database
+     * @param flight The Flight of interest
+     * @param ddate The Departure Date of the Flight of interest
+     * @return A JSONString with the Reminders Economy Seats
+     * @throws SQLException
+     */
     public String getRemainderEconomy(Statement dbStatement, String flight, String ddate) throws SQLException {
         JSONObject economy = new JSONObject();
         ResultSet myRs = dbStatement.executeQuery("select eseat from bookedflights where ddate = '" + ddate + "' and id = '" + flight + "'");
@@ -201,6 +226,14 @@ public class Queries {
         return economy.toJSONString();
     }
 
+    /**
+     *
+     * @param dbStatement A Statement of the Database
+     * @param flight The Flight of interest
+     * @param ddate The Departure Date of the Flight of interest
+     * @return A JSONString with the Reminders Business Seats
+     * @throws SQLException
+     */
     public String getRemainderBusiness(Statement dbStatement, String flight, String ddate) throws SQLException {
         JSONObject business = new JSONObject();
         ResultSet myRs = dbStatement.executeQuery("select bseat from bookedflights where ddate = '" + ddate + "' and id = '" + flight + "'");
@@ -210,6 +243,15 @@ public class Queries {
         return business.toJSONString();
     }
 
+    /**
+     *
+     * @param dbConnection A Connection to the Database
+     * @param dbStatement A Statement of the Database
+     * @param flight The Flight of interest
+     * @param ddate The Departure Date of the Flight of interest
+     * @return True if decrease of a unit (of Economy Seats) was successful
+     * @throws SQLException
+     */
     public boolean decEconomy(Connection dbConnection, Statement dbStatement, String flight, String ddate) throws SQLException {
         ResultSet myRs = dbStatement.executeQuery("select eseat from bookedflights where ddate = '" + ddate + "' and id = '" + flight + "'");
         int remainder = 0;
@@ -225,6 +267,15 @@ public class Queries {
         return true;
     }
 
+    /**
+     *
+     * @param dbConnection A Connection to the Database
+     * @param dbStatement A Statement of the Database
+     * @param flight The Flight of interest
+     * @param ddate The Departure Date of the Flight of interest
+     * @return True if decrease of a unit (of Business Seats) was successful
+     * @throws SQLException
+     */
     public boolean decBusiness(Connection dbConnection, Statement dbStatement, String flight, String ddate) throws SQLException {
         ResultSet myRs = dbStatement.executeQuery("select bseat from bookedflights where ddate = '" + ddate + "' and id = '" + flight + "'");
         int remainder = 0;
@@ -240,6 +291,15 @@ public class Queries {
         return true;
     }
 
+    /**
+     *
+     * @param dbConnection A Connection to the Database
+     * @param dbStatement A Statement of the Database
+     * @param flight The Flight of interest
+     * @param ddate The Departure Date of the Flight of interest
+     * @return True if increase of a unit (of Economy Seats) was successful
+     * @throws SQLException
+     */
     public void incrEconomy(Connection dbConnection, Statement dbStatement, String flight, String ddate) throws SQLException {
         ResultSet myRs = dbStatement.executeQuery("select eseat from bookedflights where ddate = '" + ddate + "' and id = '" + flight + "'");
         int remainder = 0;
@@ -254,6 +314,15 @@ public class Queries {
         preparedStatement.executeUpdate();
     }
 
+    /**
+     *
+     * @param dbConnection A Connection to the Database
+     * @param dbStatement A Statement of the Database
+     * @param flight The Flight of interest
+     * @param ddate The Departure Date of the Flight of interest
+     * @return True if increase of a unit (of Business Seats) was successful
+     * @throws SQLException
+     */
     public void incrBusiness(Connection dbConnection, Statement dbStatement, String flight, String ddate) throws SQLException {
         ResultSet myRs = dbStatement.executeQuery("select bseat from bookedflights where ddate = '" + ddate + "' and id = '" + flight + "'");
         int remainder = 0;
@@ -268,6 +337,20 @@ public class Queries {
         preparedStatement.executeUpdate();
     }
 
+    /**
+     *
+     * @param dbConnection A Connection to the Database
+     * @param id The ID of the Ticket that User wants to book
+     * @param user The username of the User that wants to book the Ticket
+     * @param holder The holder of the Ticket to book
+     * @param flight The Flight associated to the Ticket to book
+     * @param date The Departure Date associated to the Ticket to book
+     * @param baggage The Baggage Type associated to the Ticket to book
+     * @param seat The Seat Type associated to the Ticket to book
+     * @param nSeat The Number of the Seat associated to the Ticket to book
+     * @return True if the booking was successful
+     * @throws SQLException
+     */
     public boolean bookTicket(Connection dbConnection, String id, String user, String holder, String flight,
                                      String date, String baggage, String seat, String nSeat) throws SQLException {
         String query = "INSERT INTO TICKETS (ID, FLIGHTUSER, HOLDER, FLIGHT, DDATE, BAGGAGE, SEAT, NSEAT, CHECKED) " +
@@ -286,6 +369,13 @@ public class Queries {
         return true;
     }
 
+    /**
+     *
+     * @param dbStatement A Statement of the Database
+     * @param username The username of the User
+     * @return A JSONString of the Tickets associated to the User
+     * @throws SQLException
+     */
     public String getTickets(Statement dbStatement, String username) throws SQLException {
         JSONObject jsonRoot = new JSONObject();
         JSONArray tickets = new JSONArray();

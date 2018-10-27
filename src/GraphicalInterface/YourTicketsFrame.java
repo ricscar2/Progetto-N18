@@ -4,13 +4,15 @@ import Core.Company;
 import Eccezioni.NoTicketSelectedException;
 import User.User;
 import Web.Client;
-import Web.CommandAnalizer;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * @author Gruppo N
+ */
 public class YourTicketsFrame extends JFrame {
 
     private Client client;
@@ -27,6 +29,12 @@ public class YourTicketsFrame extends JFrame {
     private JButton btnCheckIn;
     private JScrollPane scrollPane;
 
+    /**
+     *
+     * @param client The <code>Client</code> Class' instance of the current Session
+     * @param user The <code>User</code> Class's instance of the current Session
+     * @param airlineCompany The <code>Company</code> Class' instance of the current Session
+     */
     public YourTicketsFrame(Client client, User user, Company airlineCompany){
         super("Airline Company - Your Tickets");
         this.client = client;
@@ -41,6 +49,9 @@ public class YourTicketsFrame extends JFrame {
         addListeners();
     }
 
+    /**
+     * To initialise Graphical Components
+     */
     private void initComponents(){
         scrollPane = new JScrollPane();
         pTitle = new JPanel();
@@ -62,6 +73,9 @@ public class YourTicketsFrame extends JFrame {
         pButton.add(btnCheckIn);
     }
 
+    /**
+     * To add the Listeners
+     */
     private void addListeners(){
 
         btnBack.addActionListener(new ActionListener() {

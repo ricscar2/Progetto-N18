@@ -15,6 +15,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * @author Gruppo N
+ */
 public class User {
 
     private Client client;
@@ -31,6 +34,20 @@ public class User {
     private ArrayList<Ticket> unTickets;
     private Company airlineCompany;
 
+    /**
+     *
+     * @param client The <code>Client</code> of the current session
+     * @param username The Username of the User
+     * @param password The Password of the User
+     * @param name The Name of the User
+     * @param surname The Surname of the User
+     * @param birthdate The birthdate of the User
+     * @param nation The Nation of the User
+     * @param email The Email of the User
+     * @param airlineCompany An instance of the AirlineCompany
+     * @throws ParseException
+     * @throws java.text.ParseException
+     */
     public User(Client client, String username, String password, String name, String surname, Date birthdate, String nation, String email, Company airlineCompany) throws ParseException, java.text.ParseException {
         this.client = client;
         this.username = username;
@@ -46,35 +63,69 @@ public class User {
         this.unTickets = setUncheckedTickets();
     }
 
+    /**
+     *
+     * @return A List of User's Payment Methods
+     */
     public ArrayList<Payment> getPaymentMethods() {
         return paymentMethods;
     }
 
+    /**
+     *
+     * @return The Username of the User
+     */
     public String getUsername() {
         return username;
     }
 
+    /**
+     *
+     * @return The Name of the User
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     *
+     * @return The Surname of the User
+     */
     public String getSurname() {
         return surname;
     }
 
+    /**
+     *
+     * @return A String of the birthdate of the User
+     */
     public String getBirthdateString(){
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
         return simpleDateFormat.format(birthdate);
     }
 
+    /**
+     *
+     * @return The nation of the User
+     */
     public String getNation() {
         return nation;
     }
 
+    /**
+     *
+     * @return The email of the User
+     */
     public String getEmail() {
         return email;
     }
 
+    /**
+     *
+     * @param client The <code>Client</code> of the current session
+     * @return The List of the Payment Methods owned by the User
+     * @throws ParseException
+     */
     public ArrayList<Payment> setPaymentMethods(Client client) throws ParseException {
         ArrayList<Payment> paymentMethods = new ArrayList<Payment>();
         client.sendMessage(new JsonCommand("05", this.username).getJsonString());
@@ -91,6 +142,13 @@ public class User {
         return paymentMethods;
     }
 
+    /**
+     *
+     * @param client The <code>Client</code> of the current session
+     * @return The List of the Tickets owned by the User
+     * @throws ParseException
+     * @throws java.text.ParseException
+     */
     public ArrayList<Ticket> setTickets(Client client) throws ParseException, java.text.ParseException {
         ArrayList<Ticket> tickets = new ArrayList<Ticket>();
         client.sendMessage(new JsonCommand("12", this.username).getJsonString());
@@ -112,6 +170,10 @@ public class User {
         }
 
 
+    /**
+     *
+     * @return List of Strings with Payment Methods of the User
+     */
     public ArrayList<String> getPaymentMethodsStrings(){
         ArrayList<String> strings = new ArrayList<String>();
         for (Payment p: this.paymentMethods) {
@@ -120,6 +182,10 @@ public class User {
         return strings;
     }
 
+    /**
+     *
+     * @return List of Strings with Tickets of the User
+     */
     public ArrayList<String> getTicketsString(){
         ArrayList<String> strings = new ArrayList<String>();
         for (Ticket t: this.tickets) {
@@ -128,6 +194,10 @@ public class User {
         return strings;
     }
 
+    /**
+     *
+     * @return List of Strings with Unchecked Tickets of the User
+     */
     public ArrayList<String> getTicketsToCheckString(){
         ArrayList<String> strings = new ArrayList<String>();
         for (Ticket t: this.unTickets) {
@@ -136,6 +206,10 @@ public class User {
         return strings;
     }
 
+    /**
+     *
+     * @return The List of Unchecked Tickets of the User
+     */
     private ArrayList<Ticket> setUncheckedTickets(){
         ArrayList<Ticket> uTickets = new ArrayList<Ticket>();
         for (Ticket t: this.tickets) {
@@ -146,12 +220,22 @@ public class User {
         return uTickets;
     }
 
+    /**
+     *
+     * @param ticket The new Ticket that User has booked
+     */
     public void addTicket(Ticket ticket){
         tickets.add(ticket);
         if (ticket.isChecked() == false)
             this.unTickets.add(ticket);
     }
 
+    /**
+     *
+     * @param ticket The Ticket to check-in
+     * @throws ParseException
+     * @throws java.text.ParseException
+     */
     public void checkIn(Ticket ticket) throws ParseException, java.text.ParseException {
         for (Ticket t: this.tickets) {
             if (t.equals(ticket)) t.checkIn();
@@ -161,14 +245,28 @@ public class User {
         this.unTickets = setUncheckedTickets();
     }
 
+    /**
+     *
+     * @param i The index of the Ticket of interest
+     * @return The Ticket of interest
+     */
     public Ticket getTicketByIndex(int i){
         return this.tickets.get(i);
     }
 
+    /**
+     *
+     * @param i The index of the Checked Ticket of interest
+     * @return The Checked Ticket of interest
+     */
     public Ticket getCheckTicketByIndex(int i){
         return this.unTickets.get(i);
     }
 
+    /**
+     *
+     * @param paymentMethod The Payment Method to set at the User
+     */
     public void setPaymentMethod (Payment paymentMethod){
         this.paymentMethods.add(paymentMethod);
     }

@@ -11,6 +11,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * @author Gruppo N
+ */
 public class PurchaseFrame extends JFrame {
 
     private Client client;
@@ -30,6 +33,13 @@ public class PurchaseFrame extends JFrame {
     private JButton btnNext = new JButton("Book");
     private JButton btnBack = new JButton("Back");
 
+    /**
+     *
+     * @param client The <code>Client</code> Class' instance of the current Session
+     * @param user The <code>User</code> Class's instance of the current Session
+     * @param airlineCompany The <code>Company</code> Class' instance of the current Session
+     * @param tempTicketDep The <code>TempTicket</code> Class' instance of the current Session
+     */
     public PurchaseFrame(Client client, User user, Company airlineCompany, TempTicket tempTicketDep){
         super("Airline Company - Payment");
         this.client = client;
@@ -45,6 +55,9 @@ public class PurchaseFrame extends JFrame {
         addListeners();
     }
 
+    /**
+     * To initialise Graphical Components
+     */
     public void initComponents(){
         cmbPayment = new JComboBox(user.getPaymentMethodsStrings().toArray());
         setLayout(new BorderLayout());
@@ -64,7 +77,9 @@ public class PurchaseFrame extends JFrame {
         pButtons.add(btnNext);
     }
 
-
+    /**
+     * To add the Listeners
+     */
     public void addListeners(){
 
         btnBack.addActionListener(new ActionListener() {

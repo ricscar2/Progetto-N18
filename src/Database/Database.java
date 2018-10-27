@@ -1,8 +1,10 @@
 package Database;
 
-
 import java.sql.*;
 
+/**
+ * @author Gruppo N
+ */
 public class Database {
 
     private Connection connection;

@@ -11,6 +11,9 @@ import java.io.IOException;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
+/**
+ * @author Gruppo N
+ */
 public class CalendarFrame extends JFrame {
 
     private Client client;
@@ -36,8 +39,13 @@ public class CalendarFrame extends JFrame {
     private boolean check=true;
 
 
-
-        public CalendarFrame(Client client, String who) throws IOException {
+    /**
+     *
+     * @param client The <code>Client</code> Class' instance of the current Session
+     * @param who The Frame that have called CalendarFrame
+     * @throws IOException
+     */
+    public CalendarFrame(Client client, String who) throws IOException {
             super("Airline Company - Select Your Birthday");
             this.client = client;
             initFrame = new SignInFrame(client);
@@ -55,15 +63,26 @@ public class CalendarFrame extends JFrame {
             this.who = who;
         }
 
+    /**
+     *
+     * @param frame The SignInFrame where CalendarFrame will change the String Date
+     */
     public void setInitFrame(SignInFrame frame){
         initFrame=frame;
     }
 
+    /**
+     *
+     * @param selectFlightFrame2 The SelectFlightFrame2 where CalendarFrame will change the String Date
+     */
     public void setSelectFlightFrame2(SelectFlightFrame2 selectFlightFrame2){
             this.selectFlightFrame2 = selectFlightFrame2;
     }
 
-
+    /**
+     *
+     * @return True if Date is correct
+     */
     public boolean Check(){
         gregorianCalendar=new GregorianCalendar();
         if(cmbYear.getSelectedIndex()+2018==(gregorianCalendar.get(Calendar.YEAR))){
@@ -86,6 +105,9 @@ public class CalendarFrame extends JFrame {
         return check;
     }
 
+    /**
+     * To initialize Graphical Components
+     */
         public void initComponents(){
 
 
@@ -154,8 +176,11 @@ public class CalendarFrame extends JFrame {
             addListeners();
         }
 
-
-
+    /**
+     *
+      * @param n The number of Days in the current Month
+     * @return The array of Days in the current Month
+     */
     public String[] CalcoloGiorni(int n){
         String[] string= new String[n];
         string[0]="01";
@@ -170,7 +195,10 @@ public class CalendarFrame extends JFrame {
     }
 
 
-
+    /**
+     *
+     * @return The computed Years
+     */
     public String[] CalcoloAnni(){
         int d=119;
         int i;
@@ -184,7 +212,10 @@ public class CalendarFrame extends JFrame {
         return anni;
     }
 
-        public void addListeners(){
+    /**
+     * To add the Listeners
+     */
+    public void addListeners(){
 
             btnSelect.addActionListener(new ActionListener() {
                 @Override

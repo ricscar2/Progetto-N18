@@ -2,7 +2,6 @@ package GraphicalInterface;
 
 import Core.Company;
 import Core.TempTicket;
-import Core.Ticket;
 import Eccezioni.AllFieldsAreMandatoryException;
 import User.User;
 import Web.Client;
@@ -12,8 +11,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Collections;
 
+/**
+ * @author Gruppo N
+ */
 public class TicketFrame extends JFrame {
 
     private Client client;
@@ -38,6 +39,13 @@ public class TicketFrame extends JFrame {
     private JButton btnNext = new JButton("Next");
     private JButton btnBack = new JButton("Back");
 
+    /**
+     *
+     * @param client The <code>Client</code> Class' instance of the current Session
+     * @param user The <code>User</code> Class's instance of the current Session
+     * @param airlineCompany The <code>Company</code> Class' instance of the current Session
+     * @param tempTicket The <code>TempTicket</code> Class' instance of the current Session
+     */
     public TicketFrame(Client client, User user, Company airlineCompany, TempTicket tempTicket){
         super("Airline Company - Your Tickets");
         this.client = client;
@@ -53,6 +61,9 @@ public class TicketFrame extends JFrame {
         addListeners();
     }
 
+    /**
+     * To initialise Graphical Components
+     */
     private void initComponents(){
         setLayout(new BorderLayout());
         add(pTitle, BorderLayout.NORTH);
@@ -74,6 +85,9 @@ public class TicketFrame extends JFrame {
 
     }
 
+    /**
+     * To add the Listeners
+     */
     private void addListeners(){
 
         btnNext.addActionListener(new ActionListener() {

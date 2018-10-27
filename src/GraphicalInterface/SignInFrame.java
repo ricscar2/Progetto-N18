@@ -19,6 +19,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
+/**
+ * @author Gruppo N
+ */
 public class SignInFrame extends JFrame {
 
     private Client client;
@@ -48,6 +51,10 @@ public class SignInFrame extends JFrame {
     private JButton btnRegister = new JButton("Register");
     private JButton btnCalendar = new JButton("Select");
 
+    /**
+     *
+     * @param client The <code>Client</code> Class' instance of the current Session
+     */
     public SignInFrame(Client client) throws IOException {
 
         super("Airplane Company - SignIn");
@@ -85,7 +92,9 @@ public class SignInFrame extends JFrame {
      }
 
 
-
+    /**
+     * To initialise Graphical Components
+     */
     public void initComponents(){
         lblDate.setFont(new Font("SansSerif",Font.PLAIN,10));
         setLayout(new BorderLayout());
@@ -120,6 +129,9 @@ public class SignInFrame extends JFrame {
 
     }
 
+    /**
+     * To add the Listeners
+     */
     public void addListeners(){
 
         btnBack.addActionListener(new ActionListener() {

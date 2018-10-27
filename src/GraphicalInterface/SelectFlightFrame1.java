@@ -1,6 +1,5 @@
 package GraphicalInterface;
 
-import Core.Airport;
 import Core.Company;
 import Core.Flight;
 import Core.TempTicket;
@@ -9,9 +8,6 @@ import Eccezioni.SameAirportException;
 import Eccezioni.SameCityException;
 import Web.Client;
 import User.User;
-import Web.JsonCommand;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import javax.swing.*;
@@ -20,6 +16,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+/**
+ * @author Gruppo N
+ */
 public class SelectFlightFrame1 extends JFrame {
 
     private Client client;
@@ -36,8 +35,12 @@ public class SelectFlightFrame1 extends JFrame {
     private JButton btnBack = new JButton("Back To Home Page");
     private JButton btnNext = new JButton("Next");
 
-
-
+    /**
+     *
+     * @param client The <code>Client</code> Class' instance of the current Session
+     * @param user The <code>User</code> Class's instance of the current Session
+     * @param airlineCompany The <code>Company</code> Class' instance of the current Session
+     */
     public SelectFlightFrame1(Client client, User user, Company airlineCompany){
         super("Airline Company - Select Flight");
         this.airlineCompany = airlineCompany;
@@ -53,6 +56,9 @@ public class SelectFlightFrame1 extends JFrame {
         addListeners();
     }
 
+    /**
+     * To initialise Graphical Components
+     */
     private void initComponents(){
         getAirports();
         this.lblSelectFlight = new JLabel("Hi " + user.getName() + "! Select Your Flight!");
@@ -76,6 +82,9 @@ public class SelectFlightFrame1 extends JFrame {
         cmbArrive.setFont(new Font("SansSerif",Font.PLAIN,10));
     }
 
+    /**
+     * To add the Listeners
+     */
     public void addListeners(){
 
         btnBack.addActionListener(new ActionListener() {
@@ -126,6 +135,9 @@ public class SelectFlightFrame1 extends JFrame {
 
     }
 
+    /**
+     * To get all the Airports of the AirlineCompany
+     */
     private void getAirports(){
         String[] lineArray = airlineCompany.getAirportsNames().toArray(new String[]{});
         this.cmbDeparture = new JComboBox<>(lineArray);

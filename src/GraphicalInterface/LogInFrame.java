@@ -21,6 +21,9 @@ import java.awt.event.KeyListener;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 
+/**
+ * @author Gruppo N
+ */
 public class LogInFrame extends JFrame {
 
     private Client client;
@@ -36,6 +39,10 @@ public class LogInFrame extends JFrame {
     private JButton btnSignin = new JButton("SignIn");
     private SimpleDateFormat birthdayFormat = new SimpleDateFormat("yyyy-MM-dd");
 
+    /**
+     *
+     * @param client The <code>Client</code> Class' instance of the current Session
+     */
     public LogInFrame(Client client) {
         super("Airline Company - LogIn");
         this.client = client;
@@ -49,6 +56,9 @@ public class LogInFrame extends JFrame {
 
     }
 
+    /**
+     * To initialise Graphical Components
+     */
     public void initComponents(){
 		
 		txtUsername.setFont(new Font("SansSerif", Font.PLAIN, 15));
@@ -68,6 +78,9 @@ public class LogInFrame extends JFrame {
 
     }
 
+    /**
+     * To add the Listeners
+     */
     public void addListeners(){
 
 

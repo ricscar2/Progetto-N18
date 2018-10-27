@@ -11,6 +11,9 @@ import Web.JsonCommand;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * @author Gruppo N
+ */
 public class AddPaymentMethodPurchaseFrame extends AddPaymentMethodFrame {
 
     private Client client;
@@ -18,6 +21,13 @@ public class AddPaymentMethodPurchaseFrame extends AddPaymentMethodFrame {
     private Company airlineCompany;
     private TempTicket tempTicket;
 
+    /**
+     *
+     * @param client The <code>Client</code> Class' instance of the current Session
+     * @param user The <code>User</code> Class's instance of the current Session
+     * @param airlineCompany The <code>Company</code> Class' instance of the current Session
+     * @param tempTicket The <code>TempTicket</code> Class' instance of the current Session
+     */
     public AddPaymentMethodPurchaseFrame(Client client, User user, Company airlineCompany, TempTicket tempTicket) {
         super(client, user, airlineCompany, tempTicket);
         super.setTitle("Airline Company - Add Payment Method");
@@ -27,6 +37,9 @@ public class AddPaymentMethodPurchaseFrame extends AddPaymentMethodFrame {
         this.tempTicket = tempTicket;
     }
 
+    /**
+     * To add the Listeners
+     */
     @Override
     protected void addListeners() {
 

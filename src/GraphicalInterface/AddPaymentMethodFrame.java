@@ -13,6 +13,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * @author Gruppo N
+ */
 public class AddPaymentMethodFrame extends JFrame {
     private User user;
     private Client client;
@@ -29,6 +32,13 @@ public class AddPaymentMethodFrame extends JFrame {
     protected JButton btnAdd;
     protected JButton btnBack;
 
+    /**
+     *
+     * @param client The <code>Client</code> Class' instance of the current Session
+     * @param user The <code>User</code> Class's instance of the current Session
+     * @param airlineCompany The <code>Company</code> Class' instance of the current Session
+     * @param tempTicketDep The <code>TempTicket</code> Class' instance of the current Session
+     */
     public AddPaymentMethodFrame(Client client, User user,Company airlineCompany,TempTicket tempTicketDep){
         super("Airline Company - Add Payment Method");
         this.user = user;
@@ -44,6 +54,9 @@ public class AddPaymentMethodFrame extends JFrame {
         addListeners();
     }
 
+    /**
+     * To initialize Graphical Components
+     */
     protected void initComponents(){
         String[] methods = {"CREDITCARD"};
         txtID = new JTextField();
@@ -69,6 +82,9 @@ public class AddPaymentMethodFrame extends JFrame {
         pButton.add(btnAdd);
     }
 
+    /**
+     * To add the Listeners
+     */
     protected void addListeners() {
 
         btnBack.addActionListener(new ActionListener() {

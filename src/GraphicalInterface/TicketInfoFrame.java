@@ -4,13 +4,15 @@ import Core.Company;
 import Core.Ticket;
 import User.User;
 import Web.Client;
-import org.json.simple.parser.ParseException;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * @author Gruppo N
+ */
 public class TicketInfoFrame extends JFrame {
 
     private User user;
@@ -44,6 +46,13 @@ public class TicketInfoFrame extends JFrame {
     private JLabel lblChecked1;
     private JButton btnBack;
 
+    /**
+     *
+     * @param client The <code>Client</code> Class' instance of the current Session
+     * @param user The <code>User</code> Class's instance of the current Session
+     * @param airlineCompany The <code>Company</code> Class' instance of the current Session
+     * @param ticket The <code>Ticket</code> Class' instance of the Ticket to show in the current Session
+     */
     public TicketInfoFrame(Client client, User user, Company airlineCompany, Ticket ticket){
         super("Airline Company - Ticket's Info");
         this.user = user;
@@ -60,6 +69,9 @@ public class TicketInfoFrame extends JFrame {
         addListeners();
     }
 
+    /**
+     * To initialise Graphical Components
+     */
     public void initComponents(){
         pTitle = new JPanel();
         pInfo = new JPanel();
@@ -125,6 +137,9 @@ public class TicketInfoFrame extends JFrame {
         pButton.add(btnBack);
     }
 
+    /**
+     * To add the Listeners
+     */
     public void addListeners(){
 
         btnBack.addActionListener(new ActionListener() {

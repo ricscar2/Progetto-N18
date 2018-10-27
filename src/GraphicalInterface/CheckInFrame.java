@@ -1,9 +1,7 @@
 package GraphicalInterface;
 
 import Core.Company;
-import Core.TempTicket;
 import Core.Ticket;
-import Eccezioni.AllFieldsAreMandatoryException;
 import Eccezioni.IncorrectCheckInException;
 import User.User;
 import Web.Client;
@@ -15,6 +13,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * @author Gruppo N
+ */
 public class CheckInFrame extends JFrame {
 
     private Client client;
@@ -34,6 +35,13 @@ public class CheckInFrame extends JFrame {
     private JTextField txtOwnerSurname = new JTextField();
     private JButton btnNext = new JButton("Check-In");
 
+    /**
+     *
+     * @param client The <code>Client</code> Class' instance of the current Session
+     * @param user The <code>User</code> Class's instance of the current Session
+     * @param airlineCompany The <code>Company</code> Class' instance of the current Session
+     * @param ticket The <code>Ticket</code> Class' instance to check-in in the current Session
+     */
     public CheckInFrame(Client client, User user, Company airlineCompany, Ticket ticket){
         super("Airline Company - Check-In");
         this.client = client;
@@ -49,6 +57,9 @@ public class CheckInFrame extends JFrame {
         addListeners();
     }
 
+    /**
+     * To initialise Graphical Components
+     */
     private void initComponents(){
         lblID = new JLabel(ticket.getId());
         setLayout(new BorderLayout());
@@ -68,6 +79,9 @@ public class CheckInFrame extends JFrame {
     }
 
 
+    /**
+     * To add the Listeners
+     */
     public void addListeners(){
 
         btnNext.addActionListener(new ActionListener() {
