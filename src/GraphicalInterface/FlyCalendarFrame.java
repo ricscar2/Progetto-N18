@@ -34,7 +34,7 @@ public class FlyCalendarFrame extends CalendarFrame {
     }
 
     /**
-     * To initialise Graphical Components
+     * To initialize Graphical Components
      */
     @Override
     public void initComponents() {

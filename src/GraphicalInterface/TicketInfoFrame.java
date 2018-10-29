@@ -70,7 +70,7 @@ public class TicketInfoFrame extends JFrame {
     }
 
     /**
-     * To initialise Graphical Components
+     * To initialize Graphical Components
      */
     public void initComponents(){
         pTitle = new JPanel();

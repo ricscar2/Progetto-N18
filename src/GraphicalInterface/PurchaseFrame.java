@@ -56,7 +56,7 @@ public class PurchaseFrame extends JFrame {
     }
 
     /**
-     * To initialise Graphical Components
+     * To initialize Graphical Components
      */
     public void initComponents(){
         cmbPayment = new JComboBox(user.getPaymentMethodsStrings().toArray());

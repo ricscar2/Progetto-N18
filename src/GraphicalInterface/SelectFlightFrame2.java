@@ -62,7 +62,7 @@ public class SelectFlightFrame2 extends JFrame {
     }
 
     /**
-     * To initialise Graphical Components
+     * To initialize Graphical Components
      */
     private void initComponents() {
         this.lblSelectFlight = new JLabel("Hi " + user.getName() + "! Select Your Flight!");

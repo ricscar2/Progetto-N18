@@ -34,7 +34,7 @@ public class ExceptionFrame extends JFrame {
     }
 
     /**
-     * To initialise Graphical Components
+     * To initialize Graphical Components
      */
     public void initComponents(){
         panel = new JPanel();

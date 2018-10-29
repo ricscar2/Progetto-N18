@@ -62,7 +62,7 @@ public class TicketFrame extends JFrame {
     }
 
     /**
-     * To initialise Graphical Components
+     * To initialize Graphical Components
      */
     private void initComponents(){
         setLayout(new BorderLayout());

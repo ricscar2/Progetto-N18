@@ -49,7 +49,7 @@ public class TicketToCheckFrame extends JFrame {
     }
 
     /**
-     * To initialise Graphical Components
+     * To initialize Graphical Components
      */
     private void initComponents(){
         scrollPane = new JScrollPane();

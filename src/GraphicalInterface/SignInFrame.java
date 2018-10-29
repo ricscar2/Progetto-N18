@@ -93,7 +93,7 @@ public class SignInFrame extends JFrame {
 
 
     /**
-     * To initialise Graphical Components
+     * To initialize Graphical Components
      */
     public void initComponents(){
         lblDate.setFont(new Font("SansSerif",Font.PLAIN,10));

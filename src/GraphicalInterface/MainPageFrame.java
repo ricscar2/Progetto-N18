@@ -58,7 +58,7 @@ public class MainPageFrame extends JFrame {
     }
 
     /**
-     * To initialise Graphical Components
+     * To initialize Graphical Components
      */
     public void initComponents(){
         lblUsername = new JLabel("Welcome " + user.getName() + " " + user.getSurname() + "!");

@@ -58,7 +58,7 @@ public class CheckInFrame extends JFrame {
     }
 
     /**
-     * To initialise Graphical Components
+     * To initialize Graphical Components
      */
     private void initComponents(){
         lblID = new JLabel(ticket.getId());

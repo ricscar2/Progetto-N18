@@ -57,7 +57,7 @@ public class SelectFlightFrame1 extends JFrame {
     }
 
     /**
-     * To initialise Graphical Components
+     * To initialize Graphical Components
      */
     private void initComponents(){
         getAirports();
